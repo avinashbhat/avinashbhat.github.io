@@ -2,7 +2,7 @@
 ## Introduction to Python NetworkX package
 Wikipedia says NetworkX is a Python library for studying graphs and networks.
 
-###### General usage
+### General usage
 
 _Import the necessary packages_
 
@@ -53,10 +53,10 @@ plt.show()
 
 
 <!-- ![png](output_11_0.png) -->
-![png](/_site/assets/images/2019-05-13-01.png)
+![png](/images/2019-05-13-01.png)
 
 
-###### Generating a complete graph
+### Generating a complete graph
 
 _Generating a complete graph of 6 vertices_
 
@@ -93,9 +93,9 @@ plt.show()
 
 
 <!-- ![png](output_18_0.png) -->
-![png](/_site/assets/images/2019-05-13-02.png)
+![png](/images/2019-05-13-02.png)
 
-##### To generate a random graph
+### To generate a random graph
 
 _Generating a graph of 10 vertices with probability of 0.5 of edge formation_
 
@@ -122,4 +122,4 @@ plt.show()
 
 
 <!-- ![png](output_23_0.png) -->
-![png](/_site/assets/images/2019-05-13-03.png)
+![png](/images/2019-05-13-03.png)
