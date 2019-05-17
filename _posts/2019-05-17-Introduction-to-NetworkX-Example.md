@@ -1,3 +1,7 @@
+---
+layout: default
+---
+An example to add on to the previous post.
 
 ## Introduction to Python NetworkX package
 Wikipedia says NetworkX is a Python library for studying graphs and networks.
