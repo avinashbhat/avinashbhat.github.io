@@ -1,6 +1,3 @@
-
-# Managing Versions and Virtual Environments in Python
-
 As a junior developer, I had single project at hand all these days. Even if a new project used a different python version, I just installed the new version over the currently installed one. When I was told I had to take up this new project in parallel, I realised that managing the versions is a bit of headache.
 
 <div style="text-align:center;">

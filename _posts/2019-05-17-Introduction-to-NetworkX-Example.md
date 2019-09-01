@@ -1,10 +1,6 @@
----
-layout: default
----
-An example to add on to the previous post.
+This is a post containing examples to add on to the previous post.
 
-## Introduction to Python NetworkX package
-Wikipedia says NetworkX is a Python library for studying graphs and networks.
+
 
 ##### Modeling road network of India
 
