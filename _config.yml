@@ -9,7 +9,7 @@ highlighter: rouge
 markdown: kramdown
 
 
-paginate: 3
+paginate: 6
 
 
 #optimization
