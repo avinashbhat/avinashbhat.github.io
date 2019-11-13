@@ -6,9 +6,12 @@ tag:
 - projects
 - Text Summarization
 - Machine Learning
+headerImage: true
 projects: true
+hidden: true
 category: project
 author: avinashbhat
+externalLink: false
 ---
 
 ## [WikiContext](https://avinashbhat.github.io/wikicontext/)
