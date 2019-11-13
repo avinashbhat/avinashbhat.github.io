@@ -6,6 +6,7 @@ tag:
 - projects
 - Text Summarization
 - Machine Learning
+projects: true
 category: project
 author: avinashbhat
 ---
