@@ -1,9 +1,9 @@
 # main text of home
 name: Avinash Bhat
-bio: I believe in <a href = https://en.wikipedia.org/wiki/Transhumanism>transhumanism</a>
+bio: Web Applications | Machine Learning
 
 # twitter summary info
-description: A blog about technology and stuff related
+description: A blog about technology and related stuff
 
 # if it's an external image, update below for true
 # better with square images
@@ -56,7 +56,7 @@ email: avinashbhatneelavar@gmail.com
 authors:
     avinashbhat:
         name: Avinash Bhat
-        bio: I believe in <a href = https://en.wikipedia.org/wiki/Transhumanism>transhumanism</a>
+        bio: Web Applications | Machine Learning
         external-image: false
         picture: assets/images/profile.png
         twitter: this_is_avii
