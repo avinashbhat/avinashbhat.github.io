@@ -3,27 +3,21 @@ layout: page
 title: About
 ---
 
-<p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
-</p>
+Hello! I'm Avinash.
 
-In the novel, *The Strange Case of Dr. Jeykll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
+![professional_photo](/static/images/avinashbhat_image.png)
 
-There are currently two themes built on Poole:
+I am a software developer at Cisco Systems, Bangalore. Currently, I am working on a scalable and distributed review tool based on GIT, SVN and other version control systems serving to thousands of developers at Cisco, globally.
+I have coded hands on in Python, Java and related technologies required for a full stack web application development. I am trained in CI/CD principles and have experience in setting up the pipelines for the same. I have an in depth understanding of system architecture, design patterns and have experience implementing these in a cloud environment (On Premise and AWS).
+I have also worked on understanding the developer productivity metrics. Working on statistical and Bayesian understanding of the same.
+Previously I have worked on Recommender Systems and curious about implications of Social Networks on recommendations.
 
-* [Hyde](http://hyde.getpoole.com)
-* [Lanyon](http://lanyon.getpoole.com)
 
-Learn more and contribute on [GitHub](https://github.com/poole).
+This blog contains information that I came across in my academic as well as corporate pursuits. Hoping it might help you in any way. 
+If you want to know more, connect via any of the social networking platforms I've listed. Thanks! :)
 
-## Setup
-
-Some fun facts about the setup of this project include:
-
-* Built for [Jekyll](https://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Atom](https://atom.io)
-
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
-
-Thanks for reading!
+[![linkedin](/static/images/icons/linkedin.png)](https://www.linkedin.com/in/avinbhat/)[![gmail](/static/images/icons/google.png)](mailto:avinashbhatneelavar@gmail.com)&nbsp;&nbsp;
+[![instagram](/static/images/icons/instagram.png)](https://www.instagram.com/aviinashbhat/)&nbsp;&nbsp;
+[![github](/static/images/icons/github.png)](https://github.com/avinashbhat)&nbsp;&nbsp;
+[![twitter](/static/images/icons/twitter.png)](https://twitter.com/this_is_avii)&nbsp;&nbsp;
+[![spotify](/static/images/icons/spotify.png)](https://open.spotify.com/playlist/5QbrmRf0QKJq8HSJOefa61?si=BC4H91R3RQGrb7Hk_2Vunw)
