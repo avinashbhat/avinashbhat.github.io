@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Links for Applied Accessibility Resources
-date: 2019-04-14T00:00:00.000Z
+date: 2020-04-14T00:00:00.000Z
 description: Links for Applied Accessibility Resources
 summary: Links for Applied Accessibility Resources
 comments: true

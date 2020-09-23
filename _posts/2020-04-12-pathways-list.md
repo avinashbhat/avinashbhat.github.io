@@ -3,7 +3,7 @@ layout: post
 title: Interesting Tutorials
 description: Interesting Tutorials
 summary: Interesting Tutorials
-date: 2019-04-12T00:00:00.000Z
+date: 2020-04-12T00:00:00.000Z
 category: exobrain
 comments: true
 published: true

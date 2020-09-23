@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Python Interning
-date: 2019-03-04T00:00:00.000Z
+date: 2020-03-04T00:00:00.000Z
 description: Interning concept in Python
 summary: Working with nohup command
 category: blog
