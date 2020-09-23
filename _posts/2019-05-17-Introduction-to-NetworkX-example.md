@@ -3,10 +3,14 @@ layout: post
 title: Introduction to NetworkX Example
 description: Introduction to NetworkX Example
 summary: Introduction to NetworkX Example
-date: 2019-05-17
+date: {}
 category: blog
 comments: true
-tags: [code, networkx, network-analysis]
+tags:
+  - code
+  - networkx
+  - network-analysis
+published: true
 ---
 
 This is a post containing examples to add on to the previous post.
@@ -52,7 +56,7 @@ plt.show()
 ```
 <br><br>
 
-![png](/assets/images/2019-05-17-01.png)
+![png](images/2019-05-17-01.png)
 
 
 _Create a cost array to assign the costs to the edge_
@@ -91,7 +95,7 @@ plt.show()
 ```
 
 <br><br>
-![png](/assets/images/2019-05-17-02.png)
+![png](images/2019-05-17-02.png)
 
 
 _Check if the graph is connected_
@@ -102,4 +106,3 @@ print(nx.is_connected(G))
 ```
 
     True
-
