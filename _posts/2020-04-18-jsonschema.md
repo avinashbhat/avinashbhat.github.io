@@ -3,10 +3,14 @@ layout: post
 title: JSON Schema for Input Validation
 description: JSON Schema for Input Validation
 summary: JSON Schema for Input Validation
-date: 2020-04-18
+date: {}
 category: blog
 comments: true
-tags: [jsonschema, python, web application development]
+tags:
+  - jsonschema
+  - python
+  - web application development
+published: true
 ---
 
 Input validation is a necessary part of any web request as it validates data which is useful for automated testing and ensuring quality of client submitted data. JSON Schema is one amazing library for this purpose.
