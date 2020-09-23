@@ -3,9 +3,10 @@ layout: post
 title: Interesting Tutorials
 description: Interesting Tutorials
 summary: Interesting Tutorials
-date: 2020-04-12
+date: {}
 category: exobrain
 comments: true
+published: true
 ---
 
 - [Data Science Study Path](http://datasciencemasters.org/)
