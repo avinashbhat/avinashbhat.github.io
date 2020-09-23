@@ -56,7 +56,7 @@ plt.show()
 ```
 <br><br>
 
-![png](images/2019-05-17-01.png)
+![png]({{site.baseurl}}_posts/images/2019-05-17-01.png)
 
 
 _Create a cost array to assign the costs to the edge_
@@ -95,7 +95,7 @@ plt.show()
 ```
 
 <br><br>
-![png](images/2019-05-17-02.png)
+![png]({{site.baseurl}}_posts/images/2019-05-17-02.png)
 
 
 _Check if the graph is connected_

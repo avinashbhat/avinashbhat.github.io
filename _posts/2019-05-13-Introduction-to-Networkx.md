@@ -66,7 +66,7 @@ plt.show()
 
 
 <!-- ![png](output_11_0.png) -->
-![png](images/2019-05-13-01.png)
+![png]({{site.baseurl}}_posts/images/2019-05-13-01.png)
 
 
 ### Generating a complete graph
@@ -106,7 +106,7 @@ plt.show()
 
 
 <!-- ![png](output_18_0.png) -->
-![png](images/2019-05-13-02.png)
+![png]({{site.baseurl}}_posts/images/2019-05-13-02.png)
 
 ### To generate a random graph
 
@@ -135,4 +135,4 @@ plt.show()
 
 
 <!-- ![png](output_23_0.png) -->
-![png](images/2019-05-13-03.png)
+![png]({{site.baseurl}}_posts/images/2019-05-13-03.png)
