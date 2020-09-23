@@ -1,12 +1,15 @@
 ---
 layout: post
 title: nohup in Unix
-date: 2020-04-14
+date: {}
 description: Working with nohup command
 summary: Working with nohup command
 comments: true
-tags: [nohup, unix]
+tags:
+  - nohup
+  - unix
 category: exobrain
+published: true
 ---
 
 `nohup` is a very simple command to run a process in the background. Usually when we log out from the system then all the running programs or processes are hungup or terminated. `nohup` literally stands for 'no hangup', and that's what it does, let's you run a command even after you log out from the system. Here, when I say system, it can also mean a linux shell. 
