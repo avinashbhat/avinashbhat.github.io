@@ -4,7 +4,7 @@ title: Python Interning
 date: 2020-03-04 
 description: Interning concept in Python
 summary: Working with nohup command
-category: Blog
+category: blog
 comments: true
 tags: [internals, python, interning]
 ---
