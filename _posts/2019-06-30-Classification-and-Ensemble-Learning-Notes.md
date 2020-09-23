@@ -3,10 +3,13 @@ layout: post
 title: Classification and Ensemble Learning Notes
 description: Classification and Ensemble Learning Notes
 summary: Classification and Ensemble Learning Notes
-date: 2019-06-30
+date: 2019-06-30T00:00:00.000Z
 category: blog
 comments: true
-tags: [code, machine-learning]
+tags:
+  - code
+  - machine-learning
+published: true
 ---
 This post explores decision trees, and some of the ensemble models used to improve the score. Read it through to get to know some standard ways for classification using decision trees.
 
