@@ -3,10 +3,14 @@ layout: post
 title: Introduction to NetworkX
 description: Introduction to NetworkX
 summary: Introduction to NetworkX
-date: 2019-05-13
+date: {}
 category: blog
 comments: true
-tags: [code, networkx, network-analysis]
+tags:
+  - code
+  - networkx
+  - network-analysis
+published: true
 ---
 ## What is NetworkX?
 Wikipedia says NetworkX is a Python library for studying graphs and networks.
@@ -62,7 +66,7 @@ plt.show()
 
 
 <!-- ![png](output_11_0.png) -->
-![png](/assets/images/2019-05-13-01.png)
+![png](images/2019-05-13-01.png)
 
 
 ### Generating a complete graph
@@ -102,7 +106,7 @@ plt.show()
 
 
 <!-- ![png](output_18_0.png) -->
-![png](/assets/images/2019-05-13-02.png)
+![png](images/2019-05-13-02.png)
 
 ### To generate a random graph
 
@@ -131,5 +135,4 @@ plt.show()
 
 
 <!-- ![png](output_23_0.png) -->
-![png](/assets/images/2019-05-13-03.png)
-
+![png](images/2019-05-13-03.png)
