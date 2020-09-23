@@ -62,7 +62,7 @@ plt.show()
 
 
 <!-- ![png](output_11_0.png) -->
-![png](/images/2019-05-13-01.png)
+![png](/assets/images/2019-05-13-01.png)
 
 
 ### Generating a complete graph
