@@ -3,7 +3,7 @@ layout: post
 title: Introduction to NetworkX
 description: Introduction to NetworkX
 summary: Introduction to NetworkX
-date: {}
+date: 2019-05-13T00:00:00.000Z
 category: blog
 comments: true
 tags:
