@@ -3,15 +3,18 @@ layout: post
 title: On Managing Versions and Virtual Environments
 description: On Managing Versions and Virtual Environments
 summary: On Managing Versions and Virtual Environments
-date: 2019-08-30
+date: {}
 category: blog
 comments: true
-tags: [packaging, python]
+tags:
+  - packaging
+  - python
+published: true
 ---
 As a junior developer, I had single project at hand all these days. Even if a new project used a different python version, I just installed the new version over the currently installed one. When I was told I had to take up a new project in parallel, I realised that managing versions is a bit of headache.
 
 <div style="text-align:center;">
-<img src="/assets/images/2019-08-30-01.jpeg"/>
+<img src="images/2019-08-30-01.jpeg"/>
 </div>
 <div style="width:484px height:319px; font-size:80%; text-align:center;">
 	Drawing blank on how to have multiple versions of Python and required packages for projects? Photo by <a href="https://unsplash.com/@javihoffens?utm_source=medium&amp;utm_medium=referral">Javi Hoffens</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a>
@@ -78,7 +81,7 @@ $ pyenv versions
 The next step is to activate the specific Python version. There are two ways to do this. One is using the  `pyenv shell`  command, and other by setting the  `$PYENV_VERSION`  variable. First, add  `eval "$(pyenv init -)"`  to the  `.bash_profile`  and source it. This enables  `pyenv`  to add the Python version to the path. For the second step, either you can run  `$ export PYENV_VERSION=<version_number>`  or  `$ pyenv shell <version_number>`, both do the same job. You can verify that the Python version chosen is active by starting your IDLE.
 
 <div style="text-align:center;">
-<img src="/assets/images/2019-08-30-02.png"/>
+<img src="images/2019-08-30-02.png"/>
 </div>
 
 <div style="width:484px height:319px; font-size:80%; text-align:center;">
