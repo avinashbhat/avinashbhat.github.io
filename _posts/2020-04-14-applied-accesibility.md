@@ -1,12 +1,14 @@
 ---
 layout: post
 title: Links for Applied Accessibility Resources
-date: 2020-04-14
+date: {}
 description: Links for Applied Accessibility Resources
 summary: Links for Applied Accessibility Resources
 comments: true
-tags: [applied-accessibility]
+tags:
+  - applied-accessibility
 category: exobrain
+published: true
 ---
 ##### What is applied accessibility?
 Web is designed for all people, irrespective of their physical capabilities. When we talk about building a free web, there has to be an inclusion of people with a varied range of hearing, movement, sight, and cognitive ability. To achieve this, the concept of accessibility was introduced to the basic building blocks of the web, HTML and CSS. 
