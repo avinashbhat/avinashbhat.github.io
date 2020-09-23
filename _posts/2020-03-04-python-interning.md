@@ -1,12 +1,16 @@
 ---
 layout: post
 title: Python Interning
-date: 2020-03-04 
+date: {}
 description: Interning concept in Python
 summary: Working with nohup command
 category: blog
 comments: true
-tags: [internals, python, interning]
+tags:
+  - internals
+  - python
+  - interning
+published: true
 ---
 
 In Python, a variable is just a pointer to a memory, where the value of that variable is stored. This means, when we do `x = 5`, then `x` contains an address to a memory location where the value `5` is stored.
