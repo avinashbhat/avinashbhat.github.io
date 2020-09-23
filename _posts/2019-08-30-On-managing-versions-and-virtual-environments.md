@@ -3,7 +3,7 @@ layout: post
 title: On Managing Versions and Virtual Environments
 description: On Managing Versions and Virtual Environments
 summary: On Managing Versions and Virtual Environments
-date: {}
+date: 2020-08-30T00:00:00.000Z
 category: blog
 comments: true
 tags:
