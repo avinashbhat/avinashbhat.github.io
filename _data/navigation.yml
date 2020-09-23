@@ -1,0 +1,11 @@
+links:
+- title: Search
+  url: /search
+- title: About
+  url: /about
+- title: Blog
+  url: /
+- title: Now
+  url: /now
+- title: Feed
+  url: /atom.xml
