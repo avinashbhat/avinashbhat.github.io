@@ -3,10 +3,16 @@ layout: post
 title: Maths Prerequisites for Data Science and Machine Learning
 description: Maths Prerequisites for Data Science and Machine Learning
 summary: Maths Prerequisites for Data Science and Machine Learning
-date: 2020-05-15
+date: {}
 category: exobrain
 comments: true
-tags: [roadmaps, data-science, machine-learning, probability, mathematics]
+tags:
+  - roadmaps
+  - data-science
+  - machine-learning
+  - probability
+  - mathematics
+published: true
 ---
 
 In this interesting [article on LinkedIn](https://www.linkedin.com/pulse/mathematical-building-blocks-data-science-sam-savage/) by Sam Savage, he tells that 
