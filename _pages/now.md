@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Now
+published: true
 ---
 
 The [/now page movement](https://sive.rs/nowff) was started by Derek Sivers and has [grown massively](https://nownownow.com/). 
@@ -10,7 +11,8 @@ I found it relevant, because I'm usually working on multiple things at any given
 
 #### Work
  - LDAP Configurations
- - RNNs - I recently worked on a [notebook using the Stack Overflow data](https://www.kaggle.com/avinashbhat/simplernn-on-stack-overflow-data) on Kaggle. Currently studying word embeddings an code embeddings.
+ - RNNs - I recently worked on a [notebook using the Stack Overflow data](https://www.kaggle.com/avinashbhat/simplernn-on-stack-overflow-data) on Kaggle. A post on this soon.
+ - Currently studying word embeddings and code embeddings.
 <br/>
 <br/>
 
@@ -32,4 +34,3 @@ I found it relevant, because I'm usually working on multiple things at any given
 #### Shows / Movies
  - Umbrella Academy (3/5)
  - Modern Family - Reruns! IMO this is the best sitcom ever (5/5)
-
