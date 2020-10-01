@@ -95,7 +95,7 @@ To demonstrate how the Toulmin's argumentation model works, let's take an exampl
 <br>
 
 ## Argumentation Analysis
-It's best to go through the paper for issue selection and the reasoning behind it. I will skip the section as it is straight forward to understand.
+It's best to go through the paper for issue selection and the reasoning behind it. I will skip the section as it is straightforward to understand.
 
 ### Argumentation Model Adaption
 While a simple claim-premise model can assure a better accuracy for classification, having a full model of argumentation can identify how the contributors can reason out the solutions for usability issues and prioritize them.
@@ -188,6 +188,28 @@ One of the limitations that is discussed by the researchers is external validity
 This model can be extended well with availability of labelled training data. Combining supervised and unsupervised approaches can reduce the manual effort that is required in this step.
 
 Finally, speaking about the adaptability, the researchers mention that having a sophisticated visual design can underscore the usability of tool.
+
+
+## References for better conceptual understanding
+ 1. [Analysis and Detection of Information Types of Open Source Software Issue Discussions](https://ieeexplore.ieee.org/document/8811936) 
+ 2. [Activity-Based Analysis of Open Source Software Contributors: Roles and Dynamics](https://ieeexplore.ieee.org/document/8817054)
+ 3. [Argumentation mining in user-generated web discourse](https://www.aclweb.org/anthology/J17-1004/)
+ 4. [Back up your Stance: Recognizing Arguments in Online Discussions](https://www.aclweb.org/anthology/W14-2107/)
+ 5. [Reporting Usability Defects: A Systematic Literature Review](https://ieeexplore.ieee.org/document/7779159)
+ 6. [Exploring Usability Discussions in Open Source Development](https://ieeexplore.ieee.org/document/1385644)
+
+
+## Thoughts
+ArguLens is without argument an innovative application of mining the issue threads by structuring the comments in a classic argumentation model. I agree with the researchers that a sophisticated tool can accentuate the usability of the tool, but that might be a problem of UX design. 
+
+Having a larger dataset can be useful in outlining which ML model will be more efficient in modeling the conversations. We can take a page out of conversational modeling playbook to automatically tag the ground, claim and warrants. This might be a far-fetched goal but is a possible research direction.
+
+The researchers have reasoned out that the reason heavily disagreed arguments are usually in the middle of the issue thread is because the disagreed arguments might be hard to recognize in a lengthy thread. It could also be because usually the discussion threads are closed once an agreement is reached. The beginning of the threads contain comments that usually outline the problem statement. If there are any disagreements, they would definitely lie in the middle of the thread. It is very rare that a issue will get closed on the note of a disagreement.
+
+Researchers also mention that the *warrants* extracted in the experiment suggest that usability discussions are usually influenced by personal opinions and experiances. In my opinion this is a good thing, as the developers tend to work towards addressing the corner cases that have miniscule chance of breaking; making the software robust.
+
+It is quite possible that the comment authors know each other outside the ITSs. This can lead to them coming to a consensus, without having a proper discussion on the discussion boards, thereby skewing the data.
+
 
 
 
