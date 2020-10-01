@@ -12,11 +12,12 @@ tags:
   - software-engineering
 published: true
 ---
----
 
-**How do you decide which features to implement in a software?**
+> Wang, Wenting, Deeksha Arya, Nicole Novielli, Jinghui Cheng, and Jin L.C. Guo. 2020. “ArguLens: Anatomy of Community Opinions On Usability Issues Using Argumentation Models.” In , 1–14. Association for Computing Machinery (ACM). doi:10.1145/3313831.3376218.
 
-If you are in an industry setting, then you get a list of requirements from a product owner, and is mainained by the product manager in the form of user stories. There are iteration planning meetings, and backlog grooming sessions, that allow the teams to prioritize the tasks and develop a software. There are software engineering models like Agile that logically detail out the role of every individual in a software development project.
+<br>
+
+**How do you decide which features to implement in a software?** If you are in an industry setting, then you get a list of requirements from a product owner, and is mainained by the product manager in the form of user stories. There are iteration planning meetings, and backlog grooming sessions, that allow the teams to prioritize the tasks and develop a software. There are software engineering models like Agile that logically detail out the role of every individual in a software development project.
 
 However, this is not the case in the open source world. There is a public discussion on any forum (or GitHub) how the software has to evolve, where everyone can propose a featue and and assert its requirement. 
 <br><br>
@@ -187,15 +188,6 @@ One of the limitations that is discussed by the researchers is external validity
 This model can be extended well with availability of labelled training data. Combining supervised and unsupervised approaches can reduce the manual effort that is required in this step.
 
 Finally, speaking about the adaptability, the researchers mention that having a sophisticated visual design can underscore the usability of tool.
-
-## Citation
-```
-Wang, Wenting, Deeksha Arya, Nicole Novielli, Jinghui Cheng, and Jin L.C. Guo. 2020. “ArguLens: Anatomy of Community Opinions On Usability Issues Using Argumentation Models.” In , 1–14. Association for Computing Machinery (ACM). doi:10.1145/3313831.3376218.
-```
-
-## Notable References in the Paper
- 1. 
-
 
 
 
