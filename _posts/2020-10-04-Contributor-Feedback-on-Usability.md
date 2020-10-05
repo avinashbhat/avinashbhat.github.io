@@ -11,7 +11,7 @@ tags:
   - research-watch
   - software-engineering
   - survey
-published: true
+published: false
 ---
 
 > Wang, Wenting, Jinghui Cheng, and Jin L.C. Guo. 2020. “How Do Open Source Software Contributors Perceive and Address Usability? Valued Factors, Practices, and Challenges.” IEEE Software. IEEE Computer Society. doi:10.1109/MS.2020.3009514.
