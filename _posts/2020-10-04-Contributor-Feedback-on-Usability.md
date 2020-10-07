@@ -82,6 +82,15 @@ Researchers identify the methodology followed by the practitioners in their usab
 
 ### Challenges
 
+Challenges faced by the participants towards usability of the OSS is as follows.
+1. **Mindset** The developers tend to be system-centered while designing a system and focus on improving the feature set and performance and neglect usability. This can be tackled by having a user feedback phase in the development cycle, and thereby nudging the developers towards paying attention to usability.
+
+2. **Understanding User Needs** User needs evolve frequently, and are also difficult to map the feedback to development tasks. This can be improved by having better discussions with the users; many times, a complicated feature can be avoided by just making minor changes to the existing code to address the underlying issue. Better software to gather feedback data also would help in addressing the issue.
+
+3. **Addressing User Diversity** Since OSSs have a diverse user base, the feature requests need to prioritized. Addressing usability for a large user base is hard; some power users might need customizable features, but some users might feel this can add unnecessary complexity to their workflow. Finding a balance between these two can enable easier and better adoption.
+
+4. **Development Issues** Framework, library limitations, project complexity and lack of transparency in development process can affect usability as well. Over the course of years, new developers can come in and some may move out of the project, resulting in different standpoints and ways of approaching usability. This can be addressed by the better onboarding practices for developers.
+
 <br>
 <div style="text-align:center;">
 <img alt="Summary of the survey results" src="{{site.baseurl}}/assets/images/2020-10-04-02.png"/>
@@ -97,3 +106,8 @@ Researchers identify the methodology followed by the practitioners in their usab
  1.
 
 ## Thoughts
+This survey acutely captures the thoughts of the developers regarding usability while developing a software. Any software should be designed around usability. Easier and intuitive a software is to use, easier it is to improve the adoption. The researchers offer valuable suggestions improve the mindset in developers.
+
+I believe that this paper is relevant to developers, to inculcate a usability-centric mindset.
+
+The results can also be pivoted in such a way, to understand how the valued factors, practises and challenges influence one another. FOr example, 
