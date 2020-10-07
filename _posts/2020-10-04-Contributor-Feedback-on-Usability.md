@@ -67,6 +67,7 @@ Researchers identified six themes that are valued by the software practitioners.
 4. **Environment and Market** Audience size, competitor performance and software impact over users and society. Higher the popularity of the software, more users use it resulting in more bugs or feature requests to handle varied scenarios. Competitor performance and impact ensures that there will be a higher effort in the development process and more iterations. These further improve the usability.
 
 5. **User Characteristics** Understanding the background of the target users can aid the usability design as it will make sure that the contributors plan the way the software is to be used - either focussing on the power users or make the software diverse.
+
 6. **Resource and Mindset** Financial support, time, and expertise of the members involved contribute to the usability of the OSS as well.
 
 ### Practises
@@ -100,14 +101,19 @@ Challenges faced by the participants towards usability of the OSS is as follows.
 </div>
 <br>
 
-## Limitations and Future Work
+## Discussions and Future Work
 
-## References for better conceptual understanding
- 1.
+1. **Supporting a Deeper Engagement with a Diverse User Base** The research clearly indicates that developers working on user feedbacks have the best chance of achieving good usability. Main problems around this are diverse and sometimes contradictory feedbacks, and not having enough demographic representation. Since not a lot of work is done in this field this is a possible research direction. Having features that generate use cases from user comments in ITS could be the way to go. 
+
+2. **Promoting Motivation for Usability at the Community Level** One interesting finding, as pointed out by the authors is that organization-supported OSS projects thrive due to an active feedback cycle; volunteer driven projects struggle at this. Having usability related tags for both developers and for users to provide feedback in ITSs can help promote a user feedback cycle in OSS.
+
+3. **Enhancing Tools and Techniques for OSS-Oriented User-Centered Design** that integrate user response in development process can aid the developers massively. Static analytic tools can detect usability related issues in the code and help resolve challenges around certain challenges like inconsistent use of UI libraries. 
+
 
 ## Thoughts
 This survey acutely captures the thoughts of the developers regarding usability while developing a software. Any software should be designed around usability. Easier and intuitive a software is to use, easier it is to improve the adoption. The researchers offer valuable suggestions improve the mindset in developers.
 
-I believe that this paper is relevant to developers, to inculcate a usability-centric mindset.
+The results can also be pivoted in such a way, to understand how the valued factors, practises and challenges influence one another. For example, the participants that value certain themes and follow certain practises can face a specific set of challenges. This model can further be used to course correct and avoid such pitfalls.
 
-The results can also be pivoted in such a way, to understand how the valued factors, practises and challenges influence one another. FOr example, 
+
+I believe that this paper is relevant to developers, to inculcate a usability-centric mindset. It also points to a research and development direction for ITSs in terms of having an easier user feedback loops (take note, GitHub!). 
