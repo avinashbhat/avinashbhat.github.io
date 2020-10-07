@@ -55,7 +55,41 @@ However, researchers mention that that the demographics was only that of GitHub 
 
 
 ## Survey Results
+Results from the survey are divided into three categories - **Valued Factors**, **Practises** and **Challenges**. 
+### Valued Factors
+Researchers identified six themes that are valued by the software practitioners. These are listed down in the decreasing order of the popularity.
+1. **Usability related System Characteristics** Participants value efficiency, consistency and customizability. The researchers mention that people involved in the development seemed to have followed the usability guidelines for achieving these system centric qualities. This is quite possible since these qualities would be paramount to the adoption of software.
 
+2. **Other System Characteristics** System characteristics such as reliability, maintainability and feature completeness conrtibute to usability as well. Code quality affects usability to some extent, as it becomes easier to iterate over the software and make it better.
+
+3. **User Support** The interaction of development team with the users of the software; to respond to the issues, and feature development on request. This improves the trust among users in the software, that their concerns are heard and addressed.
+
+4. **Environment and Market** Audience size, competitor performance and software impact over users and society. Higher the popularity of the software, more users use it resulting in more bugs or feature requests to handle varied scenarios. Competitor performance and impact ensures that there will be a higher effort in the development process and more iterations. These further improve the usability.
+
+5. **User Characteristics** Understanding the background of the target users can aid the usability design as it will make sure that the contributors plan the way the software is to be used - either focussing on the power users or make the software diverse.
+6. **Resource and Mindset** Financial support, time, and expertise of the members involved contribute to the usability of the OSS as well.
+
+### Practises
+Researchers identify the methodology followed by the practitioners in their usability design for the OSS.
+1. **Explore Needs** Participants welcome the feedback on usability. They three types of people who provide these are the general users (who provide the feedback in ITSs), power users involved in the the development process and developers themselves by discussing with the users. Sometimes the usability features are also inspired from research literature, competitor systems and opinions by consultants.
+
+2. **Approach Design** There are three approaches that are used by the participants. <br>
+ *An interactive trial and error process* was followed by majority of participants where a feature is developed, then the feedback for the usability is captured using ITSs and further itrations to the software is made based on the requirement. <br>
+ *A participatory approach* where the users are directly involved in the development.<br>
+ *Designing a system based on their own opinions*, which are influenced from guidelines or tutorials.
+
+3. **Evaluator Usability** The usability evaluation is done mainly through ITSs, if done at all. One more approach that is followed is an informal approach where is the testing is done by some personal connections, power users or anyone who is closely associated with the software and not the end users. Sometimes, the usability is evaulated by UX students, and has resulted in success. Apart from these, the usability can be evaluated by the internal evaulation of development team (more like developer testing) which follows the line of thinking that developers are also users.
+
+### Challenges
+
+<br>
+<div style="text-align:center;">
+<img alt="Summary of the survey results" src="{{site.baseurl}}/assets/images/2020-10-04-02.png"/>
+</div>
+<div style="width:484px height:319px; font-size:80%; text-align:center;">
+	Summary of the survey results
+</div>
+<br>
 
 ## Limitations and Future Work
 
