@@ -17,7 +17,7 @@ I found it relevant, because I'm usually working on multiple things at any given
 <br/>
 
 #### Fun Stuff
- - Since the lockdown started, I was finding some funky ways to maintain fitness - discovered jumping rope! Didn't really know that there is a [federation](https://ijru.sport/) for it either. Working on my [toad skills](https://www.youtube.com/watch?v=RnRUwLtR33g).
+ - Since the quarantine started, I was finding some funky ways to maintain fitness - discovered jumping rope! Didn't really know that there is a [federation](https://ijru.sport/) for it either. Working on my [toad skills](https://www.youtube.com/watch?v=RnRUwLtR33g).
 <br/>
 <br/>
 
@@ -32,5 +32,5 @@ I found it relevant, because I'm usually working on multiple things at any given
 <br/>
 
 #### Shows / Movies
- - Umbrella Academy (3/5)
- - Modern Family - Reruns! IMO this is the best sitcom ever (5/5)
+ - The Boys 
+ - Umbrella Academy
