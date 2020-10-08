@@ -20,7 +20,7 @@ Previously I have worked on Recommender Systems and curious about implications o
 
 This blog contains information that I came across in my academic as well as corporate pursuits. Hoping it might help you in any way. 
 If you want to know more, connect via any of the social networking platforms I've listed. Thanks! :)
-<br/>
+<br><br><br>
 [![linkedin](/assets/images/icons/linkedin.png)](https://www.linkedin.com/in/avinbhat/)&nbsp;&nbsp;
 [![gmail](/assets/images/icons/google.png)](mailto:avinashbhatneelavar@gmail.com)&nbsp;&nbsp;
 [![instagram](/assets/images/icons/instagram.png)](https://www.instagram.com/aviinashbhat/)&nbsp;&nbsp;
