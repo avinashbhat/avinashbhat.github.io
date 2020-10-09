@@ -12,7 +12,7 @@ tags:
   - research-watch
   - software-engineering
   - neural-machine-translation
-published: true
+published: false
 ---
 
 > Mesbah, Ali, Andrew Rice, Emily Johnston, Nick Glorioso, and Edward Aftandilian. 2019. “DeepDelta: Learning to Repair Compilation Errors.” In ESEC/FSE 2019 - Proceedings of the 2019 27th ACM Joint Meeting European Software Engineering Conference and Symposium on the Foundations of Software Engineering, 925–36. Association for Computing Machinery, Inc. doi:10.1145/3338906.3340455.
@@ -30,7 +30,7 @@ As developers, we all spend hours in debugging the code, so that it compiles fin
 <br>
 
 ## Abstract
-While writing code is a highly logical activity, much of the actual code written is iterative in itself. So it makes sense that any sort of error that creeps in while compilation can be fixed with following some pattern in code. DeepDelta exploits this attibute of software development, and leverage deep neural networks to predict program repairs. While compiling a program, the compiler usually spits out a diagnostic information. The error diagnostic becomes the ```X``` or *source*.
+While writing code is a highly logical activity, much of the process is iterative in itself. So it makes sense that any sort of error that creeps in while compilation can be fixed with following some pattern in code. DeepDelta exploits this attibute of software development, and leverage deep neural networks to predict program repairs. While compiling a program, the compiler usually spits out a diagnostic information. The error diagnostic becomes the ```X``` or *source*.
 <br><br>
 <div style="text-align:center;">
 <img alt="Maven Error Log" src="{{site.baseurl}}/assets/images/2020-10-07-01.png"/>
@@ -43,6 +43,7 @@ While writing code is a highly logical activity, much of the actual code written
 There is a change delta, which is nothing but the code change (or diff, when you speak in terms of Git) done to successfully compile the code. An Abstract Syntax Tree representation of this diff forms the target or ```Y```. The researchers run this input data through a NMT network and train a model that gives out a success rate of 50%. There are multiple ways to fix the code too. Out of the 50% success scenarios, the predicted changes are about 86% of the time in the top three ways to fix the code, indicating the relevancy of the model output.
 
 ## Introduction and Background
+
 
 ## Data Collection and Insights
 
