@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Can you repair compilation errors with deep learning?
-description: Can you repair compilation errors with deep learning?
-summary: Can you repair compilation errors with deep learning?
+title: Can you repair compilation errors with Deep Learning?
+description: Can you repair compilation errors with Deep Learning?
+summary: Can you repair compilation errors with Deep Learning?
 date: 2020-10-07T00:00:00.000Z
 category: blog
 comments: true
@@ -12,7 +12,7 @@ tags:
   - research-watch
   - software-engineering
   - neural-machine-translation
-published: true
+published: false
 ---
 
 > Mesbah, Ali, Andrew Rice, Emily Johnston, Nick Glorioso, and Edward Aftandilian. 2019. “DeepDelta: Learning to Repair Compilation Errors.” In ESEC/FSE 2019 - Proceedings of the 2019 27th ACM Joint Meeting European Software Engineering Conference and Symposium on the Foundations of Software Engineering, 925–36. Association for Computing Machinery, Inc. doi:10.1145/3338906.3340455.
@@ -30,7 +30,7 @@ As developers, we all spend hours in debugging the code, so that it compiles fin
 <br>
 
 ## Abstract
-While writing code is a highly logical activity, much of the process is iterative in itself. So it makes sense that any sort of error that creeps in while compilation can be fixed with following some pattern in code. DeepDelta exploits this attibute of software development, and leverage deep neural networks to predict program repairs. While compiling a program, the compiler usually spits out a diagnostic information. The error diagnostic becomes the ```X``` or *source*.
+While writing code is a highly logical activity, much of the process is iterative in itself. So it makes sense that any sort of error that creeps in while compilation can be fixed with following some pattern in code. DeepDelta exploits this attibute of software development, and leverage deep neural networks to predict program repairs. While compiling a program, the compiler usually spits out a diagnostic information. The error diagnostic becomes the $$x$$ or *source*.
 <br><br>
 <div style="text-align:center;">
 <img alt="Maven Error Log" src="{{site.baseurl}}/assets/images/2020-10-07-01.png"/>
@@ -40,7 +40,7 @@ While writing code is a highly logical activity, much of the process is iterativ
 </div>
 <br>
 
-There is a change delta, which is nothing but the code change (or diff, when you speak in terms of Git) done to successfully compile the code. An Abstract Syntax Tree representation of this diff forms the target or ```Y```. The researchers run this input data through a NMT network and train a model that gives out a success rate of 50%. There are multiple ways to fix the code too. Out of the 50% success scenarios, the predicted changes are about 86% of the time in the top three ways to fix the code, indicating the relevancy of the model output.
+There is a change delta, which is nothing but the code change (or diff, when you speak in terms of Git) done to successfully compile the code. An Abstract Syntax Tree representation of this diff forms the target or $$y$$. The researchers run this input data through a NMT network and train a model that gives out a success rate of 50%. There are multiple ways to fix the code too. Out of the 50% success scenarios, the predicted changes are about 86% of the time in the top three ways to fix the code, indicating the relevancy of the model output.
 
 ## Introduction and Background
 Usually developers fix their compilation issues manually with debuggers or traversing through code flows. Once an engineer identifies and writes what could possibly be a fix for the compile issue, he goes ahead and compiles a code again. This can be called as a ***edit-compile cycle***. It is a highly iterative process; there could be multiple locations where the code is broken, a change for a error could result in code breaking at another location. This makes the edit-compile cycle a time consuming process. 
@@ -168,7 +168,100 @@ The patterns in AST Diff for a certain change can be automatically inferred and 
 
 > A resolution change (RC) is an AST Diff between the broken and resolved snapshots ofthe code, in a build resolution session.
 
-### Feature Extraction 
+### Feature Extraction and Neural Network Architecture
+Building upon the concept of ***naturalness hypothesis*** [^4] researchers propose that the source build diagnostic feature can be *translated* to target resolution change using Neural Machine Translation. 
+
+#### Source Features
+The diagnostic specific information can be added to the source feature set. Specifically for the `cant.resolve` running example, the label and the location of the missing symbol can be found out from the logs, and the AST path for that symbol can be traversed. 
+
+> The ASTPath AP of a missing symbol S<sub>m</sub> is defined as the sequence of AST vertices from the root to the parent vertex of S<sub>m</sub> on the AST of the broken snapshot.  
+
+<br>
+Including the AST path as a feature provides contextual information to the neural network and can increase the accuracy between 15-20%. 
+<br><br>
+<div style="text-align:center;">
+<img alt="AST path of ImmutableList." src="{{site.baseurl}}/assets/images/2020-10-07-05.png"/>
+</div>
+<br>
+
+The source feature set for the `cant.resolve` consists of the following. 
+ - **Diagnostic Kind**: compiler.err.cant.resolve
+ - **Diagnostic Text**: cannot find symbol
+ - **AST Path**: COMPILATION_UNIT CLASS METHOD RETURN METHOD_INVOCATION of
+ - **Symbol Type**: IDENTIFIER
+ - **Symbol Label**: ImmutableList
+
+This feature set is specific to *Diagnostic Kind*. For `cant.apply.symbol` the feature gets augmented with certain other features.
+
+#### Target Features
+Target feature consists of the changes made to the AST. This is represented using a Domain Specific Language called Delta. The EBNF of this DSL is as follows.
+
+```EBNF
+Delta.grammar
+
+resolution_change_feature 
+	: file_type WS (change_action (WS)?)* EOF ;
+
+change_action 
+	:change_type WS (location WS)? single_token token_seq location WS single_token token_seq ;
+
+file_type : 'BUILDFILE' | 'JAVAFILE' ; 
+change_type : 'INSERT' | 'DELETE' | 'UPDATE' | 'MOVE' ; 
+location : 'INTO' | 'FROM' | 'BEFORE' | 'AFTER' ; 
+single_token : TOKEN WS ; 
+token_seq : (TOKEN (WS)*)* ; 
+WS : (' ' | '\t') ; 
+TOKEN : ( COLON | QUOTE | COMMA | LOWERCASE | UPPERCASE | DIGIT | UNDERSCORE) +;
+
+fragment UNDERSCORE : '_' ; 
+fragment COLON : ':'' ; 
+fragment QUOTE : '"' ; 
+fragment COMMA : ','' ; 
+fragment LOWERCASE : [a-z ] ; 
+fragment UPPERCASE : [A-Z ] ; 
+fragment DIGIT : [0-9] ;
+```
+
+There are two places where the change can be applied, `JAVAFILE` or `BUILDFILE`, indicated by the `change_type` field. `change_type` indicates the action done. 
+
+The target feature or Delta for `cant.resolve` Java code change is as follows.
+
+```delta
+fileType JAVAFILE 
+change_action 
+	change_type INSERT
+	single_token IMPORT
+	location INTO
+	single_token COMPILATION_UNIT
+change_action 
+	change_type INSERT
+	single_token com
+	token_seq google common collect ImmutableList
+	location INTO
+	single_token IMPORT
+```
+
+Delta for the Build file code change is as follows.
+```delta
+fileType BUILDFILE 
+change_action 
+	change_type UPDATE
+	location BEFORE
+	single_token java
+	token_seq com google common base
+	location AFTER
+	single_token java
+	token_seq com google common collect
+```
+
+Once the source and target feature sets are generated, they are vectorized for serving as input to the NMT.
+
+#### Neural Machine Translation Architecture and Hyperparameters
+The DNN used is built on top of TensorFlow, and is composed of LSTMs of 1024 units with 4 encoder and 4 decoder layers. The encoder type is the GNMT encoder, which is composed of one bi-directional and three uni-directional layers. Stochastic Gradient Descent is used as the optimizer, with 1.0 learning rate and 0.2 dropout value.
+
+Since the code can have pretty long sequences, researchers have used the normed Bahdanau attention [^5] to extend the attention span of the network.
+
+The researchers made the model queryable by hosting it on a server. Beam Search [^1] does the translation while maintaining a balance between translation time and accuracy. Input to the model is a feature $$x$$ representing a failure. The inferred result is in the form of $$n$$ sequences of repair suggestions, every $$\displaystyle y_{i}$$ in $$\displaystyle \{y_{1}, y_{2}, ..., y_{n}\}$$ is a distinct repair suggestion for $$x$$ and is a series of resolution change tokens.
 
 ## Evaluation and Results
 
@@ -176,7 +269,9 @@ The patterns in AST Diff for a certain change can be automatically inferred and 
 
 ## Thoughts
 
-## Related Papers
+## Interesting References for better understanding
 [^1]: [Google's Neural Machine Translation System: Bridging the Gap between Human and Machine Translation](https://arxiv.org/abs/1609.08144)
 [^2]: [Change Distilling:Tree Differencing for Fine-Grained Source Code Change Extraction](https://ieeexplore.ieee.org/document/4339230)
 [^3]: [Fine-grained and accurate source code differencing](https://dl.acm.org/doi/10.1145/2642937.2642982)
+[^4]: [A Survey of Machine Learning for Big Code and Naturalness](https://arxiv.org/abs/1709.06182)
+[^5]: [Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/abs/1409.0473)
