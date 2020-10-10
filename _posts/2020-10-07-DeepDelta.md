@@ -12,7 +12,7 @@ tags:
   - research-watch
   - software-engineering
   - neural-machine-translation
-published: false
+published: true
 ---
 
 > Mesbah, Ali, Andrew Rice, Emily Johnston, Nick Glorioso, and Edward Aftandilian. 2019. “DeepDelta: Learning to Repair Compilation Errors.” In ESEC/FSE 2019 - Proceedings of the 2019 27th ACM Joint Meeting European Software Engineering Conference and Symposium on the Foundations of Software Engineering, 925–36. Association for Computing Machinery, Inc. doi:10.1145/3338906.3340455.
@@ -43,14 +43,140 @@ While writing code is a highly logical activity, much of the process is iterativ
 There is a change delta, which is nothing but the code change (or diff, when you speak in terms of Git) done to successfully compile the code. An Abstract Syntax Tree representation of this diff forms the target or ```Y```. The researchers run this input data through a NMT network and train a model that gives out a success rate of 50%. There are multiple ways to fix the code too. Out of the 50% success scenarios, the predicted changes are about 86% of the time in the top three ways to fix the code, indicating the relevancy of the model output.
 
 ## Introduction and Background
+Usually developers fix their compilation issues manually with debuggers or traversing through code flows. Once an engineer identifies and writes what could possibly be a fix for the compile issue, he goes ahead and compiles a code again. This can be called as a ***edit-compile cycle***. It is a highly iterative process; there could be multiple locations where the code is broken, a change for a error could result in code breaking at another location. This makes the edit-compile cycle a time consuming process. 
 
+There is a pattern in which developers change the code, in response to the errors. Obviously there is a code change done to fix the issue. These code features can be succintly represented by an [**Abstract Syntax Trees**](https://en.wikipedia.org/wiki/Abstract_syntax_tree). 
+
+Neural Machine Translation [^1] is the algorithm of choice, as it accurately captures the mapping between compilation log and AST of the delta.
 
 ## Data Collection and Insights
+### Compilation Error Logs (or Source set)
+A typical engineer at Google builds his code about 7-8 times a day. Every build initiated is automatically logged. This log contains detailed information about the build, error messages if any and a snapshot of the image that was built. This paper mainly refers to the Java errors.
+
+Java compiler has a [Diagnostic class](https://docs.oracle.com/javase/8/docs/api/javax/tools/Diagnostic.html) that reports a problem at a specific position in the source file. There is a ```Diagnostic.Kind``` enum that is implemented, that captures the way it is presented to the user. There are preset templates into which concrete names are interpolated. Researchers built a parser to map the error messages to the message templates that produced them. 
+
+It is possible that fix for a error can lead to another error. This could mean that the fix that was done was not right, and some other fix might be necessary. Also, if there are multiple errors reported in one build, then individual fixes will have to be done for the errors. To map a fix to an error correctly, the researchers identified sequences of builds into something called ***Resolution Sessions***. 
+> A resolution session (RS) for a build diagnostic D<sub>i</sub> is a sequence of two or more consecutive builds, B<sub>1</sub> , B<sub>2</sub> , ..., B<sub>k</sub> where D<sub>i</sub> is first introduced in B<sub>1</sub> and first resolved in B<sub>k</sub> , and the time between build B<sub>n</sub> and B<sub>n-1</sub> is no more than a given time window T.
+
+<br>
+Essentially this captures the period of time a developer spends in resolving the issue. This brings to the next important concept called the ***Active Resolution Cost***.
+
+> For a diagnostic D<sub>i</sub> , Active Resolution Cost (ARC) represents the active time the developer spends resolving D<sub>i</sub> , excluding the cost of the builds themselves, divided by the number of diagnostics present in the intermediate builds of its resolution session.
+
+> $$
+\sum_{i=1}^{k-1} \frac{Ts_{i+1} - Te_{i}}{|D_{i}|}
+$$ 
+
+<br>
+Together, these two aspects quantitatively describe an edit-compile cycle. The below image provides an example of a resolution session; Build 1 to Build 3 is the RS of D1, Build 1 to Build 2 is RS of D2 and Build 2 to Build 4 is RS of D3.
+
+<div style="text-align:center;">
+<img alt="Depiction of resolution cycle" src="{{site.baseurl}}/assets/images/2020-10-07-03.png"/>
+</div>
+<br>
+
+Coming to the data collection process, this is how the metrics look like.
+ 1. Around 20% of all builds fail. Out of 4.8 million builds in a period of 2 months, around 1 million were failures.
+ 2. From the 1 million failures, about 3.3 million diagnostics were extraced.
+ 3. The Resolution Session criteria filters out 1.5 million sessions where the changes were done with more than one hour between build attempts.
+ 4. From the 1.9 million, 110219 resolution sessions were identified, which contained only one single diagnostic session, resulting in a successful build. We can reason out that in these cases the change made by the developer resolved the error. 
+
+<br>
+<div style="text-align:center;">
+<img alt="Build Error Frequency and percentage" src="{{site.baseurl}}/assets/images/2020-10-07-02.png"/>
+</div>
+<div style="width:484px height:319px; font-size:80%; text-align:center;">
+	Top 10 most frequent and costly build errors.
+</div>
+<br>
+
+The top two build errors are `cant.resolve` and `cant.apply.symbol` diagnostic kind, which are thrown when the compiler encounters an unknown symbol and when it cannot find a method declaration with given types respectively. On calculating the ARC for the top ten errors, it amounts to 57,215,441 seconds or \~15,900 hours. The top two errors total to around 58% of the total ARC.
+<br>
+> This means total time spent by Google engineers in resolving only two classes of errors in the span of two months comes out to around a year of developer cost!
+
+<br>
+Keep in mind, this is coming from a very small subset of about 100k resolution sessions; true numbers might really be staggering, indicating the relevancy of this research.
+
+### `cant.resolve`: A Running Example
+Researchers have used `cant.resolve` diagnostic kind as a running example to explain how DeepDelta framework works. 
+In Java, an identifier must be known to the compiler before it is used, else `cant.resolve` error is thrown. The developer might have not declared or mistyped an identifier, missed dependency or imports.
+
+```java
+import java.util.List;
+class Service { 
+	List <String > names() { 
+		return ImmutableList.of("pub", "sub");
+	} 
+}
+```
+
+This code throws the following error.
+```
+Service.java :4: error: cannot find symbol symbol: variable ImmutableList
+```
+
+This is fixed by importing the `ImmutableList` package. 
+```diff
+import java.util.List; 
++++ import com.google.common.collect.ImmutableList; 
+class Service { 
+	List <String > names() { 
+		return ImmutableList.of("pub", "sub");
+	} 
+} 
+```
+There is a dependency that needs to be fixed as well.
+```diff
+java_library( 
+	name = "Service",
+	srcs =[ 
+		"Service.java",
+	],
+	deps =[ 
+--- 		"//java/com/google/common/base",
++++ 		"//java/com/google/common/collect", 
+	], 
+	...
+)
+```
+This example shows the code diff that fixed the corresponding issue. Next step is to capture these features.
+
+### Collecting Resolution Changes (or Target set)
+Two snapshots of the code, one prior to the successful build and one after, are extracted. Google stores the developer code, which makes this data easily accessible. 
+
+Next step is to automatically figure out the changes that were done between the two snapshots. This is done using a ***tree differencing approach*** [^2]<sup>,</sup>[^3]. First step is generating the two ASTs.
+<br>
+> Given two ASTs, source ast<sub>s</sub> and target ast<sub>t</sub> , an **AST Diff** is a set of vertex change actions that transforms ast<sub>s</sub> into ast<sub>t</sub>.
+
+<br>
+The algorithm compares the vertex labels, and detects if any vertices are unmatched. If any such vertices are found, then a short sequence of actions that transform *ast<sub>s</sub>* to *ast<sub>t</sub>* are computed. Since this is a NP-hard problem, certain heuristics are used to compute the transformation. The algorithm outputs a set of actions that were performed on the vertices to transform the source AST to the target.
+ - **Moved**: Existing vertex (and children) in *ast<sub>s</sub>* is moved to another location in *ast<sub>t</sub>*.
+ - **Updated**: Old value of a vertex *ast<sub>s</sub>* is updated to a new value in *ast<sub>t</sub>*.
+ - **Deleted**: A vertex (and its children) in *ast<sub>s</sub>* is removed in *ast<sub>t</sub>*.
+ - **Inserted**: A new vertex that was not present in *ast<sub>s</sub>* is added in *ast<sub>t</sub>*.
+
+<br>
+<div style="text-align:center;">
+<img alt="ASTs for the previous example." src="{{site.baseurl}}/assets/images/2020-10-07-04.png"/>
+</div>
+<div style="width:484px height:319px; font-size:80%; text-align:center;">
+	ASTs for the running example.
+</div>
+<br>
+
+The patterns in AST Diff for a certain change can be automatically inferred and can be used for assistance for code fix.
+
+> A resolution change (RC) is an AST Diff between the broken and resolved snapshots ofthe code, in a build resolution session.
+
+### Feature Extraction 
 
 ## Evaluation and Results
 
 ## Discussions and Future Work
 
-## Related Papers
-
 ## Thoughts
+
+## Related Papers
+[^1]: [Google's Neural Machine Translation System: Bridging the Gap between Human and Machine Translation](https://arxiv.org/abs/1609.08144)
+[^2]: [Change Distilling:Tree Differencing for Fine-Grained Source Code Change Extraction](https://ieeexplore.ieee.org/document/4339230)
+[^3]: [Fine-grained and accurate source code differencing](https://dl.acm.org/doi/10.1145/2642937.2642982)
