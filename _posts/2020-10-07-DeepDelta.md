@@ -264,6 +264,42 @@ Since the code can have pretty long sequences, researchers have used the normed 
 The researchers made the model queryable by hosting it on a server. Beam Search [^1] does the translation while maintaining a balance between translation time and accuracy. Input to the model is a feature $$x$$ representing a failure. The inferred result is in the form of $$n$$ sequences of repair suggestions, every $$\displaystyle y_{i}$$ in $$\displaystyle \{y_{1}, y_{2}, ..., y_{n}\}$$ is a distinct repair suggestion for $$x$$ and is a series of resolution change tokens.
 
 ## Evaluation and Results
+The repair suggestions were evaluated with five metrics
+
+1. **Perplexity:** This metric measures how well a model predicts samples. Lower the better. 
+2. **BLEU score:** BLEU is used in the NLP world for automatic evaluation of generated sentences. It internally uses a n-gram model to compare the human sentences and the machine generated sentences and scores the machine output with a score between 1-100 where higher the score, better the generated text. BLEU scores of 25-40 are considered good.
+
+	The model reached low perplexity values of 1.8 and 8.5 for `cant.resolve` and `cant.apply.symbol` respectively. BLEU scores were 42 and 43 in the same order. This indicates that the model generated is good.
+
+3. **Syntactic Validation:** A lexer and parser were generated from Delta grammer. All the inferred suggestions were passed through this, and checked if the suggestion is syntactically valid or not. 
+	
+	On average, 71% of the generated suggestions were valid for `cant.resolve` and `cant.apply.symbol` had a higher accuracy of 98%. Researchers reason out that this could be because the code changes for this error are syntactically simple.
+
+	<br>
+	<div style="text-align:center;">
+	<img alt="Distribution of valid suggestions over the 10 generated suggestions" src="{{site.baseurl}}/assets/images/2020-10-07-06.png"/>
+	</div>
+	<div style="width:484px height:319px; font-size:80%; text-align:center;">
+		Distribution of valid suggestions over the 10 generated suggestions.
+	</div>
+	<br>
+
+4. **Correctness of Suggestions:** A suggestion is considered correct if atleast one of the 10 inferences match the fix done by developer.
+	
+	This was 50% for `cant.resolve` error. For `cant.apply.symbol` the error was around 47%.
+
+5. **Ranking of Correct Repairs:** Higher the ranking of the correct suggestion in the list of 10 inferences, better the model.
+	
+	For `cant.resolve` 85% of the correct fixes are in the top three positions, and for `cant.apply.symbol` 87% of the correct fixes are in top three positions.
+
+	<br>
+	<div style="text-align:center;">
+	<img alt="Position of correct suggestions" src="{{site.baseurl}}/assets/images/2020-10-07-07.png"/>
+	</div>
+	<div style="width:484px height:319px; font-size:80%; text-align:center;">
+		Position of correct suggestions.
+	</div>
+	<br>
 
 ## Discussions and Future Work
 
