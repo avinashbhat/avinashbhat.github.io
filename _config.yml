@@ -2,6 +2,7 @@ site: avinashbhat
 url: avinashbhat.github.io
 title: Avinash Bhat
 description: Web space of Avinash Bhat
+markdown: kramdown
 twitter:
   username: this_is_avii
   card: summary
