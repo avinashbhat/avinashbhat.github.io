@@ -12,7 +12,7 @@ tags:
   - research-watch
   - software-engineering
   - neural-machine-translation
-published: false
+published: true
 ---
 
 > Mesbah, Ali, Andrew Rice, Emily Johnston, Nick Glorioso, and Edward Aftandilian. 2019. “DeepDelta: Learning to Repair Compilation Errors.” In ESEC/FSE 2019 - Proceedings of the 2019 27th ACM Joint Meeting European Software Engineering Conference and Symposium on the Foundations of Software Engineering, 925–36. Association for Computing Machinery, Inc. doi:10.1145/3338906.3340455.
@@ -29,7 +29,7 @@ As developers, we all spend hours in debugging the code, so that it compiles fin
 </div>
 <br>
 
-## Abstract
+## [Abstract](#abstract)
 While writing code is a highly logical activity, much of the process is iterative in itself. So it makes sense that any sort of error that creeps in while compilation can be fixed with following some pattern in code. DeepDelta exploits this attibute of software development, and leverage deep neural networks to predict program repairs. While compiling a program, the compiler usually spits out a diagnostic information. The error diagnostic becomes the $$x$$ or *source*.
 <br><br>
 <div style="text-align:center;">
@@ -42,14 +42,14 @@ While writing code is a highly logical activity, much of the process is iterativ
 
 There is a change delta, which is nothing but the code change (or diff, when you speak in terms of Git) done to successfully compile the code. An Abstract Syntax Tree representation of this diff forms the target or $$y$$. The researchers run this input data through a NMT network and train a model that gives out a success rate of 50%. There are multiple ways to fix the code too. Out of the 50% success scenarios, the predicted changes are about 86% of the time in the top three ways to fix the code, indicating the relevancy of the model output.
 
-## Introduction and Background
+## [Introduction and Background](#introduction)
 Usually developers fix their compilation issues manually with debuggers or traversing through code flows. Once an engineer identifies and writes what could possibly be a fix for the compile issue, he goes ahead and compiles a code again. This can be called as a ***edit-compile cycle***. It is a highly iterative process; there could be multiple locations where the code is broken, a change for a error could result in code breaking at another location. This makes the edit-compile cycle a time consuming process. 
 
 There is a pattern in which developers change the code, in response to the errors. Obviously there is a code change done to fix the issue. These code features can be succintly represented by an [**Abstract Syntax Trees**](https://en.wikipedia.org/wiki/Abstract_syntax_tree). 
 
 Neural Machine Translation [^1] is the algorithm of choice, as it accurately captures the mapping between compilation log and AST of the delta.
 
-## Data Collection and Insights
+## [Data Collection and Insights](#dcai)
 ### Compilation Error Logs (or Source set)
 A typical engineer at Google builds his code about 7-8 times a day. Every build initiated is automatically logged. This log contains detailed information about the build, error messages if any and a snapshot of the image that was built. This paper mainly refers to the Java errors.
 
@@ -168,7 +168,7 @@ The patterns in AST Diff for a certain change can be automatically inferred and 
 
 > A resolution change (RC) is an AST Diff between the broken and resolved snapshots ofthe code, in a build resolution session.
 
-### Feature Extraction and Neural Network Architecture
+## [Feature Extraction and Neural Network Architecture](#feanna)
 Building upon the concept of ***naturalness hypothesis*** [^4] researchers propose that the source build diagnostic feature can be *translated* to target resolution change using Neural Machine Translation. 
 
 #### Source Features
@@ -263,8 +263,8 @@ Since the code can have pretty long sequences, researchers have used the normed 
 
 The researchers made the model queryable by hosting it on a server. Beam Search [^1] does the translation while maintaining a balance between translation time and accuracy. Input to the model is a feature $$x$$ representing a failure. The inferred result is in the form of $$n$$ sequences of repair suggestions, every $$\displaystyle y_{i}$$ in $$\displaystyle \{y_{1}, y_{2}, ..., y_{n}\}$$ is a distinct repair suggestion for $$x$$ and is a series of resolution change tokens.
 
-## Evaluation and Results
-The repair suggestions were evaluated with five metrics
+## [Evaluation and Results](#ear)
+The repair suggestions were evaluated with five metrics.
 
 1. **Perplexity:** This metric measures how well a model predicts samples. Lower the better. 
 2. **BLEU score:** BLEU is used in the NLP world for automatic evaluation of generated sentences. It internally uses a n-gram model to compare the human sentences and the machine generated sentences and scores the machine output with a score between 1-100 where higher the score, better the generated text. BLEU scores of 25-40 are considered good.
@@ -301,13 +301,49 @@ The repair suggestions were evaluated with five metrics
 	</div>
 	<br>
 
-## Discussions and Future Work
+## [Discussions and Future Work](#dafw)
+The DeepDelta approach identifies the recurrent and common patterns in how the developers resolve build errors and is able to extract it in the form of a sequence of changes that the developers can actually use to fix their compilation fixes. With 50% correctness rate, this is 23% more than the previous state of art. 
 
-## Thoughts
+There is a good possibility for the program to recommend invalid suggestions. Researchers reason out that this can be due to two factors. <br>One, it is possible that the vector that is predicted by the decoder might not map to a valid token in the vocabulary. This happens when the model has not learnt the change pattern. <br>
+Two, it is possible that the sequence generated does not adhere to the Delta EBNF grammer, especially for longer sequences (more than 90 tokens). There might be missing tokens at the end of the sequences.
 
-## Interesting References for better understanding
+The dataset is a industrial sized one, with more than 10000 Java projects and 300 million LOCs. It represents changes made by thousands of developers worldwide, using different IDEs. Therefore the main concept that DeepDelta leverages, which is there are patterns in how developers address a compilation issue holds good. While it sure requires work, the technique used can be scaled to other systems as well.
+
+The most frequent repair patterns which were got from clustering the inferenced solutions are as follows.
+<br>
+<div style="text-align:center;">
+<img alt="Most frequent repair patterns for cant.resolve Change" src="{{site.baseurl}}/assets/images/2020-10-07-08.png"/>
+</div>
+<div style="width:484px height:319px; font-size:80%; text-align:center;">
+	Most frequent repair patterns for <code>cant.resolve</code> Change
+</div>
+<br>
+
+Accomodating other programming languages is possible, since only the AST parsers have to be written for the particular languages. Similarly, other Java errors can be accomodated as well.
+
+Error safe parsers harden the AST approach taken. Parsers that can recover from the syntax errors [^6] need to be introduced.
+
+Turning the Deltas to code modifications is the first of the two possible future works proposed by the authors. However, the problem statement here would be to understand where to make the suggested changes. Few examples provided by the authors for the `cant.resolve` example are as follows.
+ - `Add missing imports` & `Remove import` - Location information is not required as imports are usually at the top of the file in Java programs.
+ - `Change the method call` & `Change the missing symbol` - Location of the missing symbol is known, and  can be modified. 
+ - `Add missing build dependency` & `Change build dependency` - Changes can be made to the dependency list.
+
+ Second possible future work is automated program repair, where the suggested fix is applied and only the fixes that compile the builds are to be presented to the users. Building an good user interface that makes the model useful to the developers is paramount. 
+
+
+## [Thoughts](#thoughts)
+The Abstract Syntax Tree approach to map the code is an innovative approach, and can be used for multiple other software engineering problems involving learning from code. It would definitely be worth trying on automated code review, or code comment generation problems.
+
+Main problem here, as acknowledged even by the authors, would be reproducibility. There are no public datasets available on which DeepDelta can be reproduced. One possible way to address this would be to build a dataset with [GitHub APIs](https://developer.github.com/v3/). GitHub supports CI setups, and logs errors too, and most definitely can be used to mimic the data collection steps followed by the authors. However, this might not come close to dataset that researchers had access to in Google. 
+
+While the researchers addressed the compile-time errors in Java, there is a possible avenue into extending it to other such compiled languages like Julia or C++ even. Having such a capability in languages that are used by other disciplines (say like Statistics) can help other researchers who might not be proficient in coding. One could also think about similar patterns used by the developers in interpreted languages like Python too.
+
+DeepDelta has good application in automated program repair. However, program builds are compute and time intensive, and applying the multiple fixes before arriving at the correct fix might not be practicle in few scenarios. One way to tackle is ofcourse by having a better *ranking of the correct repairs* metric. Leveraging simple classification algorithms on top of the framework might help.
+
+## [Interesting References for better understanding](#references)
 [^1]: [Google's Neural Machine Translation System: Bridging the Gap between Human and Machine Translation](https://arxiv.org/abs/1609.08144)
 [^2]: [Change Distilling:Tree Differencing for Fine-Grained Source Code Change Extraction](https://ieeexplore.ieee.org/document/4339230)
 [^3]: [Fine-grained and accurate source code differencing](https://dl.acm.org/doi/10.1145/2642937.2642982)
 [^4]: [A Survey of Machine Learning for Big Code and Naturalness](https://arxiv.org/abs/1709.06182)
 [^5]: [Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/abs/1409.0473)
+[^6]: [A practical method for LR and LL syntactic error diagnosis and recovery](https://dl.acm.org/doi/10.1145/22719.22720)
