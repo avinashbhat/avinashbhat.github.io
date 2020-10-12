@@ -5,7 +5,7 @@ description: Learning Git Internals
 summary: Learning Git Internals
 date: 2020-09-28T00:00:00.000Z
 category: exobrain
-comments: true
+comments: false
 tags:
   - exobrain
   - git

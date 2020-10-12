@@ -5,7 +5,7 @@ description: 33 Levels of Python
 summary: 33 Levels of Python
 date: 2020-10-11T00:00:00.000Z
 category: exobrain
-comments: true
+comments: false
 tags:
   - python
   - python-challenge
