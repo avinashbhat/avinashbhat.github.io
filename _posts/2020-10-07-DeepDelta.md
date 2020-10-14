@@ -340,7 +340,7 @@ While the researchers addressed the compile-time errors in Java, there is a poss
 
 DeepDelta has good application in automated program repair. However, program builds are compute and time intensive, and applying the multiple fixes before arriving at the correct fix might not be practicle in few scenarios. One way to tackle is ofcourse by having a better *ranking of the correct repairs* metric. Leveraging simple classification algorithms on top of the framework might help.
 
-## [Interesting References for better understanding](#references)
+## [Interesting References for Better Understanding](#references)
 [^1]: [Google's Neural Machine Translation System: Bridging the Gap between Human and Machine Translation](https://arxiv.org/abs/1609.08144)
 [^2]: [Change Distilling:Tree Differencing for Fine-Grained Source Code Change Extraction](https://ieeexplore.ieee.org/document/4339230)
 [^3]: [Fine-grained and accurate source code differencing](https://dl.acm.org/doi/10.1145/2642937.2642982)
