@@ -1,11 +1,11 @@
 links:
-- title: Search
-  url: /search
-- title: About
-  url: /about
 - title: Blog
   url: /
+- title: About
+  url: /about
 - title: Now
   url: /now
+- title: Search
+  url: /search
 - title: Feed
   url: /atom.xml
