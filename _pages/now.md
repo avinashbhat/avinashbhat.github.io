@@ -11,13 +11,13 @@ I found it relevant, because I'm usually working on multiple things at any given
 
 #### Work
  - Currently working on conversational modeling.
- - Program comprehension posts coming up on blogs!
  - RNNs - I recently worked on a [notebook using the Stack Overflow data](https://www.kaggle.com/avinashbhat/simplernn-on-stack-overflow-data) on Kaggle. A post on this soon.
 <br/>
 <br/>
 
 #### Fun Stuff
  - Since the quarantine started, I was finding some funky ways to maintain fitness - discovered jumping rope! Didn't really know that there is a [federation](https://ijru.sport/) for it either. Working on my [toad skills](https://www.youtube.com/watch?v=RnRUwLtR33g).
+- Learning French on Duolingo! I'm somewhere around 55 days now, and Duolingo makes it hard for me to miss a day ;)
 <br/>
 <br/>
 
