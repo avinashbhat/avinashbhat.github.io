@@ -37,3 +37,6 @@ Apart from this, you can also take a look at these listed links.
  - [Mozilla Summary of WAI-ARIA](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/WAI-ARIA_basics)
  - [This amazing article on dev.to](https://dev.to/mxl/accessibility-for-beginners-with-html-and-css-16j7)
  - [CSS for Accessibility](https://webaim.org/techniques/css/)
+ - [Website Accessibility Made Easy (in 2020)](https://www.websiteplanet.com/blog/website-accessibility-made-easy-ultimate-guide/) - This link was graciously suggested by Ritta Blens. Thank you Ritta!
+
+
