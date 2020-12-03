@@ -32,5 +32,5 @@ This blog contains information that I came across in my academic as well as corp
 [![gmail](/assets/images/icons/google.png)](mailto:avinashbhatneelavar@gmail.com)&nbsp;&nbsp;&nbsp;&nbsp;
 [![instagram](/assets/images/icons/instagram.png)](https://www.instagram.com/aviinashbhat/)&nbsp;&nbsp;&nbsp;&nbsp;
 [![github](/assets/images/icons/github.png)](https://github.com/avinashbhat)&nbsp;&nbsp;&nbsp;&nbsp;
-[![twitter](/assets/images/icons/twitter.png)](https://twitter.com/this_is_avii)&nbsp;&nbsp;&nbsp;&nbsp;
+[![twitter](/assets/images/icons/twitter.png)](https://twitter.com/aviinashbhat)&nbsp;&nbsp;&nbsp;&nbsp;
 [![spotify](/assets/images/icons/spotify.png)](https://open.spotify.com/playlist/5QbrmRf0QKJq8HSJOefa61?si=BC4H91R3RQGrb7Hk_2Vunw)
