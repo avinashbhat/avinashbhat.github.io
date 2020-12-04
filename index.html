@@ -5,8 +5,15 @@ layout: default
 <section class="posts">
 <ul>
 {% for post in site.posts %}
-<li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%m-%d-%Y" }}</time></li>
+<li>
+    <a href="{{ site.baseurl }}{{ post.url }}" style="font-size: 1.2rem;">{{ post.title }}</a>
+    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%m-%d-%Y" }}</time>
+</li>
+<div style="padding-bottom: 3rem;">
+    <span style="font-size:0.9rem; font-weight:lighter;">{{ post.summary }}</span>
+</div>
 {% endfor %}
 </ul>
 </section>
+{% include twitter.html %}
 
