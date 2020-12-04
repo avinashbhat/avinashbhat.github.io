@@ -167,6 +167,11 @@ main {
 
 
 @media screen and (max-width: 45rem ) {
+main {
+	flex-wrap:wrap;
+	flex-direction:row;
+	max-width:50rem;
+}
 header li {
     display: inline;
 	margin-right: 1rem;
@@ -186,6 +191,14 @@ nav ul {
 	margin-top: 0.5rem;
 }
 
+time {
+	display: none
+}
+
+.twitter {
+	display: none
+}
+
 }
 
 section {
@@ -194,6 +207,7 @@ section {
 	min-width:70%;
 	display:flex;
 	flex-direction:column;
+	border-right: 1px solid #edf2f7;
 	
 }
 
