@@ -25,8 +25,9 @@ Nowadays, I have been interested in Software Analysis and improving developer ex
 </div>
 <br>
 <div style="text-align: justify;">
-This blog contains information that I came across in my academic as well as corporate pursuits. Hoping it might help you in any way. If you want to know more, connect via any of the social networking platforms I've listed. Thanks! :)
+This blog contains information that I came across in my academic as well as corporate pursuits. Hoping it might help you in any way. If you want to know more, connect via any of the social networking platforms I've listed. Thanks for reading this rant all the way! :)
 </div><br>
+
 [![linkedin](/assets/images/icons/linkedin.png)](https://www.linkedin.com/in/avinbhat/)&nbsp;&nbsp;&nbsp;
 &nbsp;
 [![gmail](/assets/images/icons/google.png)](mailto:avinashbhatneelavar@gmail.com)&nbsp;&nbsp;&nbsp;&nbsp;
@@ -34,3 +35,6 @@ This blog contains information that I came across in my academic as well as corp
 [![github](/assets/images/icons/github.png)](https://github.com/avinashbhat)&nbsp;&nbsp;&nbsp;&nbsp;
 [![twitter](/assets/images/icons/twitter.png)](https://twitter.com/aviinashbhat)&nbsp;&nbsp;&nbsp;&nbsp;
 [![spotify](/assets/images/icons/spotify.png)](https://open.spotify.com/playlist/5QbrmRf0QKJq8HSJOefa61?si=BC4H91R3RQGrb7Hk_2Vunw)
+
+
+If you want to add this blog to any of your RSS feeds, you can use <a href="{{ site.url }}{{ site.baseurl }}/atom.xml">this URL</a>.
