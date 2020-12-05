@@ -2,7 +2,7 @@
 layout: post
 title: Using Argumentation Models to Model Issue Threads
 description: Using Argumentation Models to Model Issue Threads
-summary: Using Argumentation Models to Model Issue Threads
+summary: "Interesting research on modeling OSS issue threads using Toulmin's Argumentation Model."
 date: 2020-09-28T00:00:00.000Z
 category: blog
 comments: true

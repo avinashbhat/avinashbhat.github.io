@@ -3,7 +3,7 @@ layout: post
 title: Links for Applied Accessibility Resources
 date: 2020-04-14T00:00:00.000Z
 description: Links for Applied Accessibility Resources
-summary: Links for Applied Accessibility Resources
+summary: "The resources I used for learning accessibility design for websites."
 comments: true
 tags:
   - applied-accessibility

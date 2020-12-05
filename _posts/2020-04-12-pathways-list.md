@@ -2,7 +2,7 @@
 layout: post
 title: Interesting Tutorials
 description: Interesting Tutorials
-summary: Interesting Tutorials
+summary: "Curated lists of resources for some in demand topics."
 date: 2020-04-12T00:00:00.000Z
 category: exobrain
 comments: true

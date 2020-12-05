@@ -2,7 +2,7 @@
 layout: post
 title: Contributor Feedback on Usability in Open Source Software
 description: Contributor Feedback on Usability in Open Source Software
-summary: Contributor Feedback on Usability in Open Source Software
+summary: "A survey on usability in OSS."
 date: 2020-10-04T00:00:00.000Z
 category: blog
 comments: true

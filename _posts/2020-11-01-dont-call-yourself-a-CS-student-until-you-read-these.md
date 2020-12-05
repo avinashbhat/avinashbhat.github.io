@@ -2,7 +2,7 @@
 layout: post
 title: "Don't call yourself a Computer Science student until you read (or watch) these.."
 description: "Don't call yourself a Computer Science student until you read (or watch) these.."
-summary: "Don't call yourself a Computer Science student until you read (or watch) these.."
+summary: "Some interesting articles and videos for motivation to pursue Computer Science."
 date: 2020-11-01T00:00:00.000Z
 category: blog
 comments: true

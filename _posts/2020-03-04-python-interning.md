@@ -3,7 +3,7 @@ layout: post
 title: Python Interning
 date: 2020-03-04T00:00:00.000Z
 description: Interning concept in Python
-summary: Working with nohup command
+summary: "Understanding and optimising memory management in Python."
 category: blog
 comments: true
 tags:

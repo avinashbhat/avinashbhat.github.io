@@ -2,7 +2,7 @@
 layout: post
 title: JSON Schema for Input Validation
 description: JSON Schema for Input Validation
-summary: JSON Schema for Input Validation
+summary: "A better way to do input validation in Python."
 date: 2020-04-18T00:00:00.000Z
 category: blog
 comments: true
