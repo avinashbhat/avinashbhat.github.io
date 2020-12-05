@@ -7,7 +7,7 @@ layout: default
 {% for post in site.posts %}
 <li>
     <a href="{{ site.baseurl }}{{ post.url }}" style="font-size: 1.2rem; font-weight:bold;">{{ post.title }}</a>
-    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%m-%d-%Y" }}</time>
+    <time style="letter-spacing: -0.03rem;" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%m-%d-%Y" }}</time>
 </li>
 <div style="padding-bottom: 3rem;">
     <span style="font-size:0.95rem; font-weight:lighter;">{{ post.summary }}</span>
