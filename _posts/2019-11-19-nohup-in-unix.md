@@ -3,7 +3,7 @@ layout: post
 title: nohup in Unix
 date: 2019-11-19T00:00:00.000Z
 description: Working with nohup command
-summary: Working with nohup command
+summary: "All you should know about running the nohup command."
 comments: true
 tags:
   - nohup

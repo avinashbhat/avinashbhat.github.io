@@ -2,7 +2,7 @@
 layout: post
 title: Can you repair compilation errors with Deep Learning?
 description: Can you repair compilation errors with Deep Learning?
-summary: Can you repair compilation errors with Deep Learning?
+summary: "Interesting research on program repair using Abstract Syntax Trees."
 date: 2020-10-07T00:00:00.000Z
 category: blog
 comments: true

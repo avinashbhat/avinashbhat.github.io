@@ -2,7 +2,7 @@
 layout: post
 title: Learning Git Internals
 description: Learning Git Internals
-summary: Learning Git Internals
+summary: "Understanding one of the most used tools in the developer community."
 date: 2020-09-28T00:00:00.000Z
 category: exobrain
 comments: false

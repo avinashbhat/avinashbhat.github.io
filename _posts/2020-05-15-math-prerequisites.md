@@ -2,7 +2,7 @@
 layout: post
 title: Maths Prerequisites for Data Science and Machine Learning
 description: Maths Prerequisites for Data Science and Machine Learning
-summary: Maths Prerequisites for Data Science and Machine Learning
+summary: "Curated list of math resources."
 date: 2020-05-15T00:00:00.000Z
 category: exobrain
 comments: true
