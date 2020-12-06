@@ -4,7 +4,7 @@ layout: default
 <section class="posts">
     <h1 style="border-bottom: 1px solid #edf2f7; padding-bottom:8px; margin-bottom:20px">Posts</h1>
 <ul>
-{% for post in site.posts %}
+{% for post in paginator.posts %}
 <li>
     <a href="{{ site.baseurl }}{{ post.url }}" style="font-size: 1.4rem; font-weight:bold;">{{ post.title }}</a>
     <time class=datetime-class datetime="{{ post.date | date_to_xmlschema }}">
@@ -16,6 +16,33 @@ layout: default
 </div>
 {% endfor %}
 </ul>
+
+{% if paginator.total_pages > 1 %}
+<div class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; Prev</a>
+  {% else %}
+    <span>&laquo; Prev</span>
+  {% endif %}
+
+  {% for page in (1..paginator.total_pages) %}
+    {% if page == paginator.page %}
+      <em>{{ page }}</em>
+    {% elsif page == 1 %}
+      <a href="/">{{ page }}</a>
+    {% else %}
+      <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+    {% endif %}
+  {% endfor %}
+
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | relative_url }}">Next &raquo;</a>
+  {% else %}
+    <span>Next &raquo;</span>
+  {% endif %}
+</div>
+{% endif %}
+
 </section>
 {% include twitter.html %}
 

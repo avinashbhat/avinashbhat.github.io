@@ -35,6 +35,9 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap  
 
+paginate: 5
+paginate_path: "/page:num/"
+
 collections:
   pages:
     output: true
