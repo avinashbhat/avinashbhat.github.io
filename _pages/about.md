@@ -11,8 +11,8 @@ I am experienced in Python, Java and related technologies required for a full st
 
 Do contact if you want to discuss or collaborate on projects containing above technologies. I usually am <a href="https://avinashbhat.github.io/now">working on something</a>, but would accomodate if possible.
 <br><br>
-<a href="https://drive.google.com/file/d/1owbigk1xV0Q-9oYtXHUWzSGFDn6fzwzy/view?usp=sharing">
-CV as of 25th October, 2020
+<a href="https://drive.google.com/file/d/1IvsaK6OHGBBCzkKWS8gAQYo4MOpjIEK-/view?usp=sharing">
+CV as of 7th December, 2020
 </a>
 <br><br>
 
