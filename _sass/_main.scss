@@ -155,7 +155,8 @@ strong, b {
 }
 
 .post ul, .project ul, .post ol  {
-	//list-style-position: inside;
+    list-style-position: outside;
+    padding-left: 2rem;
 }
 
 main {
