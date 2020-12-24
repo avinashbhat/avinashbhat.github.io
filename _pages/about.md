@@ -21,7 +21,7 @@ I have a Bachelors degree (First Class with Distinction) in Computer Science and
 <br>
 Back then I worked on recommender systems, under the guidance of <a href="https://scholar.google.co.in/citations?user=4goUOJsAAAAJ&hl=en">Dr. Anitha C</a>. We were able to present our research in ISCCDA 2017 and IEMIS 2018. Proceedings of the latter was published in <a href="https://link.springer.com/chapter/10.1007/978-981-13-1498-8_8">Springer</a>.
 <br> 
-Nowadays, I have been interested in Software Analysis and improving developer experience. You could probably go through <a href="https://avinashbhat.github.io/2020/10/07/deepdelta">some of</a> <a href="https://avinashbhat.github.io/2020/10/04/contributor-feedback-on-usability">my</a> <a href="https://avinashbhat.github.io/2020/09/28/using-argumentation-models-to-model-issue-threads">posts</a> if you want to understand what this field entails.
+Nowadays, I have been interested in Software Analysis and improving developer experience. You could probably <a href="{{site.baseurl}}/2020/12/18/szz">go through</a> <a href="{{site.baseurl}}/2020/10/07/deepdelta">some of</a> <a href="{{site.baseurl}}/2020/10/04/contributor-feedback-on-usability">my</a> <a href="{{site.baseurl}}/2020/09/28/using-argumentation-models-to-model-issue-threads">posts</a> if you want to understand what this field entails.
 </div>
 <br>
 <div style="text-align: justify;">
