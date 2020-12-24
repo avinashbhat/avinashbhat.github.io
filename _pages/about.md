@@ -17,7 +17,7 @@ CV as of 7th December, 2020
 <br><br>
 
 
-I have a Bachelors degree (First Class with Distinction) in Computer Science and Engineering from <a href="https://nie.ac.in/">the National Institute of Engineering</a> from where I graduated in 2018. My capstone project was <a href="https://github.com/avinashbhat/wikicontext">evaluating a Wikipedia article for  prerequisite knowledge</a>.
+I have a Bachelors degree (First Class with Distinction) in Computer Science and Engineering from <a href="https://nie.ac.in/">the National Institute of Engineering</a> from where I graduated in 2018. My capstone project was <a href="https://github.com/avinashbhat/wikicontext">evaluating a Wikipedia article for  prerequisite knowledge</a>. Thanks to <a href="https://www.streamlit.io/">Streamlit</a>, a demo is now live at <a href="https://share.streamlit.io/avinashbhat/wikicontext-v2/main"> this link</a>.
 <br>
 Back then I worked on recommender systems, under the guidance of <a href="https://scholar.google.co.in/citations?user=4goUOJsAAAAJ&hl=en">Dr. Anitha C</a>. We were able to present our research in ISCCDA 2017 and IEMIS 2018. Proceedings of the latter was published in <a href="https://link.springer.com/chapter/10.1007/978-981-13-1498-8_8">Springer</a>.
 <br> 
