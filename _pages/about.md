@@ -4,6 +4,8 @@ title: About
 ---
 
 Hello! I'm Avinash. I am a software developer at Cisco Systems, Bangalore. 
+
+
 <div style="text-align: justify;">
 <img alt="Profile Picture" src="{{site.baseurl}}/assets/images/avinashbhat_image.png" style="float:left;width:350px;padding:25px;"/>
 
@@ -17,24 +19,26 @@ CV as of 7th December, 2020
 <br><br>
 
 
-I have a Bachelors degree (First Class with Distinction) in Computer Science and Engineering from <a href="https://nie.ac.in/">the National Institute of Engineering</a> from where I graduated in 2018. My capstone project was <a href="https://github.com/avinashbhat/wikicontext">evaluating a Wikipedia article for  prerequisite knowledge</a>. Thanks to <a href="https://www.streamlit.io/">Streamlit</a>, a demo is now live at <a href="https://share.streamlit.io/avinashbhat/wikicontext-v2/main"> this link</a>.
+<p>I have a Bachelors degree (First Class with Distinction) in Computer Science and Engineering from <a href="https://nie.ac.in/">the National Institute of Engineering</a> from where I graduated in 2018. My capstone project was <a href="https://github.com/avinashbhat/wikicontext">evaluating a Wikipedia article for  prerequisite knowledge</a>. Thanks to <a href="https://www.streamlit.io/">Streamlit</a>, now <a href="https://share.streamlit.io/avinashbhat/wikicontext-v2/main"> there's a live demo</a>!</p>
+
+<p>Back then I worked on recommender systems, under the guidance of <a href="https://scholar.google.co.in/citations?user=4goUOJsAAAAJ&hl=en">Dr. Anitha C</a>. We were able to present our research in ISCCDA 2017 and IEMIS 2018. Proceedings of the latter was published in <a href="https://link.springer.com/chapter/10.1007/978-981-13-1498-8_8">Springer</a>.</p>
+
+<p>Nowadays, I have been interested in Software Analysis and improving developer experience. You could probably <a href="{{site.baseurl}}/2020/12/18/szz">go through</a> <a href="{{site.baseurl}}/2020/10/07/deepdelta">some of</a> <a href="{{site.baseurl}}/2020/10/04/contributor-feedback-on-usability">my</a> <a href="{{site.baseurl}}/2020/09/28/using-argumentation-models-to-model-issue-threads">posts</a> if you want to understand what this field entails.</p>
+<p>This blog contains information that I came across in my academic as well as corporate pursuits and for the most part written for my own reference. If you can get anything out of it, that's great! If you find that I have misunderstood anything, please do drop me a message. Thanks for reading this rant all the way! :)</p>
+
+<details class=accordion style="text-align: center;">
+<summary class="accordian-content" style="font-weight: bold;">
+Get in touch with me!
+</summary>
 <br>
-Back then I worked on recommender systems, under the guidance of <a href="https://scholar.google.co.in/citations?user=4goUOJsAAAAJ&hl=en">Dr. Anitha C</a>. We were able to present our research in ISCCDA 2017 and IEMIS 2018. Proceedings of the latter was published in <a href="https://link.springer.com/chapter/10.1007/978-981-13-1498-8_8">Springer</a>.
-<br> 
-Nowadays, I have been interested in Software Analysis and improving developer experience. You could probably <a href="{{site.baseurl}}/2020/12/18/szz">go through</a> <a href="{{site.baseurl}}/2020/10/07/deepdelta">some of</a> <a href="{{site.baseurl}}/2020/10/04/contributor-feedback-on-usability">my</a> <a href="{{site.baseurl}}/2020/09/28/using-argumentation-models-to-model-issue-threads">posts</a> if you want to understand what this field entails.
+    <a href="https://www.linkedin.com/in/avinbhat/"><img alt="linkedin" src="/assets/images/icons/linkedin.png" style="padding:1rem;"></a>
+    <a href="mailto:avinashbhatneelavar@gmail.com"><img alt="mail" src="/assets/images/icons/google.png" style="padding:1rem;"></a>
+    <a href="https://www.instagram.com/aviinashbhat/"><img alt="instagram" src="/assets/images/icons/instagram.png" style="padding:1rem;"></a>
+    <a href="https://github.com/avinashbhat"><img alt="github" src="/assets/images/icons/github.png" style="padding:1rem;"></a>
+    <a href="https://twitter.com/aviinashbhat"><img alt="twitter" src="/assets/images/icons/twitter.png" style="padding:1rem;"></a>
+    <a href="https://open.spotify.com/playlist/5QbrmRf0QKJq8HSJOefa61?si=BC4H91R3RQGrb7Hk_2Vunw"><img alt="spotify" src="/assets/images/icons/spotify.png" style="padding:1rem;"></a>
+    <a href="https://join.skype.com/invite/gC8yesJPWejP"><img alt="skype" src="/assets/images/icons/skype.png" style="padding:1rem;"></a>   
+</details>
+
+<p>If you want to add this blog to any of your RSS feeds, you can use <a href="{{ site.url }}{{ site.baseurl }}/atom.xml">this URL</a>.</p>
 </div>
-<br>
-<div style="text-align: justify;">
-This blog contains information that I came across in my academic as well as corporate pursuits. Hoping it might help you in any way. If you want to know more, connect via any of the social networking platforms I've listed. Thanks for reading this rant all the way! :)
-</div><br>
-
-[![linkedin](/assets/images/icons/linkedin.png)](https://www.linkedin.com/in/avinbhat/)&nbsp;&nbsp;&nbsp;
-&nbsp;
-[![gmail](/assets/images/icons/google.png)](mailto:avinashbhatneelavar@gmail.com)&nbsp;&nbsp;&nbsp;&nbsp;
-[![instagram](/assets/images/icons/instagram.png)](https://www.instagram.com/aviinashbhat/)&nbsp;&nbsp;&nbsp;&nbsp;
-[![github](/assets/images/icons/github.png)](https://github.com/avinashbhat)&nbsp;&nbsp;&nbsp;&nbsp;
-[![twitter](/assets/images/icons/twitter.png)](https://twitter.com/aviinashbhat)&nbsp;&nbsp;&nbsp;&nbsp;
-[![spotify](/assets/images/icons/spotify.png)](https://open.spotify.com/playlist/5QbrmRf0QKJq8HSJOefa61?si=BC4H91R3RQGrb7Hk_2Vunw)
-
-
-If you want to add this blog to any of your RSS feeds, you can use <a href="{{ site.url }}{{ site.baseurl }}/atom.xml">this URL</a>.
