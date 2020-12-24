@@ -220,3 +220,32 @@ section {
 figcaption {
     font-size: smaller;
 }
+
+.accordian {
+    width: 75%;
+    min-height: 5px;
+    max-width: 700px;
+    padding: 45px 45px 45px 45px;
+    margin: 0 auto;
+    position: relative;
+    transition: all .3s;
+}
+  
+.accordian[open] {
+    min-height: 50rem;
+}
+
+.accordian-content {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+.accordian-content:focus {
+    outline: none;
+  }
+  
+.accordian-content::-webkit-details-marker {
+    display: none;
+}
