@@ -26,4 +26,4 @@ title: Bookshelf
 
 <script src="https://www.goodreads.com/review/grid_widget/13473428.Read?cover_size=medium&hide_link=true&hide_title=false&num_books=99&order=a&shelf=read&sort=title&widget_id=1609989893" type="text/javascript" charset="utf-8"></script>
 <br />
-<script src="https://www.goodreads.com/review/grid_widget/13473428.Read?cover_size=medium&hide_link=true&hide_title=true&num_books=39&order=d&shelf=read&sort=title&widget_id=1609989929" type="text/javascript" charset="utf-8"></script>
+<script src="https://www.goodreads.com/review/grid_widget/13473428.Read?cover_size=medium&hide_link=true&hide_title=true&num_books=41&order=d&shelf=read&sort=title&widget_id=1609989929" type="text/javascript" charset="utf-8"></script>
