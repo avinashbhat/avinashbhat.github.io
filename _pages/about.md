@@ -11,7 +11,7 @@ Hello! I'm Avinash. I am a software developer at Cisco Systems, Bangalore.
 
 I am interested in the domain of software engineering, addressing topics like automated code reviews, building and improving developer knowledge base, software traceability among others. My motivation comes from the belief that solving software engineering problems is impactful because our world is software driven.
 
-I work at Cisco Systems where I write code for several tools that improve development process. Based on my experience so far, I think that there is a specific software stack for every use case and I prefer to identify and work on the right set of tools for the job. Being a quick learner and having excellent search skills helps me to solve a problem quickly in a right way.
+At Cisco Systems where I write code for several tools that improve development process. Based on my experience so far, I think that there is a specific software stack for every use case and I prefer to identify and work on the right set of tools for the job. Being a quick learner and having excellent search skills helps me to solve a problem quickly in a right way.
 
 Check out my <a href="{{site.baseurl}}/now">NOW</a> page too.
 <br><br>
