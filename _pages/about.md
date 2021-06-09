@@ -9,9 +9,11 @@ Hello! I'm Avinash. I am a software developer at Cisco Systems, Bangalore.
 <div style="text-align: justify;">
 <img alt="Profile Picture" src="{{site.baseurl}}/assets/images/avinashbhat_image.png" style="float:left;width:350px;padding:25px;"/>
 
-I am experienced in Python, Java and related technologies required for a full stack enterprise web application development. Trained in CI/CD principles and have experience in setting up the pipelines for the same. I have an in depth understanding of system architecture, design patterns and have experience implementing these in a cloud environment (On Premise and AWS). I have proposed and worked on deploying enterprise projects in Machine Learning. 
+I am interested in the domain of software engineering, addressing topics like automated code reviews, building and improving developer knowledge base, software traceability among others. My motivation comes from the belief that solving software engineering problems is impactful because our world is software driven.
 
-Do contact if you want to discuss or collaborate on projects containing above technologies. I usually am <a href="{{site.baseurl}}/now">working on something</a>, but would accomodate if possible.
+I work at Cisco Systems where I write code for several tools that improve development process. Based on my experience so far, I think that there is a specific software stack for every use case and I prefer to identify and work on the right set of tools for the job. Being a quick learner and having excellent search skills helps me to solve a problem quickly in a right way.
+
+Check out my <a href="{{site.baseurl}}/now">NOW</a> page too.
 <br><br>
 <a href="https://drive.google.com/file/d/1IvsaK6OHGBBCzkKWS8gAQYo4MOpjIEK-/view?usp=sharing">
 CV as of 7th December, 2020
