@@ -4,30 +4,30 @@ title: Now
 published: true
 ---
 
-The [/now page movement](https://sive.rs/nowff) was started by Derek Sivers and has [grown massively](https://nownownow.com/). 
-I found it relevant, because I'm usually working on multiple things at any given time and thought that it would be helpful to people.
+The [/now page movement](https://sive.rs/nowff) was started by Derek Sivers and has [grown massively](https://nownownow.com/).
 <br/>
 <br/>
 
 #### Work
- - GANs
- - Graph Theory
- - Snowflake
- - RNNs - I recently worked on a [notebook using the Stack Overflow data](https://www.kaggle.com/avinashbhat/simplernn-on-stack-overflow-data) on Kaggle. A post on this soon.
+ - Conversation Entanglement
+ - Software Quality
 <br/>
 <br/>
 
 #### Fun Stuff
  - Since the quarantine started, I was finding some funky ways to maintain fitness - discovered jumping rope! Didn't really know that there is a [federation](https://ijru.sport/) for it either. Working on my [toad skills](https://www.youtube.com/watch?v=RnRUwLtR33g).
-- Learning French on Duolingo! Reached Day 93.
+ - Learning French on Duolingo! Reached Day 238.
+ - Carnatic flute :)
 <br/>
 <br/>
 
 #### Artists
- - [Karnatriix](https://open.spotify.com/artist/0rhuXpjseoAieJYuBKQwR6?autoplay=true)
- - [Electro Swing](https://open.spotify.com/playlist/37i9dQZF1DX3bH0P2uDnWA?si=hkfbLWA6Q_-kixKOtV2WCA)
- - [Rock Classics](https://open.spotify.com/playlist/37i9dQZF1DWXRqgorJj26U)
+These two versions of Endaro Mahanubhavulu are on loop.
+- [Dr. M. Balamuralikrishna](https://www.youtube.com/watch?v=Kh1JIO6Ccr4&ab_channel=CarnaticClassical)
+- [Uthara & P Unnikrishnan](https://www.youtube.com/watch?v=9bcBbRQ7VDQ&ab_channel=StrummSpiritualStrummSpiritual)
+Also been listening to [Agam](https://open.spotify.com/artist/4DHXXUP4qza7DacDKVT23G).
 <br/>
 <br/>
 
 #### Shows / Movies
+ - Sopranos
