@@ -26,7 +26,7 @@ CV as of 7th December, 2020
 <p>Back then I worked on recommender systems, under the guidance of <a href="https://scholar.google.co.in/citations?user=4goUOJsAAAAJ&hl=en">Dr. Anitha C</a>. We were able to present our research in ISCCDA 2017 and IEMIS 2018. Proceedings of the latter was published in <a href="https://link.springer.com/chapter/10.1007/978-981-13-1498-8_8">Springer</a>.</p>
 
 <p>Nowadays, I have been interested in Software Analysis and improving developer experience. You could probably <a href="{{site.baseurl}}/2020/12/18/szz">go through</a> <a href="{{site.baseurl}}/2020/10/07/deepdelta">some of</a> <a href="{{site.baseurl}}/2020/10/04/contributor-feedback-on-usability">my</a> <a href="{{site.baseurl}}/2020/09/28/using-argumentation-models-to-model-issue-threads">posts</a> if you want to understand what this field entails.</p>
-<p>This blog contains information that I came across in my academic as well as corporate pursuits and for the most part written for my own reference. If you can get anything out of it, that's great! If you find that I have misunderstood anything, please do drop me a message. Thanks for reading this rant all the way! :)</p>
+<p>This blog contains information that I came across in my career and for the most part written for my own reference. If you can get anything out of it, that's great! If you find that I have misunderstood anything, please do drop me a message. Thanks! :)</p>
 
 <details class=accordion style="text-align: center;">
 <summary class="accordian-content" style="font-weight: bold;">
