@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Don't call yourself a Computer Science student until you read (or watch) these.."
-description: "Don't call yourself a Computer Science student until you read (or watch) these.."
+title: "Things that inspire me towards research."
+description: "I watch these from time to time to get motivated."
 summary: "Some interesting articles and videos for motivation to pursue Computer Science."
 date: 2020-11-01T00:00:00.000Z
 category: blog
@@ -11,8 +11,6 @@ tags:
   - reading-recommendation
 published: true
 ---
-
-The field of computer science and engineering evolves at a really fast pace, infact you will always be a *student*. That's why the title of this page is such. 
 
 These are some amazing thought processes by really great minds that inspired me to pursue computer science. I hope you find it interesting as well! 
 
