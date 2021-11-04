@@ -3,8 +3,8 @@ links:
   url: /
 - title: About
   url: /about
-- title: Now
-  url: /now
+# - title: Now
+#   url: /now
 - title: Bookshelf
   url: /bookshelf
 - title: Search
