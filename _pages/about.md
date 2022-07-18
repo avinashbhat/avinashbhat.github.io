@@ -2,7 +2,8 @@
 layout: page
 title: About
 ---
-
+{% include twitter.html %}
+<section class="posts">
 Hello! I'm Avinash. I am a graduate Masters student at McGill University, Montreal. I'm advised by <a href="https://www.cs.mcgill.ca/~jguo/">Professor Jin Guo</a> at the McGill Software Technology lab.
 
 
@@ -43,3 +44,4 @@ Get in touch with me!
 
 <p>If you want to add this blog to any of your RSS feeds, you can use <a href="{{ site.url }}{{ site.baseurl }}/atom.xml">this URL</a>.</p>
 </div>
+</section>
