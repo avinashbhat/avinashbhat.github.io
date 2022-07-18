@@ -1,11 +1,11 @@
 links:
-- title: Blog
-  url: /
+# - title: Blog
+#   url: /
 - title: About
-  url: /about
+  url: /
 # - title: Now
 #   url: /now
 - title: Bookshelf
   url: /bookshelf
-- title: Search
-  url: /search
+# - title: Search
+#   url: /search
