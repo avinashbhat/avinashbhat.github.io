@@ -2,7 +2,6 @@
 layout: page
 title: About
 ---
-{% include twitter.html %}
 <section class="posts">
 Hello! I'm Avinash. I am a graduate Masters student at McGill University, Montreal. I'm advised by <a href="https://www.cs.mcgill.ca/~jguo/">Professor Jin Guo</a> at the McGill Software Technology lab.
 
