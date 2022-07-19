@@ -6,6 +6,32 @@ layout: compress
 <html lang="en" >
   {% include head.html %}  
   <body>
+    <script>
+      function showTheme() {
+        const btn = document.getElementById("toggle-dark-light");
+        let toggleIcon = btn.firstElementChild;
+        console.log(document.body);
+        const currentTheme = localStorage.getItem("theme");
+        if (currentTheme === "dark") {
+          document.body.classList.toggle("dark-theme");
+          toggleIcon.className = "fa-solid fa-sun";
+        } else if (currentTheme === "light") {
+          document.body.classList.toggle("light-theme");
+          toggleIcon.className = "fa-solid fa-moon";
+        }
+      }
+      
+      function showContent() {
+        document.body.style.visibility = 'visible';
+        document.body.style.opacity = 1;
+      }
+    
+      window.addEventListener('DOMContentLoaded', (event) => {
+        showTheme();
+        showContent();
+      });
+    </script>
+
     <main role="main">
 	    {% include navigation.html %}
     

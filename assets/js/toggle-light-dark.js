@@ -1,53 +1,29 @@
-let systemInitiatedDark = window.matchMedia("(prefers-color-scheme: dark)"); 
-let theme = sessionStorage.getItem('theme');
+const btn = document.getElementById("toggle-dark-light");
 
-if (systemInitiatedDark.matches) {
-	document.getElementById("theme-toggle").innerHTML = "Light Mode";
-} else {
-	document.getElementById("theme-toggle").innerHTML = "Dark Mode";
-}
+let toggleIcon = btn.firstElementChild;
 
-function prefersColorTest(systemInitiatedDark) {
-  if (systemInitiatedDark.matches) {
-  	document.documentElement.setAttribute('data-theme', 'dark');		
-   	document.getElementById("theme-toggle").innerHTML = "Light Mode";
-   	sessionStorage.setItem('theme', '');
-  } else {
-  	document.documentElement.setAttribute('data-theme', 'light');
-    document.getElementById("theme-toggle").innerHTML = "Dark Mode";
-    sessionStorage.setItem('theme', '');
-  }
-}
+const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+btn.addEventListener("click", function () {
+    if (prefersDarkScheme.matches) {
+      	document.body.classList.toggle("light-theme");
+      	var theme = document.body.classList.contains("light-theme")
+        ? "light"
+        : "dark";
+      toggleIconFn(theme);
+    } else {
+    	document.body.classList.toggle("dark-theme");
+      	var theme = document.body.classList.contains("dark-theme")
+					? "dark"
+					: "light";
+      	toggleIconFn(theme);
+    }
+    localStorage.setItem("theme", theme);
+  });
 
-systemInitiatedDark.addEventListener("change", prefersColorTest);
-
-function modeSwitcher() {
-	let theme = sessionStorage.getItem('theme');
-	if (theme === "dark") {
-		document.documentElement.setAttribute('data-theme', 'light');
-		sessionStorage.setItem('theme', 'light');
-		document.getElementById("theme-toggle").innerHTML = "Dark Mode";
-	}	else if (theme === "light") {
-		document.documentElement.setAttribute('data-theme', 'dark');
-		sessionStorage.setItem('theme', 'dark');
-		document.getElementById("theme-toggle").innerHTML = "Light Mode";
-	} else if (systemInitiatedDark.matches) {	
-		document.documentElement.setAttribute('data-theme', 'light');
-		sessionStorage.setItem('theme', 'light');
-		document.getElementById("theme-toggle").innerHTML = "Dark Mode";
-	} else {
-		document.documentElement.setAttribute('data-theme', 'dark');
-		sessionStorage.setItem('theme', 'dark');
-		document.getElementById("theme-toggle").innerHTML = "Light Mode";
-	}
-}
-
-if (theme === "dark") {
-	document.documentElement.setAttribute('data-theme', 'dark');
-	sessionStorage.setItem('theme', 'dark');
-	document.getElementById("theme-toggle").innerHTML = "Light Mode";
-} else if (theme === "light") {
-	document.documentElement.setAttribute('data-theme', 'light');
-	sessionStorage.setItem('theme', 'light');
-	document.getElementById("theme-toggle").innerHTML = "Dark Mode";
-}
+    const toggleIconFn = (theme) => {
+    if (theme === "dark") {
+      toggleIcon.className = "fa-solid fa-sun";
+    } else {
+      toggleIcon.className = "fa-solid fa-moon";
+    }
+  };

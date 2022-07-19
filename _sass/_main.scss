@@ -10,14 +10,35 @@ body {
 	font-family: 'Nunito', sans-serif; 
 	-webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-	line-height:1.4;
-    font-size: 1.2rem;
+	line-height:1.7;
+    font-size: 1.05rem;
 	color: rgb(0, 0, 0);
-	background-color: rgba(256, 256, 256, 0.7);
-	background-image:  linear-gradient(135deg, #E0F1FD 5%, transparent 5%), linear-gradient(225deg, #E0F1FD 5%, transparent 5%), linear-gradient(45deg, #E0F1FD 5%, transparent 5%), linear-gradient(315deg, #E0F1FD 5%, #ffffff 5%);
+	background-color: rgba(255, 255, 255, 0.4);
+	background-image:  linear-gradient(135deg, #E0F1FD 8%, transparent 8%), linear-gradient(225deg, #E0F1FD 8%, transparent 8%), linear-gradient(45deg, #E0F1FD 8%, transparent 8%), linear-gradient(315deg, #E0F1FD 8%, #ffffff 8%);
 	background-position:  8px 0, 8px 0, 0 0, 0 0;
 	background-size: 16px 16px;
 	background-repeat: repeat;
+}
+
+body.dark-theme {
+	color: #eee;
+	background-color: #121212;
+	background-image:  linear-gradient(135deg, #E0F1FD 8%, transparent 8%), linear-gradient(225deg, #E0F1FD 8%, transparent 8%), linear-gradient(45deg, #E0F1FD 8%, transparent 8%), linear-gradient(315deg, #E0F1FD 8%, #000000 8%);
+
+}
+  
+@media (prefers-color-scheme: dark) {
+	body {
+	color: #eee;
+	background-color: #121212;
+	background-image:  linear-gradient(135deg, #E0F1FD 8%, transparent 8%), linear-gradient(225deg, #E0F1FD 8%, transparent 8%), linear-gradient(45deg, #E0F1FD 8%, transparent 8%), linear-gradient(315deg, #E0F1FD 8%, #000000 8%);
+
+}
+	body.light-theme {
+	color: #222;
+	background-color: #fff;
+	background-image:  linear-gradient(135deg, #E0F1FD 8%, transparent 8%), linear-gradient(225deg, #E0F1FD 8%, transparent 8%), linear-gradient(45deg, #E0F1FD 8%, transparent 8%), linear-gradient(315deg, #E0F1FD 8%, #ffffff 8%);
+}
 }
 
 nav ul {
@@ -25,7 +46,6 @@ nav ul {
 }
 
 a {
-    color: #000;
     text-decoration-skip-ink: auto;
     text-decoration: underline;
 }
@@ -252,31 +272,4 @@ figcaption {
   
 .accordian-content::-webkit-details-marker {
     display: none;
-}
-
-html, html[data-theme="light"] {
-	--link-color: rgb(0, 112, 201);
-  --main-background-color: hsl(0, 0%, 90%);
-  --main-text-color: hsl(0, 0%, 20%);
-}
-
-html[data-theme="dark"] {
-  --link-color: rgb( 100, 210, 255);
-  --main-background-color: hsl(0, 0%, 20%);
-  --main-text-color: hsl(0, 0%, 85%); 
-}
-
-
-@media (prefers-color-scheme: dark) {
-    html, html[data-theme="dark"] {
-      --link-color: rgb( 100, 210, 255);
-    	--main-background-color: hsl(0, 0%, 20%);
-    	--main-text-color: hsl(0, 0%, 85%); 
-    }
-
-    html[data-theme="light"] {
-		  --link-color: rgb(0, 112, 201);
-    	--main-background-color: hsl(0, 0%, 90%);
-  	 --main-text-color: hsl(0, 0%, 20%);
-  } 
 }

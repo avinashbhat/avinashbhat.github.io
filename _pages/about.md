@@ -11,10 +11,10 @@ I am a Masters student at <a href="https://www.cs.mcgill.ca/">McGill University,
 
 <div style="text-align: justify;">
 <div style="float:left;width:300px;padding-top:10px;padding-right:25px;padding-bottom:5px;padding-left:5px"><img alt="Profile Picture" src="{{site.baseurl}}/assets/images/avinashbhat_image_1.png" style="box-shadow:2px 2px;" /> </div>
-<p>I work at the intersection of software engineering, human-computer interaction and machine learning with a goal of improving developer experience by building tools that solve specific software engineering, collaboration and development workflow problems. My research usually leverages statistical analysis of "big" software data as well as user studies for requirement and usability analysis. Most of the work is open source and is available on my <a href="https://github.com/avinashbhat">GitHub</a>.
+<p>I work at the intersection of software engineering, human-computer interaction and machine learning with a goal of improving developer experience by building tools that solve specific software engineering, collaboration and development workflow problems (tl;dr: I build developer tools). My research usually leverages statistical analysis of "big" software data as well as user studies for requirement and usability analysis. Most of the work is open source and is available on my <a href="https://github.com/avinashbhat">GitHub</a>.
 </p>
 <p>
-Previously I was a Software Engineer at <a href="https://www.cisco.com/c/en_in/index.html">Cisco Systems, Bangalore</a> where I wrote code for several tools that did code reviews, deployment and overall improved software engineering processes. I was part of major enterprise software releases and maintainance releases for few projects and built multiple machine learning based proof of concepts.
+Previously I was a Software Engineer at <a href="https://www.cisco.com/c/en_in/index.html">Cisco Systems, Bangalore</a> where I wrote code for several tools that did code reviews, deployment and overall improved software engineering processes. I was part of major enterprise software releases and several maintainance releases for few projects and built multiple machine learning proof of concepts.
 </p>
 
 <p>
@@ -25,4 +25,4 @@ I am an amateur flautist and also play the ukulele at times. I enjoy hiking, coo
 </p>
 
 <p>
-Best way to reach me is through <a href="mailto:avinashbhatneelavar@gmail.com?&body=Hi Avinash! I'm contacting you through your website.">emailing</a> me. I respond to collaboration, hiring, contract (might not accept these unless they're interesting) and consulting (preferably for non-profits) proposals. Resume/CV <a href="{{site.url}}/cv">available on request</a>.
+Best way to reach me is through <a href="mailto:avinashbhatneelavar@gmail.com?&body=Hi Avinash! I'm contacting you through your website.">emailing</a> me. I respond to collaboration, hiring, contract (might not accept these unless they're interesting) and consulting (preferably for non-profits) proposals. Resume/CV <a href="{{site.baseurl}}/cv">available on request</a>.
