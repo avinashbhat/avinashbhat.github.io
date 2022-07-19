@@ -3,4 +3,4 @@ layout: page
 title: Projects & Publications
 ---
 
-Under construction. You might have better luck with my [GitHub](https://github.com/avinashbhat).
+Under construction. If you're impatient, here's my [GitHub](https://github.com/avinashbhat). 
