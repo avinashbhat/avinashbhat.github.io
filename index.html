@@ -1,54 +1,3 @@
-<!-- ---
-layout: default
----
-<section class="posts">
-    <h1 style="border-bottom: 1px solid #edf2f7; padding-bottom:8px; margin-bottom:20px">Posts</h1>
-<ul>
-{% for post in paginator.posts %}
-<li>
-    <a href="{{ site.baseurl }}{{ post.url }}" style="font-size: 1.4rem; font-weight:bold;">{{ post.title }}</a>
-    <time class=datetime-class datetime="{{ post.date | date_to_xmlschema }}">
-        {{ post.date | date: "%d/%b/%Y" }}
-    </time>
-</li>
-<div style="padding-bottom: 3rem;">
-    <span style="font-size:1.1rem;">{{ post.summary }}</span>
-</div>
-{% endfor %}
-</ul>
-
-{% if paginator.total_pages > 1 %}
-<div class="pagination" style="text-align: center;">
-  {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; Prev</a>
-  {% else %}
-    <span>&laquo; Prev</span>
-  {% endif %}
-
-  {% for page in (1..paginator.total_pages) %}
-  <span style="padding: 0.2rem;">
-    {% if page == paginator.page %}
-      <b>{{ page }}</b>
-    {% elsif page == 1 %}
-      <a href="/">{{ page }}</a>
-    {% else %}
-      <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
-    {% endif %}
-   </span> 
-  {% endfor %}
-
-  {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | relative_url }}">Next &raquo;</a>
-  {% else %}
-    <span>Next &raquo;</span>
-  {% endif %}
-</div>
-{% endif %}
-
-</section>
-{% include twitter.html %}
- -->
-
 ---
 layout: compress
 ---
@@ -57,13 +6,12 @@ layout: compress
 <html lang="en" >
   {% include head.html %}  
   <meta charset="utf-8">
-<title>Redirecting to https://avinashbhat.github.io/about</title>
-<meta http-equiv="refresh" content="0; URL=https://avinashbhat.github.io/about">
-<link rel="canonical" href="https://avinashbhat.github.io/about">
+<title>Redirecting to {{site.baseurl}}/about</title>
+<meta http-equiv="refresh" content="1; URL={{site.baseurl}}/about">
+<link rel="canonical" href="{{site.baseurl}}/about">
   <body>
-    <!-- <main role="main">
-	    {% include navigation.html %}
-        {{ content }}    
-    </main> -->
+    <p style="text-align: center; align-items: center;">
+    Redirecting to {{site.baseurl}}/about
+    </p>
   </body>
 </html>

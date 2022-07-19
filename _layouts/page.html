@@ -4,6 +4,8 @@ layout: default
 
 <section class="post">
   <h2 style="border-bottom: 1px solid #edf2f7;padding-bottom:8px;margin-bottom:20px">{{ page.title }}</h2>
+  <script src="/assets/js/toggle-light-dark.js" type="text/javascript"></script>
+  <a href="{{page.url}}" id="theme-toggle" onclick="modeSwitcher()" style="cursor: pointer;"></a>
   {{ content }}
 </section>
 
