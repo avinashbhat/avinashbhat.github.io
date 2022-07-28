@@ -63,6 +63,7 @@ GEM
     unicode-display_width (1.8.0)
 
 PLATFORMS
+  ruby
   universal-darwin-21
 
 DEPENDENCIES
@@ -72,4 +73,4 @@ DEPENDENCIES
   jekyll-sitemap
 
 BUNDLED WITH
-   2.3.18
+   2.3.19
