@@ -3,6 +3,7 @@ layout: page
 title: News
 published: true
 ---
+- **[September, 2022]** TA'ing [COMP 307](https://www.mcgill.ca/study/2022-2023/courses/comp-307) in Fall 2022.
 - **[May, 2022]** I will continue to work at the McGill Software Technology lab over the summer.
 - **[April, 2022]** Our paper <a href="https://arxiv.org/abs/2204.06425">"Aspirations and Practice of Model Documentation: Moving the Needle with Nudging and Traceability"</a> is available on arXiv.
 - **[January, 2022]** TA'ing [COMP 303](https://github.com/jin-guo/COMP303_Winter2022) in Winter 2022.
