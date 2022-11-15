@@ -18,6 +18,6 @@ I am a Masters student at <a href="https://www.cs.mcgill.ca/">McGill University,
 <div style="text-align: justify;">
 <div style="float:left;width:300px;padding-top:10px;padding-right:25px;padding-bottom:5px;padding-left:5px"><img alt="Profile Picture" src="{{site.baseurl}}/assets/images/avinashbhat_image_1.png" style="box-shadow:2px 2px;" /> </div>
 
-<p onclick="staboutme(this)"><a href="#">Read More.</a></p><p>
+<p onclick="smtaboutme(this)"><a href="#">Read More.</a></p><p>
 Best way to reach me is through <a href="mailto:avinashbhatneelavar@gmail.com?&body=Hi Avinash! I'm contacting you through your website.">emailing</a> me. Resume/CV <a href="{{site.baseurl}}/cv">available on request</a>.
 <!-- I respond to collaboration, hiring, contract (might not accept these unless they're interesting) and consulting (preferably for non-profits) proposals. -->
