@@ -3,7 +3,9 @@ layout: page
 title: Bookshelf
 ---
 
-> “One glance at a book and you hear the voice of another person, perhaps someone dead for 1,000 years. To read is to voyage through time.” – Carl Sagan
+Access my bookshelf on [Goodreads](https://www.goodreads.com/review/list/13473428?shelf=%23ALL%23).
+
+<!-- > “One glance at a book and you hear the voice of another person, perhaps someone dead for 1,000 years. To read is to voyage through time.” – Carl Sagan
 
 <br />
 
@@ -26,4 +28,4 @@ title: Bookshelf
 
 <script src="https://www.goodreads.com/review/grid_widget/13473428.Read?cover_size=medium&hide_link=true&hide_title=false&num_books=99&order=a&shelf=read&sort=title&widget_id=1609989893" type="text/javascript" charset="utf-8"></script>
 <br />
-<script src="https://www.goodreads.com/review/grid_widget/13473428.Read?cover_size=medium&hide_link=true&hide_title=true&num_books=41&order=d&shelf=read&sort=title&widget_id=1609989929" type="text/javascript" charset="utf-8"></script>
+<script src="https://www.goodreads.com/review/grid_widget/13473428.Read?cover_size=medium&hide_link=true&hide_title=true&num_books=41&order=d&shelf=read&sort=title&widget_id=1609989929" type="text/javascript" charset="utf-8"></script> -->
