@@ -20,7 +20,7 @@ body {
 	background-repeat: repeat;
 }
   
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light-theme) {
 	body {
 	background-color: rgba(0, 0, 0, 0.7); // make this gray
 	color: rgba(255, 255, 255, 0.7);
