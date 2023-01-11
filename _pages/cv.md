@@ -1,18 +1,20 @@
 ---
 layout: page
-title: Resume/Curriculum Vitae
+title: Resume
 ---
 <div style="border:1px solid black; padding-top:2rem; padding-left:2rem; padding-right:2rem; padding-bottom:1rem;">
-<div style="float:right;"><a href="https://drive.google.com/uc?export=download&id=1IMM6NPZQRA5wDkuCJ3WbnmZckrNU5tEn" download="avinash_bhat_cv.pdf"><i class="fa-solid fa-download"></i></a></div>
-<br>
 <p>
     <div style="display: flex; justify-content: space-between;">
-        <h2>AVINASH BHAT</h2>
-        <div style="text-align: center; font-size: 80%;">
-            <strong><a href="mailto:avinashbhatneelavar@gmail.com">Mail</a></strong> | 
+        <div style="display: inline;">
+        <h2 style="display: inline;">AVINASH BHAT</h2>
+        <div style="margin-left: 5px;  display: inline; text-align: center; font-size: 80%;">
+            | <strong><a href="mailto:avinashbhatneelavar@gmail.com">Mail</a></strong> | 
             <strong><a href="https://avinashbhat.github.io/about">Website</a></strong> | 
             <strong>+1 (438) 722-2917</strong> | 
-            <strong><a href="https://www.linkedin.com/in/avinbhat">LinkedIn</a></strong></div>
+            <strong><a href="https://www.linkedin.com/in/avinbhat">LinkedIn</a></strong>
+        </div>
+        </div>
+        <div style="display: inline;"><a href="https://drive.google.com/uc?export=download&id=1IMM6NPZQRA5wDkuCJ3WbnmZckrNU5tEn" download="avinash_bhat_cv.pdf"><i class="fa-solid fa-download"></i></a></div>
     </div>
 </p>
 <hr>
