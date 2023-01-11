@@ -17,16 +17,31 @@ title: Resume/Curriculum Vitae
 </p>
 <hr>
 <div style="font-size:80%">
-<h3>Education</h3>
-<p><b>Master of Science (Thesis)</b>, Computer Science<br>
+<div style="margin-top: 1rem;">
+<h3 style="display: inline; margin-right: 5px;">Education</h3><span id="info-sm"><i class='fa-solid fa-caret-down'></i></span>
+</div>
+<p>
+<div><span style="display: flex; justify-content: space-between;">
+<span><b>Master of Science (Thesis)</b>, <i>Computer Science</i>
+</span>
+<span>September 2021 - Present</span>
+</span>
 McGill University, Montreal, Canada<br>
-<b>Advisor:</b> Prof. Jin Guo<br>
+</div>
+<div id="mcgill-info" style="display:none;"><b>Advisor:</b> Prof. Jin Guo<br>
 <b>Relevant Coursework:</b> Intelligent Software Systems, Natural Language Processing,
-Compiler Design, Applied Machine Learning, Network Science</p>
-<p><b>Bachelor of Engineering</b>, Computer Science and Engineering<br>
+Compiler Design, Applied Machine Learning, Network Science</div></p>
+<p><div>
+<span style="display: flex; justify-content: space-between;">
+<span><b>Bachelor of Engineering</b>, <i>Computer Science and Engineering</i>
+</span>
+<span>September 2014 - May 2018</span>
+</span>
 National Institute of Engineering, Mysuru, India<br>
+</div><div id="nie-info" style="display:none;">
 <b>Final Project:</b> WikiContext: Summarized annotation of Wikipedia articles<br>
 <b>Relevant Coursework:</b> Data Structures, Algorithms, Computer Architecture, Operating Systems
+</div>
 <p>
 <hr>
 <h3>Publications</h3>
@@ -46,12 +61,12 @@ Research on metrics to analyze risk of editing a code file using complexity meas
 <div style="display: flex; justify-content: space-between;">
 <span><b>Software Engineer I</b>, <i>Cisco Systems India</i></span><span>July 2018 - May 2021</span>
 </div>
-<i>Peer Review Request Queue</i>, A code and document review tool used by more than 10000
+<i>Peer Review Request Queue</i>, A code and document review tool used by more than 10k
 developers in Cisco.
 <ul>
 <li>Proposed and developed a novel architecture that improved the review initialization
 process from 15 minutes to under 20 seconds (∼97% improvement).</li>
-<li>Independently researched on code reviewer prediction (with more than 10000 reviews
+<li>Independently researched on code reviewer prediction (with more than 10k reviews
 being created per quarter, this saves about 150 developer hours).</li>
 <li>Developed a Snowflake warehousing schema and ingestion scripts from the existing
 tables enabling better data extraction and mapping between data from multiple
@@ -64,7 +79,7 @@ components.</li>
 transcripts and news articles with explainable presentation for better decision making.</li>
 <li>Trained and enabled an online learning pipeline for a custom NER model for recognising the Cisco supply chain entities.</li></ul>
 
-<i>HealthWatch</i>, A framework for monitoring the application logs and piping the alerts to Cisco WebEx Teams.
+<i>HealthWatch</i>, A framework for monitoring the application logs and forwarding the alerts to Cisco WebEx Teams.
 <ul>
 <li>Development, product management and user onboarding.</li>
 </ul>
@@ -91,9 +106,8 @@ transcripts and news articles with explainable presentation for better decision 
 <hr>
 <h3>Skills</h3>
 <p>
-<b>Languages</b>: Python, Java, JavaScript, SQL<br>
-<b>Libraries/Frameworks</b>: PyTorch, Keras, Flask, Django, Spring Boot, Hibernate, React, Docker,
-Snowflake, Oracle 11g, UiPath
+<b>Languages:</b> Python, Java, JavaScript, SQL<br>
+<b>Libraries/Frameworks</b>: PyTorch, Keras, Flask, Django, Spring Boot, Hibernate, React, Docker, Snowflake, Oracle, MySQL
 <div style="font-size: 70%">Find personal and coursework projects at my <a href="https://github.com/avinashbhat">GitHub</a>.</div>
 </p>
 <hr>
@@ -105,3 +119,24 @@ Snowflake, Oracle 11g, UiPath
 <li><b>Speaker</b>, Induction Event, CSE Class of 2023, National Institute of Engineering</li>
 <li><b>Student Mentor</b>, CSE Class of 2021, National Institute of Engineering</li>
 </ul>
+
+<script>
+    function toggleEduText() {
+        elements = ['mcgill-info', 'nie-info'];
+        for(let i = 0; i < elements.length; i++) {
+            const el = document.getElementById(elements[i]);
+            if (el.style.display == "none") {
+                el.style.display = "inline";
+            } else {
+                el.style.display = "none";
+            }
+        }
+        const tel = document.getElementById('info-sm');
+        if (tel.innerHTML == '<i class="fa-solid fa-caret-down"></i>')
+            tel.innerHTML = '<i class="fa-solid fa-caret-up"></i>';
+        else 
+            tel.innerHTML = '<i class="fa-solid fa-caret-down"></i>';
+    }
+    const el = document.getElementById('info-sm');
+    el.addEventListener("click", toggleEduText);
+</script>
