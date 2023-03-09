@@ -3,6 +3,8 @@ layout: page
 title: News
 published: true
 ---
+- **[March, 2023]** I will be starting my PhD at McGill University starting Fall 2023!
+- **[March, 2023]** Our position paper "Approach Intelligent Writing Assistants Usability with Seven Stages of Action" is accepted to the 2nd <a href="https://in2writing.glitch.me/">In2Writing</a> workshop co-located with CHI 2023.
 - **[January, 2023]** Our paper <a href="https://arxiv.org/abs/2204.06425">"Aspirations and Practice of Model Documentation: Moving the Needle with Nudging and Traceability"</a> is accepted to <a href="https://chi2023.acm.org/">CHI 2023</a>.
 - **[January, 2023]** TA'ing [COMP 303](https://github.com/jin-guo/COMP303) in Winter 2023.
 - **[September, 2022]** TA'ing [COMP 307](https://www.mcgill.ca/study/2022-2023/courses/comp-307) in Fall 2022.
