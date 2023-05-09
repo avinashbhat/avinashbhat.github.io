@@ -14,7 +14,7 @@ title: Resume
             <strong><a href="https://www.linkedin.com/in/avinbhat">LinkedIn</a></strong>
         </div>
         </div>
-        <div style="display: inline;"><a href="https://drive.google.com/uc?export=download&id=1IMM6NPZQRA5wDkuCJ3WbnmZckrNU5tEn" download="avinash_bhat_cv.pdf"><i class="fa-solid fa-download"></i></a></div>
+        <div style="display: inline;"><a href="https://drive.google.com/uc?export=download&id=1Ldi766DVMjMX6oTlGDIBT8cp3_mV_xKr" download="avinash_bhat_cv.pdf"><i class="fa-solid fa-download"></i></a></div>
     </div>
 </p>
 <hr>
