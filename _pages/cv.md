@@ -49,6 +49,13 @@ National Institute of Engineering, Mysuru, India<br>
 <h3>Publications</h3>
 <p>
 <ul>
+<li>Approach Intelligent Writing Assistants Usability with Seven Stages of Action
+Avinash Bhat, Disha Shrivastava, Jin L.C. Guo.<br> <a href="https://arxiv.org/abs/2304.02822">ArXiv</a> - In2Writing 2023</li>
+<li>SUMMIT: Scaffolding Open Source Software Issue Discussion through Summarization. Saskia
+Gilmer, Avinash Bhat, Shuvam Shah, Kevin Cherry, Jinghui Cheng, Jin L.C. Guo.<br> CSCW 2023</li>
+<li>Aspirations and Practice of Model Documentation: Moving the Needle with Nudging and
+Traceability. Avinash Bhat*, Austin Coursey*, Grace Hu, Sixian Li, Nadia Nahar, Shurui Zhou,
+Christian Kästner, Jin L.C. Guo.<br> *Equal Contribution | <a href="https://dl.acm.org/doi/10.1145/3544548.3581518">ACM</a> - SIGCHI 2023</li>
 <li>A Novel Deterministic Framework for Non-probabilistic Recommender Systems**.<br> <b>Avinash Bhat*</b>, Divya Madhav Kamath*, and C. Anitha. In <i>Advances in Intelligent Systems and Computing (2018)</i>.<br> *Equal Contribution **Code available</li>
 </ul>
 </p>
