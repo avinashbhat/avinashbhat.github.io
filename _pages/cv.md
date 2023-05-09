@@ -56,7 +56,8 @@ Gilmer, <b>Avinash Bhat</b>, Shuvam Shah, Kevin Cherry, Jinghui Cheng, Jin L.C. 
 <li>Aspirations and Practice of Model Documentation: Moving the Needle with Nudging and
 Traceability.<br><b>Avinash Bhat*</b>, Austin Coursey*, Grace Hu, Sixian Li, Nadia Nahar, Shurui Zhou,
 Christian Kästner, Jin L.C. Guo.<br> *Equal Contribution | <a href="https://dl.acm.org/doi/10.1145/3544548.3581518">ACM</a> - SIGCHI 2023</li>
-<li>A Novel Deterministic Framework for Non-probabilistic Recommender Systems**.<br> <b>Avinash Bhat*</b>, Divya Madhav Kamath*, and C. Anitha. In <i>Advances in Intelligent Systems and Computing (2018)</i>.<br> *Equal Contribution **Code available</li>
+<li>A Novel Deterministic Framework for Non-probabilistic Recommender Systems**.<br> <b>Avinash Bhat*</b>, Divya Madhav Kamath*, and C. Anitha.<br> *Equal Contribution | <a href="https://link.springer.com/chapter/10.1007/978-981-13-1498-8_8">AISC</a> - IEMIS 2018</li>
+
 </ul>
 </p>
 <hr>
