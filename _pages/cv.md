@@ -72,7 +72,7 @@ Research on metrics to analyze risk of editing a code file using complexity meas
 </div>
 <i>Peer Review Request Queue</i>, A code and document review tool used by more than 10k
 developers in Cisco.
-<ul>
+<!-- <ul>
 <li>Proposed and developed a novel architecture that improved the review initialization
 process from 15 minutes to under 20 seconds (∼97% improvement).</li>
 <li>Independently researched on code reviewer prediction (with more than 10k reviews
@@ -81,17 +81,17 @@ being created per quarter, this saves about 150 developer hours).</li>
 tables enabling better data extraction and mapping between data from multiple
 projects, as part of a data driven release management initiative for Cisco software
 components.</li>
-</ul>
+</ul> -->
 <i>Macrosensing</i>, Aiding Cisco Supply Chain decisions using earnings call transcripts and aggregated news data.
-<ul>
+<!-- <ul>
 <li>Proposed and developed a ML system to capture relevant content from earnings call
 transcripts and news articles with explainable presentation for better decision making.</li>
-<li>Trained and enabled an online learning pipeline for a custom NER model for recognising the Cisco supply chain entities.</li></ul>
+<li>Trained and enabled an online learning pipeline for a custom NER model for recognising the Cisco supply chain entities.</li></ul> -->
 
 <i>HealthWatch</i>, A framework for monitoring the application logs and forwarding the alerts to Cisco WebEx Teams.
-<ul>
+<!-- <ul>
 <li>Development, product management and user onboarding.</li>
-</ul>
+</ul> -->
 </p>
 <p style="display: flex; justify-content: space-between;">
 <span><b>Intern</b>, <i>Cisco Systems India</i></span><span>January - June, 2018</span></p>
@@ -107,9 +107,8 @@ transcripts and news articles with explainable presentation for better decision 
 <h4>Teaching</h4>
 <p>
 <ul>
-<li>Software Design, TA, Winter 2023</li>
+<li>Software Design, TA, Winter 2023, Winter 2022</li>
 <li>Introduction to Web Development, TA, Fall 2022</li>
-<li>Software Design, TA, Winter 2022</li>
 <li>Introduction to Computer Science, TA, Fall 2021</li>
 </ul></p>
 <hr>
