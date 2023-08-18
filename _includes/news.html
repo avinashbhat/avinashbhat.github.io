@@ -1,0 +1,7 @@
+<h3>News</h3>
+
+<ul>
+  {% for news_item in site.data.news %}
+    <li>{{ news_item.entry | markdownify }}</li>
+  {% endfor %}
+</ul>

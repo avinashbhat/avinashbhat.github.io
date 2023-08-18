@@ -3,11 +3,11 @@ links:
 #   url: /
 - title: About
   url: /about
-- title: News
-  url: /news
-- title: Resume
-  url: /cv
-- title: Projects
-  url: /projects
-- title: Bookshelf
-  url: /bookshelf
+# - title: News
+#   url: /news
+# - title: Resume
+#   url: /cv
+# - title: Projects
+#   url: /projects
+# - title: Bookshelf
+#   url: /bookshelf
