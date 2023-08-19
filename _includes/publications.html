@@ -2,23 +2,22 @@
 <ul>
   {% for publication in site.data.publications %}
     <li>
-      <b>
-        <a href="{{ publication.link }}">{{ publication.title }}</a></b>, <i>{{ publication.conference }}</i>
+      {{ publication.title }} <a href="{{ publication.link }}"><i class="fas fa-link"></i></a>
       <br> 
       {% assign authors = publication.authors | split: ',' %}
       {% assign coauthor = false %}
       {% for author in authors %}
         {% if author contains 'Avinash Bhat' %}
-          <strong>{{ author }}</strong>{% if forloop.last %}.{% else %}, {% endif %}
+          <strong>{{ author }}</strong>{% if forloop.last %} <i>({{ publication.conference }})</i>{% else %}, {% endif %}
         {% else %}
-          {{ author }}{% if forloop.last %}.{% else %}, {% endif %}
+          {{ author }}{% if forloop.last %} <i>({{ publication.conference }})</i>{% else %}, {% endif %}
         {% endif %}
         {% if author contains '*' %}
         {% assign coauthor = true %}
         {% endif %}
       {% endfor %}
       {% if coauthor %}
-          <i>* Equal contribution</i>
+          <i>*Equal contribution</i>
         {% endif %}
     </li>
   {% endfor %}
