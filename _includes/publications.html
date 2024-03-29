@@ -2,7 +2,7 @@
 <ul>
   {% for publication in site.data.publications %}
     <li>
-      {{ publication.title }} <a href="{{ publication.link }}"><i class="fas fa-link"></i></a>
+      <u>{{ publication.title }}</u> <a href="{{ publication.link }}"><i class="fas fa-link"></i></a>
       <br> 
       {% assign authors = publication.authors | split: ',' %}
       {% assign coauthor = false %}
