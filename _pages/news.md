@@ -3,6 +3,7 @@ layout: page
 title: News
 published: true
 ---
+- **[August, 2023]** Our paper "Do LLMs Meet the Needs of Software Tutorial Writers? Opportunities and Design Implications"</a> is accepted to <a href="https://dis.acm.org/2024/">DIS 2024</a>.
 - **[August, 2023]** Our paper <a href="https://arxiv.org/abs/2308.02780">"SUMMIT: Scaffolding Open Source Software Issue Discussion through Summarization"</a> is accepted to <a href="https://cscw.acm.org/2023/">CSCW 2023</a>.
 - **[April, 2023]** I will be attending CHI 2023 at Hamburg, Germany and presenting two of our works, "Approach Intelligent Writing Assistants Usability with Seven Stages of Action" and "Aspirations and Practice of Model Documentation: Moving the Needle with Nudging and Traceability". 
 - **[March, 2023]** I will be starting my PhD at McGill University starting Fall 2023!
