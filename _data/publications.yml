@@ -6,6 +6,10 @@
   authors: "Mina Lee, Katy Ilonka Gero, John Joon Young Chung, Simon Buckingham Shum, Vipul Raheja, Hua Shen, Subhashini Venugopalan, Thiemo Wambsganss, David Zhou, Emad A. Alghamdi, Tal August, Avinash Bhat, Madiha Zahrah Choksi, Senjuti Dutta, Jin L.C. Guo, Md Naimul Hoque, Yewon Kim, Simon Knight, Seyed Parsa Neshaei, Agnia Sergeyuk, Antonette Shibani, Disha Shrivastava, Lila Shroff, Jessi Stark, Sarah Sterman, Sitong Wang, Antoine Bosselut, Daniel Buschek, Joseph Chee Chang, Sherol Chen, Max Kreminski, Joonsuk Park, Roy Pea, Eugenia H. Rho, Shannon Zejiang Shen, Pao Siangliulue"
   link: https://writing-assistant.github.io/
   conference: CHI 2024
+- title: "A human-centered approach to designing effective large language model (LLM) based tools for writing software tutorials"
+  authors: "Avinash Bhat"
+  link: https://escholarship.mcgill.ca/concern/theses/zw12zb575
+  conference: MSc Thesis
 - title: "SUMMIT: Scaffolding Open Source Software Issue Discussion through Summarization"
   authors: Saskia Gilmer, Avinash Bhat, Shuvam Shah, Kevin Cherry, Jinghui Cheng, Jin L.C. Guo
   link: https://arxiv.org/abs/2308.02780
