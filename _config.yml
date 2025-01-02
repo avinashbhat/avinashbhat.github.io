@@ -1,18 +1,12 @@
 site: avinashbhat
 url: "https://avinashbhat.github.io"
 title: Avinash Bhat
-description: A very limited foray into who I am as a person.
+description: 
 markdown: kramdown
 twitter:
   username: aviinashbhat
   card: summary
   creator: aviinashbhat
-author:
-  twitter: #yourusername
-  name: #yourusername
-  avatar:
-  email: #youremail
-  url: #yoururl
 permalink: pretty
 
 baseurl: ""
