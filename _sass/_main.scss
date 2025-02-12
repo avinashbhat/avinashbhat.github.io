@@ -266,3 +266,21 @@ figcaption {
 .accordian-content::-webkit-details-marker {
     display: none;
 }
+
+.blink {
+	animation: blinker 3s linear infinite;
+}
+
+@keyframes blinker {
+	50% { opacity: 0; }
+}
+
+.blink-bg {
+	animation: blinkBg 2s ease-in-out infinite;
+	padding: 0 4px;
+	border-radius: 3px;
+}
+
+@keyframes blinkBg {
+	50% { background-color: #e3f2fd; }
+}
