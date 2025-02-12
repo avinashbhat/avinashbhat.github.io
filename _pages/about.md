@@ -21,9 +21,8 @@ I am a PhD student in the <a href="https://www.cs.mcgill.ca/~jguo/lab.html">Soft
 
 <!-- <p>Previously I was a Software Engineer at Cisco Systems in Bangalore where I worked on enterprise tools for code reviewing and deployment. My Bachelors degree was in Computer Science and Engineering from <a href="https://nie.ac.in">the National Institute of Engineering, Mysore</a>. During my undergrad, I briefly worked for two <a href="http://hexoctane.com/">early</a> <a href="https://logichive.in/">stage</a> startups, explored collaborative filtering algorithms in recommender systems, and did my final year project on contextual information retrieval for Wikipedia articles.
 </p> -->
-
-{% include publications.html %}
 {% include news.html %}
+{% include publications.html %}
 <br>
 <div style="float:right;font-size: 75%;">
     &copy; {{ site.name }} {{ site.time | date: '%Y' }} | Avinash Bhat | All Rights Reserved.  
