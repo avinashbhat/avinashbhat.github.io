@@ -8,7 +8,7 @@ I am a PhD student in the <a href="https://www.cs.mcgill.ca/~jguo/lab.html">Soft
 </p>
 
 <div>
-<div style="float:right;width:300px;padding-top:10px;padding-right:5px;padding-bottom:5px;padding-left:25px"><img alt="Profile Picture" src="{{site.baseurl}}/assets/images/avinashbhat_image_1.png" style="box-shadow:2px 2px;" /> 
+<div style="float:right;width:300px;padding-top:10px;padding-right:5px;padding-bottom:5px;padding-left:25px"><img alt="Profile Picture" src="{{site.baseurl}}/assets/images/avinashbhat_image_2.jpeg" style="box-shadow:2px 2px;" /> 
 <div style="float:left;font-size: 85%;">
             <a href="https://forms.gle/J1m4PnHjNArTdMLN6" target="_blank"> Contact Me</a>  | 
             <!-- <a href="{{site.baseurl}}/assets/pdfs/resume_mar_29_24.pdf" style="text-decoration:none" target="_blank"><b>CV</b></a> | -->
