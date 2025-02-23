@@ -2,7 +2,6 @@
 layout: page
 title: Hello! I'm Avinash Bhat. 
 ---
-<h3>About</h3>
 <p>
 I am a PhD student in the <a href="https://www.cs.mcgill.ca/~jguo/lab.html">Software Technology Lab</a> at McGill University, working under the supervision of <a href="https://www.cs.mcgill.ca/~jguo">Professor Jin Guo</a>. My research interests are in human-computer interaction and software engineering, with publications in CHI, CSCW, and DIS.
 </p>
