@@ -16,6 +16,7 @@ I am a PhD student in the <a href="https://www.cs.mcgill.ca/~jguo/lab.html">Soft
             <a href="https://www.linkedin.com/in/aviinashbhat/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>  |
             <a href="https://github.com/avinashbhat" target="_blank"><i class="fa-brands fa-github"></i></a>  |
             <a href="https://twitter.com/aviinashbhat" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://hci.social/@avinash" target="_blank"><i class="fa-brands fa-mastodon"></i></a>
 </div>
 </div>
 
