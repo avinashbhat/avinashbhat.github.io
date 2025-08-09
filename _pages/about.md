@@ -25,7 +25,7 @@ I am a PhD student in the <a href="https://www.cs.mcgill.ca/~jguo/lab.html">Soft
 {% include news.html %}
 {% include publications.html %}
 <br>
-<div style="float:right;font-size: 75%;">
+<div style="text-align: center; font-size: 75%;">
     &copy; {{ site.name }} {{ site.time | date: '%Y' }} | Avinash Bhat | All Rights Reserved.  
 </div>
 

@@ -1,24 +1,34 @@
 <h3>Publications</h3>
-<ul>
+
+<ul class="publications-list">
   {% for publication in site.data.publications %}
-    <li>
-      <u>{{ publication.title }}</u> <a href="{{ publication.link }}"><i class="fas fa-link"></i></a>
-      <br> 
-      {% assign authors = publication.authors | split: ',' %}
-      {% assign coauthor = false %}
-      {% for author in authors %}
-        {% if author contains 'Avinash Bhat' %}
-          <strong>{{ author }}</strong>{% if forloop.last %} <i>({{ publication.conference }})</i>{% else %}, {% endif %}
-        {% else %}
-          {{ author }}{% if forloop.last %} <i>({{ publication.conference }})</i>{% else %}, {% endif %}
-        {% endif %}
-        {% if author contains '*' %}
-        {% assign coauthor = true %}
-        {% endif %}
-      {% endfor %}
-      {% if coauthor %}
-          <i>*Equal contribution</i>
-        {% endif %}
+    <li class="publication-item">
+      <div class="pub-year-inline">{{ publication.year }}</div>
+      <div class="pub-content">
+        <div class="pub-title">
+          {{ publication.title }}
+        </div>
+        <div class="pub-details">
+          {% assign authors = publication.authors | split: ',' %}
+          {% assign coauthor = false %}
+          <div class="pub-authors">
+            {% for author in authors %}
+              {% assign author_clean = author | strip %}
+              {% if author_clean contains 'Avinash Bhat' %}
+                <strong>{{ author_clean }}</strong>{% if forloop.last == false %}, {% endif %}
+              {% else %}
+                {{ author_clean }}{% if forloop.last == false %}, {% endif %}
+              {% endif %}
+              {% if author contains '*' %}
+              {% assign coauthor = true %}
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div class="pub-venue">
+            <em>{{ publication.conference }} {{ publication.year }}</em>{% if coauthor %} | *Equal contribution{% endif %}{% if publication.link %} | {% if publication.link contains "arxiv.org" %}<a href="{{ publication.link }}" class="pub-link">arXiv</a>{% elsif publication.link contains "acm.org" %}<a href="{{ publication.link }}" class="pub-link">ACM DL</a>{% elsif publication.link contains "escholarship.mcgill.ca" %}<a href="{{ publication.link }}" class="pub-link">McGill eScholarship</a>{% elsif publication.link contains "springer.com" %}<a href="{{ publication.link }}" class="pub-link">Springer</a>{% elsif publication.link contains ".pdf" %}<a href="{{ publication.link }}" class="pub-link">PDF</a>{% else %}<a href="{{ publication.link }}" class="pub-link">Link</a>{% endif %}{% endif %}{% if publication.awards %}{% for award in publication.awards %} | <span class="pub-award">{{ award }}</span>{% endfor %}{% endif %}
+          </div>
+        </div>
+      </div>
     </li>
   {% endfor %}
 </ul>

@@ -1,7 +1,27 @@
 <h3>News</h3>
 
-<ul>
-  {% for news_item in site.data.news %}
-    <li>{{ news_item.entry | markdownify }}</li>
-  {% endfor %}
-</ul>
+{% if site.data.news.size < 3 %}
+  <ul>
+    {% for news_item in site.data.news %}
+      <li>{{ news_item.entry | markdownify }}</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <div class="news-tabs">
+    {% for news_item in site.data.news %}
+      {% assign entry_parts = news_item.entry | split: '**' %}
+      {% if entry_parts.size >= 3 %}
+        {% assign date_part = entry_parts[1] %}
+        {% assign content_part = entry_parts[2] | remove_first: ': ' %}
+        <div class="news-tab">
+          <span class="news-date">{{ date_part }}</span>
+          <div class="news-content">{{ content_part | markdownify | remove: '<p>' | remove: '</p>' }}</div>
+        </div>
+      {% else %}
+        <div class="news-tab">
+          <div class="news-content">{{ news_item.entry | markdownify | remove: '<p>' | remove: '</p>' }}</div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endif %}
