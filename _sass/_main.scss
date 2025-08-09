@@ -135,6 +135,10 @@ h1,h2,h3,h4,h5 {
 	font-weight: 600;
 }
 
+h3 {
+	font-size: 1.3rem;
+}
+
 section h1:first-child {
 	margin-top: 0;
 }
@@ -291,4 +295,152 @@ figcaption {
 
 @keyframes blinkBg {
 	50% { background-color: #e3f2fd; }
+}
+
+// News horizontal tabs styling
+.news-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.news-tab {
+    position: relative;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.news-tab:hover {
+    background-color: white;
+}
+
+.news-date {
+    font-weight: 600;
+    color: #000;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.news-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    background-color: white;
+    padding: 0 0.75rem;
+    transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
+    z-index: 10;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    min-width: 300px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0);
+    border-radius: 3px;
+}
+
+.news-tab:hover .news-content {
+    max-height: 200px;
+    opacity: 1;
+    padding: 0.75rem;
+}
+
+// Publications hover-expandable styling
+.pub-year-group {
+    margin-bottom: 1.5rem;
+}
+
+.pub-year {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000;
+    margin: 0 0 0.75rem 0;
+}
+
+
+.publications-list {
+    list-style: none;
+    padding: 0;
+}
+
+.publication-item {
+    margin-bottom: 0.25rem;
+    padding: 0.4rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.pub-year-inline {
+    color: #000;
+    font-weight: 600;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    margin-top: 0rem;
+}
+
+.pub-content {
+    flex: 1;
+}
+
+.publication-item:hover {
+    background-color: white;
+    padding: 0.75rem;
+}
+
+.pub-title {
+    font-weight: normal;
+    color: #000;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    text-transform: capitalize;
+}
+
+.pub-link {
+    font-size: 0.8rem;
+    color: #000;
+    margin-left: 0.5rem;
+}
+
+.pub-details {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease;
+    margin-top: 0;
+}
+
+.publication-item:hover .pub-details {
+    max-height: 300px;
+    opacity: 1;
+    margin-top: 0.5rem;
+}
+
+.pub-authors {
+    font-size: 0.9rem;
+    color: #000;
+    line-height: 1.4;
+    margin-bottom: 0.25rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.pub-venue {
+    font-size: 0.85rem;
+    color: #000;
+}
+
+.pub-award {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-weight: 600;
 }
