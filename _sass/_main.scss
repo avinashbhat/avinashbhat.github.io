@@ -247,7 +247,7 @@ section {
 }
 
 figcaption {
-    font-size: smaller;
+    font-size: 0.9rem;
 }
 
 .accordian {
@@ -335,7 +335,7 @@ figcaption {
     padding: 0 0.75rem;
     transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
     z-index: 10;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     line-height: 1.4;
     min-width: 300px;
     box-shadow: 0 2px 8px rgba(0,0,0,0);
@@ -397,13 +397,13 @@ figcaption {
 .pub-title {
     font-weight: normal;
     color: #000;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     line-height: 1.4;
     text-transform: capitalize;
 }
 
 .pub-link {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: #000;
     margin-left: 0.5rem;
 }
@@ -432,7 +432,7 @@ figcaption {
 }
 
 .pub-venue {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: #000;
 }
 
@@ -441,6 +441,6 @@ figcaption {
     color: #856404;
     padding: 0.2rem 0.4rem;
     border-radius: 3px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 600;
 }
