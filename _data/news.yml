@@ -1,23 +1,87 @@
-- entry: "**January, 2025**: [Code and artifacts](https://github.com/oss-u/IssueAnalysis) for our work [*SUMMIT: Scaffolding Open Source Software Issue Discussion through Summarization*](https://arxiv.org/abs/2308.02780) are now available."
-# - entry: "<span class=\"blink-bg\">**January, 2025**: [Code and artifacts](https://github.com/oss-u/IssueAnalysis) for our work [*SUMMIT: Scaffolding Open Source Software Issue Discussion through Summarization*](https://arxiv.org/abs/2308.02780) are now available.</span>"
-- entry: "**January, 2025**: I help organize the <a href=\"https://ianarawjo.github.io/mila-hcai/\">Human-Centered AI Reading Group</a> at Mila. Please send me a message if you'd like to present!"
-# - entry: "**July, 2024**: I <a href='https://x.com/aviinashbhat/status/1808894162235687250'>presented our paper</a> *Do LLMs Meet the Needs of Software Tutorial Writers?* at DIS 2024 in Copenhagen, Denmark."
-# - entry: "**July, 2024**: Our recent work [*Do LLMs Meet the Needs of Software Tutorial Writers? Opportunities and Design Implications*](https://dl.acm.org/doi/10.1145/3643834.3660692) is now available on ACM Digital Library."
-# - entry: "**August, 2023**: Our paper [SUMMIT: Scaffolding Open Source Software Issue Discussion through Summarization](https://arxiv.org/abs/2308.02780) is accepted to [CSCW 2023](https://cscw.acm.org/2023/)." 
-# - entry: "**April, 2023**: I will be attending CHI 2023 at Hamburg, Germany and presenting two of our works, [Approach Intelligent Writing Assistants Usability with Seven Stages of Action](https://arxiv.org/abs/2304.02822) and [Aspirations and Practice of Model Documentation: Moving the Needle with Nudging and Traceability](https://dl.acm.org/doi/abs/10.1145/3544548.3581518)."
-# - entry: "**March, 2023** - I will be starting my PhD at McGill University starting Fall 2023!"
-# - entry: "**March, 2023**: Our position paper [Approach Intelligent Writing Assistants Usability with Seven Stages of Action](https://arxiv.org/abs/2304.02822) is accepted to the 2nd [In2Writing](https://in2writing.glitch.me/) workshop co-located with CHI 2023."
-# - entry: "**January, 2023**: Our paper [Aspirations and Practice of Model Documentation: Moving the Needle with Nudging and Traceability](https://dl.acm.org/doi/abs/10.1145/3544548.3581518) is accepted to [CHI 2023](https://chi2023.acm.org/)."
-# - entry: "**January, 2023** - TA'ing [COMP 303](https://github.com/jin-guo/COMP303) in Winter 2023."
-# - entry: "**September, 2022** - TA'ing [COMP 307](https://www.mcgill.ca/study/2022-2023/courses/comp-307) in Fall 2022."
-# - entry: "**May, 2022** - I will continue to work at the McGill Software Technology lab over the summer."
-# - entry: "**April, 2022**: Our paper [Aspirations and Practice of Model Documentation: Moving the Needle with Nudging and Traceability](https://arxiv.org/abs/2204.06425) is available on arXiv."
-# - entry: "**January, 2022** - TA'ing [COMP 303](https://github.com/jin-guo/COMP303_Winter2022) in Winter 2022."
-# - entry: "**November, 2021** - I am elected as the [VP Communications](https://csgs.cs.mcgill.ca/?page_id=42) for Computer Science Graduate Society at McGill University."
-# - entry: "**September, 2021** - TA'ing [COMP 250](http://www.cim.mcgill.ca/~langer/250.html) in Fall 2021."
-# - entry: "**September, 2021** - Starting my MSc program at McGill University, Montreal."
-# - entry: "**July, 2021** - Resigned from Cisco."
-# - entry: "**May, 2021** - Promoted to Software Engineer II at Cisco."
-# - entry: "**August, 2018** - Started working as Software Engineer I at Cisco Systems."
-# - entry: "**May, 2018** - Graduated with a Bachelors in Engineering (in Computer Science & Engineering) from the National Institute of Engineering, Mysore."
-# - entry: "**January, 2018** - Started internship at Cisco Systems, Bangalore."
+- date: "January 2025"
+  title: "SUMMIT Code and Artifacts Released"
+  content: "[Code and artifacts](https://github.com/oss-u/IssueAnalysis) for our work [*SUMMIT: Scaffolding Open Source Software Issue Discussion through Summarization*](https://arxiv.org/abs/2308.02780) are now available."
+  
+- date: "January 2025"  
+  title: "Human-Centered AI Reading Group"
+  content: "I help organize the <a href=\"https://ianarawjo.github.io/mila-hcai/\">Human-Centered AI Reading Group</a> at Mila. Please send me a message if you'd like to present!"
+
+# - date: "July 2024"
+#   title: "DIS 2024 Presentation"
+#   content: "I <a href='https://x.com/aviinashbhat/status/1808894162235687250'>presented our paper</a> *Do LLMs Meet the Needs of Software Tutorial Writers?* at DIS 2024 in Copenhagen, Denmark."
+
+# - date: "July 2024"
+#   title: "DIS Paper Published"
+#   content: "Our recent work [*Do LLMs Meet the Needs of Software Tutorial Writers? Opportunities and Design Implications*](https://dl.acm.org/doi/10.1145/3643834.3660692) is now available on ACM Digital Library."
+
+# - date: "August 2023"
+#   title: "SUMMIT Paper Accepted"
+#   content: "Our paper [SUMMIT: Scaffolding Open Source Software Issue Discussion through Summarization](https://arxiv.org/abs/2308.02780) is accepted to [CSCW 2023](https://cscw.acm.org/2023/)."
+
+# - date: "April 2023"
+#   title: "CHI 2023 Conference"
+#   content: "I will be attending CHI 2023 at Hamburg, Germany and presenting two of our works, [Approach Intelligent Writing Assistants Usability with Seven Stages of Action](https://arxiv.org/abs/2304.02822) and [Aspirations and Practice of Model Documentation: Moving the Needle with Nudging and Traceability](https://dl.acm.org/doi/abs/10.1145/3544548.3581518)."
+
+# - date: "March 2023"
+#   title: "PhD Program at McGill"
+#   content: "I will be starting my PhD at McGill University starting Fall 2023!"
+
+# - date: "March 2023"
+#   title: "In2Writing Workshop Paper"
+#   content: "Our position paper [Approach Intelligent Writing Assistants Usability with Seven Stages of Action](https://arxiv.org/abs/2304.02822) is accepted to the 2nd [In2Writing](https://in2writing.glitch.me/) workshop co-located with CHI 2023."
+
+# - date: "January 2023"
+#   title: "CHI 2023 Paper Accepted"
+#   content: "Our paper [Aspirations and Practice of Model Documentation: Moving the Needle with Nudging and Traceability](https://dl.acm.org/doi/abs/10.1145/3544548.3581518) is accepted to [CHI 2023](https://chi2023.acm.org/)."
+
+# - date: "January 2023"
+#   title: "Teaching Assistant - COMP 303"
+#   content: "TA'ing [COMP 303](https://github.com/jin-guo/COMP303) in Winter 2023."
+
+# - date: "September 2022"
+#   title: "Teaching Assistant - COMP 307"
+#   content: "TA'ing [COMP 307](https://www.mcgill.ca/study/2022-2023/courses/comp-307) in Fall 2022."
+
+# - date: "May 2022"
+#   title: "Summer Research"
+#   content: "I will continue to work at the McGill Software Technology lab over the summer."
+
+# - date: "April 2022"
+#   title: "Model Documentation Paper on arXiv"
+#   content: "Our paper [Aspirations and Practice of Model Documentation: Moving the Needle with Nudging and Traceability](https://arxiv.org/abs/2204.06425) is available on arXiv."
+
+# - date: "January 2022"
+#   title: "Teaching Assistant - COMP 303"
+#   content: "TA'ing [COMP 303](https://github.com/jin-guo/COMP303_Winter2022) in Winter 2022."
+
+# - date: "November 2021"
+#   title: "VP Communications - CSGS"
+#   content: "I am elected as the [VP Communications](https://csgs.cs.mcgill.ca/?page_id=42) for Computer Science Graduate Society at McGill University."
+
+# - date: "September 2021"
+#   title: "Teaching Assistant - COMP 250"
+#   content: "TA'ing [COMP 250](http://www.cim.mcgill.ca/~langer/250.html) in Fall 2021."
+
+# - date: "September 2021"
+#   title: "Started MSc at McGill"
+#   content: "Starting my MSc program at McGill University, Montreal."
+
+# - date: "July 2021"
+#   title: "Left Cisco Systems"
+#   content: "Resigned from Cisco."
+
+# - date: "May 2021"
+#   title: "Promoted to Software Engineer II"
+#   content: "Promoted to Software Engineer II at Cisco."
+
+# - date: "August 2018"
+#   title: "Started at Cisco Systems"
+#   content: "Started working as Software Engineer I at Cisco Systems."
+
+# - date: "May 2018"
+#   title: "Graduated from NIE Mysore"
+#   content: "Graduated with a Bachelors in Engineering (in Computer Science & Engineering) from the National Institute of Engineering, Mysore."
+
+# - date: "January 2018"
+#   title: "Cisco Internship"
+#   content: "Started internship at Cisco Systems, Bangalore."

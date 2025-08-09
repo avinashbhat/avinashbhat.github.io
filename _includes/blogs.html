@@ -1,0 +1,31 @@
+<h3>Blog Posts</h3>
+
+<ul class="blog-list">
+  {% for blog in site.data.blogs %}
+    <li class="blog-item">
+      <div class="blog-date-inline">{{ blog.date }}</div>
+      <div class="blog-content">
+        <div class="blog-title">
+          <a href="{{ blog.url }}">{{ blog.title }}</a>
+        </div>
+        <div class="blog-details">
+          <div class="blog-excerpt">
+            {{ blog.excerpt }}
+          </div>
+          <div class="blog-meta">
+            {% if blog.tags %}
+              <span class="blog-tags">
+                {% for tag in blog.tags %}
+                  <span class="blog-tag">{{ tag }}</span>{% unless forloop.last %} • {% endunless %}
+                {% endfor %}
+              </span>
+            {% endif %}
+            {% if blog.url %}
+              <a href="{{ blog.url }}" class="blog-read-more">Read More</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </li>
+  {% endfor %}
+</ul>

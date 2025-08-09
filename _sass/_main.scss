@@ -297,55 +297,68 @@ figcaption {
 	50% { background-color: #e3f2fd; }
 }
 
-// News horizontal tabs styling
-.news-tabs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
+// News styling (hover-expandable like publications/blogs)
+.news-list {
+    list-style: none;
+    padding: 0;
 }
 
-.news-tab {
-    position: relative;
-    padding: 0.5rem 0.75rem;
+.news-item {
+    margin-bottom: 0.25rem;
+    padding: 0.4rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.6s ease;
+    border-radius: 3px;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
 }
 
-.news-tab:hover {
-    background-color: white;
-}
-
-.news-date {
+.news-date-inline {
+    color: #000;
     font-weight: 600;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    margin-top: 0rem;
+}
+
+.news-content-block {
+    flex: 1;
+}
+
+.news-item:hover {
+    background-color: white;
+    padding: 0.75rem;
+}
+
+.news-preview {
+    font-weight: normal;
     color: #000;
     font-size: 0.9rem;
-    white-space: nowrap;
+    line-height: 1.4;
+    margin-bottom: 0.25rem;
 }
 
-.news-content {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
+.news-details {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    background-color: white;
-    padding: 0 0.75rem;
-    transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
-    z-index: 10;
-    font-size: 0.9rem;
-    line-height: 1.4;
-    min-width: 300px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0);
-    border-radius: 3px;
+    transition: max-height 0.8s ease, opacity 0.6s ease, margin-top 0.6s ease;
+    margin-top: 0;
 }
 
-.news-tab:hover .news-content {
-    max-height: 200px;
+.news-item:hover .news-details {
+    max-height: 300px;
     opacity: 1;
-    padding: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.news-full-content {
+    font-size: 0.9rem;
+    color: #000;
+    line-height: 1.4;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 // Publications hover-expandable styling
@@ -370,7 +383,7 @@ figcaption {
     margin-bottom: 0.25rem;
     padding: 0.4rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.6s ease;
     border-radius: 3px;
     display: flex;
     align-items: flex-start;
@@ -412,7 +425,7 @@ figcaption {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease;
+    transition: max-height 0.8s ease, opacity 0.6s ease, margin-top 0.6s ease;
     margin-top: 0;
 }
 
@@ -443,4 +456,109 @@ figcaption {
     border-radius: 3px;
     font-size: 0.9rem;
     font-weight: 600;
+}
+
+// Blog styling
+.blog-list {
+    list-style: none;
+    padding: 0;
+}
+
+.blog-item {
+    margin-bottom: 0.25rem;
+    padding: 0.4rem;
+    cursor: pointer;
+    transition: all 0.6s ease;
+    border-radius: 3px;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.blog-date-inline {
+    color: #000;
+    font-weight: 600;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    margin-top: 0rem;
+}
+
+.blog-content {
+    flex: 1;
+}
+
+.blog-item:hover {
+    background-color: white;
+    padding: 0.75rem;
+}
+
+.blog-title {
+    font-weight: normal;
+    color: #000;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 0.25rem;
+}
+
+.blog-title a {
+    text-decoration: none;
+    color: #000;
+}
+
+.blog-title a:hover {
+    text-decoration: underline;
+}
+
+.blog-details {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.8s ease, opacity 0.6s ease, margin-top 0.6s ease;
+    margin-top: 0;
+}
+
+.blog-item:hover .blog-details {
+    max-height: 300px;
+    opacity: 1;
+    margin-top: 0.5rem;
+}
+
+.blog-excerpt {
+    font-size: 0.9rem;
+    color: #000;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.blog-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.blog-tags {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.blog-tag {
+    background-color: #f5f5f5;
+    padding: 0.1rem 0.3rem;
+    border-radius: 2px;
+    font-size: 0.8rem;
+}
+
+.blog-read-more {
+    font-size: 0.85rem;
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.blog-read-more:hover {
+    text-decoration: underline;
 }
