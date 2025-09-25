@@ -12,8 +12,8 @@ body {
 	font-style: normal;
 	-webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-	line-height: 1.7;
-    font-size: 0.9rem;
+	line-height: 1.3;
+    font-size: 1rem;
 	color: rgb(0, 0, 0);
 	background-color: rgba(255, 255, 255, 0.4);
 	background-image: 
@@ -130,7 +130,7 @@ blockquote {
 }
 
 h1,h2,h3,h4,h5 {
-	line-height: 1;
+	line-height: 1.3;
 	margin: 1rem 0;
 	font-weight: 600;
 }
@@ -247,7 +247,7 @@ section {
 }
 
 figcaption {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
 }
 
 .accordian {
@@ -317,7 +317,7 @@ figcaption {
 .news-date-inline {
     color: #000;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 1rem;
     flex-shrink: 0;
     margin-top: -0.1rem;
 }
@@ -334,8 +334,8 @@ figcaption {
 .news-preview {
     font-weight: normal;
     color: #000;
-    font-size: 0.9rem;
-    line-height: 1.4;
+    font-size: 1rem;
+    line-height: 1.3;
     margin-bottom: 0.25rem;
 }
 
@@ -354,9 +354,9 @@ figcaption {
 }
 
 .news-full-content {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #000;
-    line-height: 1.4;
+    line-height: 1.3;
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
@@ -393,7 +393,7 @@ figcaption {
 .pub-year-inline {
     color: #000;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 1rem;
     flex-shrink: 0;
     margin-top: -0.1rem;
 }
@@ -410,13 +410,13 @@ figcaption {
 .pub-title {
     font-weight: normal;
     color: #000;
-    font-size: 0.9rem;
-    line-height: 1.4;
+    font-size: 1rem;
+    line-height: 1.3;
     text-transform: capitalize;
 }
 
 .pub-link {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #000;
     margin-left: 0.5rem;
 }
@@ -436,16 +436,16 @@ figcaption {
 }
 
 .pub-authors {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #000;
-    line-height: 1.4;
+    line-height: 1.3;
     margin-bottom: 0.25rem;
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
 
 .pub-venue {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #000;
 }
 
@@ -454,7 +454,7 @@ figcaption {
     color: #856404;
     padding: 0.2rem 0.4rem;
     border-radius: 3px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 600;
 }
 
@@ -478,7 +478,7 @@ figcaption {
 .blog-date-inline {
     color: #000;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 1rem;
     flex-shrink: 0;
     margin-top: -0.1rem;
 }
@@ -495,8 +495,8 @@ figcaption {
 .blog-title {
     font-weight: normal;
     color: #000;
-    font-size: 0.9rem;
-    line-height: 1.4;
+    font-size: 1rem;
+    line-height: 1.3;
     margin-bottom: 0.25rem;
 }
 
@@ -524,11 +524,29 @@ figcaption {
 }
 
 .blog-excerpt {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #000;
-    line-height: 1.4;
+    line-height: 1.3;
     margin-bottom: 0.5rem;
     word-wrap: break-word;
     overflow-wrap: break-word;
+}
+
+// Blog post content styling (only for blog pages)
+.blog-content-page p, .blog-content-page li {
+    font-size: 1rem;
+    line-height: 1.3;
+}
+
+.blog-content-page h1 {
+    font-size: 1.5rem;
+}
+
+.blog-content-page h2 {
+    font-size: 1.3rem;
+}
+
+.blog-content-page pre, .blog-content-page code {
+    font-size: 0.8rem;
 }
 
