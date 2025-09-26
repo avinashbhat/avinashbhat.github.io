@@ -3,7 +3,7 @@ layout: page
 title: Hello! I'm Avinash Bhat. 
 ---
 <p>
-I am a PhD student in the <a href="https://www.cs.mcgill.ca/~jguo/lab.html">Software Technology Lab</a> at McGill University, working under the supervision of <a href="https://www.cs.mcgill.ca/~jguo">Professor Jin Guo</a>. My research interests are in human-computer interaction and software engineering, with publications in CHI, CSCW, and DIS.
+I am a PhD student in the <a href="https://www.cs.mcgill.ca/~jguo/lab.html">Software Technology Lab</a> at McGill University, working under the supervision of <a href="https://www.cs.mcgill.ca/~jguo">Professor Jin Guo</a>. My research interests are in human-computer interaction and software engineering. In my PhD, I am trying to understand and improve collaboration processes and tools used to create software documentation.
 </p>
 
 <div>
@@ -24,7 +24,7 @@ I am a PhD student in the <a href="https://www.cs.mcgill.ca/~jguo/lab.html">Soft
 </p> -->
 {% include news.html %}
 {% include publications.html %}
-<!-- {% include blogs.html %} -->
+{% include blogs.html %}
 <br>
 <div style="text-align: center; font-size: 75%;">
     &copy; {{ site.name }} {{ site.time | date: '%Y' }} | Avinash Bhat | All Rights Reserved.  
