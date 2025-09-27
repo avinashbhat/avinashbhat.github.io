@@ -3,22 +3,24 @@ layout: default
 ---
 
 <section class="post {% if page.class %}{{ page.class }}{% endif %}">
-  <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #edf2f7;padding-bottom:8px;margin-bottom:20px">
-  <div>
-    <h2>{{ page.title }}</h2>
-    {% if page.class == "blog-content-page" and page.date %}
-      <p style="margin: 0; font-style: italic; color: #6c757d; font-size: 0.9rem;">{{ page.date }}</p>
-    {% endif %}
-  </div>
-  {% if page.class == "blog-content-page" %}
-  <a href="{{ site.baseurl }}/about" style="text-decoration: none; padding: 0.5rem 1rem; background-color: #f8f9fa; border: 1px solid #edf2f7; border-radius: 4px; font-size: 0.9rem; color: #495057;">← Back to Home</a>
-  {% endif %}
-  <!-- <span id="toggle-dark-light" style="margin-right: 1rem;">
-    <i class="fa-solid fa-sun"></i>
-  </span> -->
-</div>
-<!-- Script pointing to toggle-light-dark.js -->
-<!-- <script src="/assets/js/toggle-light-dark.js" type="text/javascript"></script> -->
+  <header class="page-header">
+    <div>
+      <h2 class="page-title">{{ page.title }}</h2>
+      {% if page.class == "blog-content-page" and page.date %}
+        <p class="page-date">{{ page.date }}</p>
+      {% endif %}
+    </div>
+
+    <div class="page-actions">
+      {% if page.class == "blog-content-page" %}
+        <a href="{{ site.baseurl }}/about" class="btn btn-back">← Back to Home</a>
+      {% endif %}
+      <button id="theme-toggle" class="btn btn-theme">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+  </header>
+
   {{ content }}
 </section>
 

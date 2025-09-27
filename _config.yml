@@ -15,14 +15,25 @@ highlighter: rouge
 
 exclude:
   - .jekyll-cache
-  
+  - node_modules
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+
 compress_html:
   clippings: all
   comments: ["<!-- ", " -->"]
+  endings: all
+  ignore:
+    envs: [development]
+  blanklines: false
+  profile: false
+  startings: []
 
 sass:
-  sass_dir:          _sass
-  style:            :compressed
+  sass_dir: _sass
+  style: compressed
 
 plugins:
   - jekyll-seo-tag

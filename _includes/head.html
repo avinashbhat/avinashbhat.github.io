@@ -17,23 +17,6 @@
   
   {% seo title=false %}
 
-  <!-- <title>
-      {% if page.tag or page.title %}
-        {% if page.tag %}
-          {{ page.tag | escape }}
-        {% else %}
-          {{ page.title | escape }}
-        {% endif %}
-        -
-      {% endif %}
-      {% if paginator and paginator.page and paginator.total_pages > 1 and paginator.page > 1 %}
-        Page {{ paginator.page }} of {{ paginator.total_pages }} -
-      {% endif %}
-      {{ site.title | escape }}
-      {% unless page.tag or page.title %}
-        - {{ site.description | escape }}
-      {% endunless %}
-    </title> -->
 
     <title>
       Avinash Bhat
@@ -44,15 +27,24 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://kit.fontawesome.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-  <!-- <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap" rel="stylesheet"> -->
-  <!-- <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400&display=swap" rel="stylesheet"> -->
-  <script src="https://kit.fontawesome.com/c86ea97818.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/c86ea97818.js" crossorigin="anonymous" async></script>
   <style>
     {% capture include_to_scssify %}
       {% include inline.scss %}
     {% endcapture %}
     {{ include_to_scssify | scssify }}
   </style>
+
+  <script>
+    // Apply theme immediately in head to prevent flash
+    try {
+      const currentTheme = localStorage.getItem('theme');
+      if (currentTheme === 'dark') {
+        document.documentElement.className += ' dark-theme';
+      }
+    } catch(e) {}
+  </script>
 
 </head>
