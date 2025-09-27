@@ -737,6 +737,141 @@ figcaption {
     margin-top: 0;
 }
 
+// Modal sidenotes
+.blog-content-page,
+.post {
+    counter-reset: sidenote-counter;
+}
+
+.sidenote-ref {
+    counter-increment: sidenote-counter;
+    position: relative;
+    cursor: pointer;
+    color: #007acc;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 1px 2px;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+    outline: none;
+    display: inline;
+}
+
+.sidenote-ref:focus {
+    outline: none;
+    text-decoration: none;
+}
+
+.sidenote-ref:after {
+    content: counter(sidenote-counter);
+    font-size: 0.7rem;
+    vertical-align: super;
+    margin-left: 0;
+}
+
+.sidenote-ref:hover {
+    text-decoration: underline;
+}
+
+// Dark theme refs
+html.dark-theme .sidenote-ref {
+    color: #60a5fa;
+}
+
+html.dark-theme .sidenote-ref:hover {
+    text-decoration: underline;
+}
+
+// Modal overlay
+.sidenote-modal,
+.sidenote-modal *,
+.sidenote-modal *:before,
+.sidenote-modal *:after {
+    transition: none !important;
+    animation: none !important;
+}
+
+.sidenote-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    pointer-events: none;
+    display: block;
+}
+
+.sidenote-modal.show {
+    display: block;
+}
+
+.sidenote-content {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    width: 450px;
+    max-width: 450px;
+    min-width: 450px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: absolute;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    cursor: move;
+    pointer-events: auto;
+}
+
+
+.sidenote-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #333;
+}
+
+.sidenote-content p strong {
+    color: #007acc;
+    font-size: 1rem;
+}
+
+.sidenote-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+    padding: 0;
+    line-height: 1;
+}
+
+.sidenote-close:hover {
+    color: #000;
+}
+
+// Dark theme modal
+html.dark-theme .sidenote-content {
+    background: #1e293b;
+    color: #e2e8f0;
+}
+
+html.dark-theme .sidenote-content p {
+    color: #e2e8f0;
+}
+
+html.dark-theme .sidenote-content p strong {
+    color: #60a5fa;
+}
+
+html.dark-theme .sidenote-close {
+    color: #94a3b8;
+}
+
+html.dark-theme .sidenote-close:hover {
+    color: #e2e8f0;
+}
+
+
 // Multi-column intro section layout (3/4 - 1/4)
 .intro-section {
     display: grid;
