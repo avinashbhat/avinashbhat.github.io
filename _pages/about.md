@@ -6,7 +6,7 @@ title: Hello! I'm Avinash Bhat.
 <div class="intro-section">
   <div class="intro-text">
     <p>
-    I am a PhD student in the <a href="https://www.cs.mcgill.ca/~jguo/lab.html">Software Technology Lab</a> at McGill University, advised by <a href="https://www.cs.mcgill.ca/~jguo">Professor Jin Guo</a>. My research interests are in collaboration in software engineering, focusing on how it can enable better software documentation.
+    I am a PhD student in the <a href="https://www.cs.mcgill.ca/~jguo/lab.html">Software Technology Lab</a> at McGill University, advised by <a href="https://www.cs.mcgill.ca/~jguo">Professor Jin Guo</a>. My research interests are in collaboration in software engineering, with a focus on how it can enable better software documentation.
     </p>
 
     <!-- <p>Previously I was a Software Engineer at Cisco Systems in Bangalore where I worked on enterprise tools for code reviewing and deployment. My Bachelors degree was in Computer Science and Engineering from <a href="https://nie.ac.in">the National Institute of Engineering, Mysore</a>. During my undergrad, I briefly worked for two <a href="http://hexoctane.com/">early</a> <a href="https://logichive.in/">stage</a> startups, explored collaborative filtering algorithms in recommender systems, and did my final year project on contextual information retrieval for Wikipedia articles.
