@@ -80,7 +80,6 @@
   }
 
   function createDiscoBall() {
-    // Create chain/line
     const chain = document.createElement('div');
     chain.id = 'disco-chain';
     chain.style.cssText = `
@@ -96,7 +95,6 @@
       pointer-events: none;
     `;
 
-    // Create the disco ball wrapper
     const ballWrapper = document.createElement('div');
     ballWrapper.id = 'disco-ball-wrapper';
     ballWrapper.style.cssText = `
@@ -112,7 +110,7 @@
       background: transparent;
     `;
 
-    // Animate them down together
+    // Animate chain and ball dropping down
     setTimeout(function() {
       chain.style.transition = 'top 1.5s ease-out';
       chain.style.top = '0px';
@@ -131,7 +129,6 @@
       animation: rotateDiscoBall 8s linear infinite;
     `;
 
-    // Create disco ball light effect
     const light = document.createElement('div');
     light.style.cssText = `
       width: 100px;
@@ -143,7 +140,6 @@
       filter: blur(20px);
     `;
 
-    // Create the middle sphere
     const middle = document.createElement('div');
     middle.id = 'discoBallMiddle';
     middle.style.cssText = `
@@ -155,7 +151,7 @@
       animation: rotateDiscoBallMiddle 8s linear infinite;
     `;
 
-    // Generate mirror tiles
+    // Generate 3D mirror tiles for disco ball
     var radius = 50;
     var squareSize = 6.5;
     var prec = 19.55;
@@ -207,7 +203,7 @@
       }
     }
 
-    // Add animation keyframes
+    // Add CSS animations for disco ball rotation
     if (!document.getElementById('party-mode-styles')) {
       const style = document.createElement('style');
       style.id = 'party-mode-styles';
@@ -216,12 +212,10 @@
           0% { transform: rotateX(90deg) rotateZ(0deg) rotate(0deg); }
           100% { transform: rotateX(90deg) rotateZ(360deg) rotate(0deg); }
         }
-
         @keyframes rotateDiscoBallMiddle {
           0% { transform: rotateX(90deg) rotateY(0deg) rotate(0deg); }
           100% { transform: rotateX(90deg) rotateY(-360deg) rotate(0deg); }
         }
-
         @keyframes reflect {
           0% { opacity: 1; }
           50% { opacity: 0.4; }
@@ -271,14 +265,10 @@
   }
 
   function launchConfetti() {
-    // Continuous confetti bursts throughout party mode
     const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+    const randomInRange = (min, max) => Math.random() * (max - min) + min;
 
-    function randomInRange(min, max) {
-      return Math.random() * (max - min) + min;
-    }
-
-    // Make confetti canvas non-blocking
+    // Ensure confetti canvas doesn't block interactions
     setTimeout(function() {
       const canvases = document.querySelectorAll('canvas');
       canvases.forEach(function(canvas) {
@@ -288,8 +278,6 @@
 
     confettiInterval = setInterval(function() {
       const particleCount = 30;
-
-      // Confetti from different positions
       confetti(Object.assign({}, defaults, {
         particleCount: particleCount,
         origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
@@ -302,24 +290,20 @@
   }
 
   function deactivatePartyMode() {
-    // Stop strobe
+    // Stop intervals
     if (strobeInterval) {
       clearInterval(strobeInterval);
       strobeInterval = null;
     }
-
-    // Stop confetti
     if (confettiInterval) {
       clearInterval(confettiInterval);
       confettiInterval = null;
     }
 
-    // Clear any remaining confetti
+    // Clean up confetti
     if (typeof confetti !== 'undefined' && confetti.reset) {
       confetti.reset();
     }
-
-    // Remove confetti canvas elements
     const canvases = document.querySelectorAll('canvas');
     canvases.forEach(function(canvas) {
       if (canvas.parentNode) {
@@ -327,11 +311,11 @@
       }
     });
 
-    // Restore original background
+    // Restore original background color
     const originalBg = document.body.dataset.originalBg || '';
     document.body.style.backgroundColor = originalBg;
 
-    // Remove disco ball, wrapper, and chain
+    // Animate disco ball removal
     if (discoBall) {
       const wrapper = discoBall.ballWrapper;
       const chain = discoBall.chain;
