@@ -1,0 +1,16 @@
+<ul class="news-list">
+  {% for service_item in site.data.service %}
+    <li class="news-item">
+      <div class="news-content-block">
+        <div class="news-preview">
+          <strong>{{ service_item.title }}</strong>
+        </div>
+        <div class="news-details">
+          <div class="news-full-content">
+            <i>{{ service_item.content | markdownify | replace: '; ', '<br>' | remove: '<p>' | remove: '</p>' }}</i>
+          </div>
+        </div>
+      </div>
+    </li>
+  {% endfor %}
+</ul>
