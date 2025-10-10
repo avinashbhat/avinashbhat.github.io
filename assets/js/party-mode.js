@@ -3,6 +3,7 @@
   let typedKeys = '';
   let partyModeActive = false;
   let strobeInterval = null;
+  let confettiInterval = null;
   let discoBall = null;
 
   // Listen for keypress to detect "party"
@@ -42,17 +43,17 @@
     // Auto-deactivate after 10 seconds
     setTimeout(function() {
       deactivatePartyMode();
-    }, 10000);
+    }, 8000);
   }
 
   function startStrobeEffect() {
     const colors = [
-      '#FF006E', // Hot Pink
-      '#8338EC', // Purple
-      '#3A86FF', // Blue
-      '#FFBE0B', // Yellow
-      '#FB5607', // Orange
-      '#06FFA5', // Mint
+      'rgba(255, 0, 110, 0.1)', // Hot Pink
+      'rgba(131, 56, 236, 0.1)', // Purple
+      'rgba(58, 134, 255, 0.1)', // Blue
+      'rgba(255, 190, 11, 0.1)', // Yellow
+      'rgba(251, 86, 7, 0.1)', // Orange
+      'rgba(6, 255, 165, 0.1)', // Mint
     ];
 
     let colorIndex = 0;
@@ -259,23 +260,15 @@
   }
 
   function launchConfetti() {
-    // Multiple confetti bursts
-    const duration = 3000;
-    const animationEnd = Date.now() + duration;
+    // Continuous confetti bursts throughout party mode
     const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 10000 };
 
     function randomInRange(min, max) {
       return Math.random() * (max - min) + min;
     }
 
-    const interval = setInterval(function() {
-      const timeLeft = animationEnd - Date.now();
-
-      if (timeLeft <= 0) {
-        return clearInterval(interval);
-      }
-
-      const particleCount = 50 * (timeLeft / duration);
+    confettiInterval = setInterval(function() {
+      const particleCount = 30;
 
       // Confetti from different positions
       confetti(Object.assign({}, defaults, {
@@ -294,6 +287,12 @@
     if (strobeInterval) {
       clearInterval(strobeInterval);
       strobeInterval = null;
+    }
+
+    // Stop confetti
+    if (confettiInterval) {
+      clearInterval(confettiInterval);
+      confettiInterval = null;
     }
 
     // Restore original background
