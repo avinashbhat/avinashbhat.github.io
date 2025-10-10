@@ -47,7 +47,18 @@
   }
 
   function startStrobeEffect() {
-    const colors = [
+    // Detect if in dark mode by checking for dark-theme class
+    const isDarkMode = document.documentElement.classList.contains('dark-theme');
+
+    // Use different colors based on mode
+    const colors = isDarkMode ? [
+      'rgba(80, 0, 40, 0.4)', // Dark Hot Pink
+      'rgba(50, 20, 90, 0.4)', // Dark Purple
+      'rgba(20, 50, 100, 0.4)', // Dark Blue
+      'rgba(60, 50, 10, 0.4)', // Dark Yellow
+      'rgba(70, 25, 5, 0.4)', // Dark Orange
+      'rgba(10, 80, 60, 0.4)', // Dark Mint
+    ] : [
       'rgba(255, 0, 110, 0.1)', // Hot Pink
       'rgba(131, 56, 236, 0.1)', // Purple
       'rgba(58, 134, 255, 0.1)', // Blue
@@ -261,11 +272,19 @@
 
   function launchConfetti() {
     // Continuous confetti bursts throughout party mode
-    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 10000 };
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
 
     function randomInRange(min, max) {
       return Math.random() * (max - min) + min;
     }
+
+    // Make confetti canvas non-blocking
+    setTimeout(function() {
+      const canvases = document.querySelectorAll('canvas');
+      canvases.forEach(function(canvas) {
+        canvas.style.pointerEvents = 'none';
+      });
+    }, 100);
 
     confettiInterval = setInterval(function() {
       const particleCount = 30;
@@ -294,6 +313,19 @@
       clearInterval(confettiInterval);
       confettiInterval = null;
     }
+
+    // Clear any remaining confetti
+    if (typeof confetti !== 'undefined' && confetti.reset) {
+      confetti.reset();
+    }
+
+    // Remove confetti canvas elements
+    const canvases = document.querySelectorAll('canvas');
+    canvases.forEach(function(canvas) {
+      if (canvas.parentNode) {
+        canvas.parentNode.removeChild(canvas);
+      }
+    });
 
     // Restore original background
     const originalBg = document.body.dataset.originalBg || '';
