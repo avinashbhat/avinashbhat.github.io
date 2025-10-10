@@ -5,7 +5,7 @@ title: Hello! I'm Avinash Bhat.
 <div class="intro-section">
   <div class="intro-text">
     <p>
-    I am a PhD student in the <a href="https://www.cs.mcgill.ca/~jguo/lab.html">Software Technology Lab</a> at School of Computer Science, McGill University, advised by <a href="https://www.cs.mcgill.ca/~jguo">Professor Jin Guo</a>. My research examines how software practitioners document and share knowledge when collaborating in teams. Specifically, I investigate documentation practices and develop tools to help practitioners create documentation.
+    I am a PhD student in the <a href="https://www.cs.mcgill.ca/~jguo/lab.html">Software Technology Lab</a> at School of Computer Science, McGill University, advised by <a href="https://www.cs.mcgill.ca/~jguo">Professor Jin Guo</a>. Broadly, my research interest is about how software practitioners create knowledge while collaborating in software teams. As part of this research, I am investigating existing documentation practices and developing tools to help practitioners create documentation.
     </p>
      <div class="profile-links">
      <br>
