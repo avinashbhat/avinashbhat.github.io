@@ -69,13 +69,13 @@ html.dark-theme .tab-button {
 
 html.dark-theme .tab-button:hover {
 	color: #e2e8f0;
-	background-color: #1e293b;
+	background-color: rgba(255, 255, 255, 0.05);
 }
 
 html.dark-theme .tab-button.active {
 	color: #e2e8f0;
 	border-bottom-color: #e2e8f0;
-	background-color: #1e293b;
+	background-color: rgba(255, 255, 255, 0.08);
 }
 
 html.dark-theme .tab-navigation {
@@ -86,7 +86,7 @@ html.dark-theme .tab-navigation {
 html.dark-theme .news-item:hover,
 html.dark-theme .publication-item:hover,
 html.dark-theme .blog-item:hover {
-	background-color: #1e293b;
+	background-color: rgba(255, 255, 255, 0.08);
 }
 
 html.dark-theme .news-date-inline,
@@ -114,6 +114,7 @@ nav ul {
 a {
     text-decoration-skip-ink: auto;
     text-decoration: underline;
+    background-color: transparent !important;
 }
 
 pre {
@@ -256,23 +257,30 @@ section h1:first-child {
 }
 
 .btn-back {
-	background-color: #f8f9fa;
+	background-color: rgba(0, 0, 0, 0.05) !important;
 	color: #495057;
 }
 
 .btn-theme {
-	background-color: #f8f9fa;
+	background-color: rgba(0, 0, 0, 0.05) !important;
 }
 
 // Dark theme button styles
 html.dark-theme .btn-theme {
-	background-color: #1e293b;
+	background-color: rgba(255, 255, 255, 0.08) !important;
 	color: #e2e8f0;
 }
 
 html.dark-theme .btn-back {
-	background-color: #1e293b;
+	background-color: rgba(255, 255, 255, 0.08) !important;
 	color: #e2e8f0;
+}
+
+// Fix icon background inheritance
+.btn i,
+.btn-theme i,
+.btn-back i {
+	background-color: transparent !important;
 }
 
 strong, b {
@@ -437,12 +445,13 @@ figcaption {
 
 .news-item {
     margin-bottom: 0.25rem;
-    padding: 0.4rem;
+    padding: 0.75rem;
     cursor: pointer;
     border-radius: 3px;
     display: flex;
     align-items: flex-start;
     gap: 1rem;
+    background-color: transparent;
 }
 
 .news-date-inline {
@@ -450,16 +459,17 @@ figcaption {
     font-weight: 600;
     font-size: 1rem;
     flex-shrink: 0;
+    background-color: transparent !important;
     // margin-top: -0.1rem;
 }
 
 .news-content-block {
     flex: 1;
+    background-color: transparent !important;
 }
 
 .news-item:hover {
-    background-color: white;
-    padding: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 .news-preview {
@@ -468,6 +478,7 @@ figcaption {
     font-size: 1rem;
     line-height: 1.5;
     margin-bottom: 0.25rem;
+    background-color: transparent !important;
 }
 
 .news-details {
@@ -490,6 +501,7 @@ figcaption {
     line-height: 1.5;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    background-color: transparent !important;
 }
 
 // Publications hover-expandable styling
@@ -512,12 +524,13 @@ figcaption {
 
 .publication-item {
     margin-bottom: 0.25rem;
-    padding: 0.4rem;
+    padding: 0.75rem;
     cursor: pointer;
     border-radius: 3px;
     display: flex;
     align-items: flex-start;
     gap: 1rem;
+    background-color: transparent;
 }
 
 .pub-year-inline {
@@ -525,15 +538,16 @@ figcaption {
     font-weight: 600;
     font-size: 1rem;
     flex-shrink: 0;
+    background-color: transparent !important;
 }
 
 .pub-content {
     flex: 1;
+    background-color: transparent !important;
 }
 
 .publication-item:hover {
-    background-color: white;
-    padding: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 .pub-title {
@@ -542,6 +556,7 @@ figcaption {
     font-size: 1rem;
     line-height: 1.5;
     text-transform: capitalize;
+    background-color: transparent !important;
 }
 
 .pub-link {
@@ -571,11 +586,13 @@ figcaption {
     margin-bottom: 0.25rem;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    background-color: transparent !important;
 }
 
 .pub-venue {
     font-size: 1rem;
     color: #000;
+    background-color: transparent !important;
 }
 
 .pub-award {
@@ -595,12 +612,13 @@ figcaption {
 
 .blog-item {
     margin-bottom: 0.25rem;
-    padding: 0.4rem;
+    padding: 0.75rem;
     cursor: pointer;
     border-radius: 3px;
     display: flex;
     align-items: flex-start;
     gap: 1rem;
+    background-color: transparent;
 }
 
 .blog-date-inline {
@@ -608,16 +626,17 @@ figcaption {
     font-weight: 600;
     font-size: 1rem;
     flex-shrink: 0;
+    background-color: transparent !important;
     // margin-top: -0.1rem;
 }
 
 .blog-content {
     flex: 1;
+    background-color: transparent !important;
 }
 
 .blog-item:hover {
-    background-color: white;
-    padding: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 .blog-title {
@@ -626,6 +645,7 @@ figcaption {
     font-size: 1rem;
     line-height: 1.5;
     margin-bottom: 0.25rem;
+    background-color: transparent !important;
 }
 
 .blog-title a {
@@ -658,6 +678,7 @@ figcaption {
     margin-bottom: 0.5rem;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    background-color: transparent !important;
 }
 
 // Blog post content styling (only for blog pages)
@@ -691,7 +712,7 @@ figcaption {
 }
 
 .tab-button {
-    background: none;
+    background: transparent;
     border: none;
     border-radius: 4px;
     padding: 0.75rem 1.5rem;
@@ -711,13 +732,13 @@ figcaption {
 
 .tab-button:hover {
     color: #000;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(0, 0, 0, 0.03);
 }
 
 .tab-button.active {
     color: #000;
     border-bottom-color: #000;
-    background-color: #f8f9fa;
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 .tab-content {

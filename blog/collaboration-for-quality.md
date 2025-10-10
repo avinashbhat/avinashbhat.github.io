@@ -1,21 +1,14 @@
 ---
 layout: page
-title: "Why Collaboration is Essential for Quality"
+title: "Quality Feedback Loops"
 class: blog-content-page
 date: "September 27, 2025"
 ---
-Quality emerges through collaboration rather than existing in isolation.
+Quality can emerge individually through synthesis, discovery and validation: individuals can develop their own quality standards through personal experience, spot problems against self defined standards, validate and refine their standards over time. This takes intentional iterations.
 
-Consider what happens during a code review. A developer submits code that works perfectly from their perspective, but reviewers identify edge cases, suggest clearer variable names, and point out potential security vulnerabilities. Through this collaborative process, the code becomes better. The improvements are not arbitrary preferences, but discoveries of what makes code more maintainable, secure, and readable.
+How does collaboration benefit quality? It is through an iterative collaborative process, where there is synthesis and then there is a discovery and then back to synthesis so on. 
 
-How does collaboration bring out quality? It creates it, reveals it, or formalizes it.
+**Collaboration develops shared standards by synthesizing different perspectives on what quality looks like.** Originally, the developer did not start with clear standards. During reviews, different preferences towards code reveal themselves, like descriptive variable names or inline comments and so on. Over time, these preferences synthesize into team conventions, not because any individual preference was "correct," rather there is a negotiation and a shared agreement. Once this gets validated, then it is shared across an organization or a community. 
 
-**Collaboration creates quality standards that did not exist before.** We develop shared understanding of what quality looks like through discussion, critique, and iteration.
-
-**Collaboration reveals quality standards that were already there.** When multiple perspectives examine the same work, we discover patterns like clarity or consistency, that point toward universal qualities rather than mere individual opinion.
-
-**Collaboration formalizes personal preferences into shared standards.** When we align on purpose, such as building software, writing documentation, or creating art, we crystallize individual preferences into coherent criteria. We make standards "real" not because they are universally true, but because we find them useful as a group.
-
-Quality standards are not arbitrary. We discover what works when we work together toward common goals.
 
 <!-- {% include sidenote.html text="" %} -->
