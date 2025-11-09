@@ -11,19 +11,19 @@ function getLinkText(link: string): string {
 }
 ---
 
-<ul class="publications-list">
+<ul class="content-list">
   {publications.map((publication) => {
     const authors = publication.authors.split(',').map(a => a.trim());
     const hasCoauthor = publication.authors.includes('*');
 
     return (
-      <li class="publication-item">
-        <div class="pub-year-inline">{publication.year}</div>
-        <div class="pub-content">
-          <div class="pub-title">
+      <li class="content-item">
+        <div class="content-item-label">{publication.year}</div>
+        <div class="content-item-body">
+          <div class="content-item-preview">
             {publication.title}
           </div>
-          <div class="pub-details">
+          <div class="content-item-details">
             <div class="pub-authors">
               {authors.map((author, index) => (
                 <>
@@ -37,13 +37,13 @@ function getLinkText(link: string): string {
               ))}
             </div>
             <div class="pub-venue">
-              <em>{publication.conference} {publication.year}</em>
-              {hasCoauthor && ' | *Equal contribution'}
+              <span class="pub-venue-name">{publication.conference} {publication.year}</span>
+              {hasCoauthor && <span class="pub-contribution">*Equal contribution</span>}
               {publication.link && (
-                <> | <a href={publication.link} class="pub-link">{getLinkText(publication.link)}</a></>
+                <a href={publication.link} class="pub-link-badge">{getLinkText(publication.link)}</a>
               )}
               {publication.awards && publication.awards.map(award => (
-                <> | <span class="pub-award">{award}</span></>
+                <span class="pub-award">{award}</span>
               ))}
             </div>
           </div>
