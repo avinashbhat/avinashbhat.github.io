@@ -47,7 +47,7 @@ function renderServiceItem(item: ServiceItem): string {
       ? `${name} - ${link}`
       : (item.url ? link : `${name} - ${yearPart}`);
 
-    const note = item.note ? ` <em>(${item.note})</em>` : '';
+    const note = item.note ? ` (${item.note})` : '';
     return display + note;
   }
 
