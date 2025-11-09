@@ -58,41 +58,41 @@ function renderServiceItem(item: ServiceItem): string {
 }
 ---
 
-<ul class="service-list">
+<ul class="content-list">
   {serviceData.map((category: ServiceCategory) => (
-    <li class="service-item">
-      <div class="service-category-title">
-        {category.category}
-      </div>
-      <div class="service-content">
-        {category.subcategories ? (
-          // Handle categories with subcategories (like Peer Reviewing)
-          <div class="service-subcategories">
-            {category.subcategories.map((sub: Subcategory) => (
-              <div class="service-subcategory">
-                <div class="service-subtype">{sub.type}</div>
-                <div class="service-items">
-                  {sub.items.map((item: ServiceItem, idx: number) => (
-                    <span class="service-entry">
-                      <span set:html={renderServiceItem(item)} />
-                      {idx < sub.items.length - 1 ? '' : ''}
-                    </span>
-                  ))}
+    <li class="content-item">
+      <div class="content-item-body">
+        <div class="content-item-preview">
+          <strong>{category.category}</strong>
+        </div>
+        <div class="content-item-details">
+          {category.subcategories ? (
+            // Handle categories with subcategories (like Peer Reviewing)
+            <div class="service-subcategories">
+              {category.subcategories.map((sub: Subcategory) => (
+                <div class="service-subcategory">
+                  <div class="service-subtype">{sub.type}</div>
+                  <div class="service-items">
+                    {sub.items.map((item: ServiceItem, idx: number) => (
+                      <span class="service-entry">
+                        <span set:html={renderServiceItem(item)} />
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        ) : category.items ? (
-          // Handle categories with direct items (like Program Committee)
-          <div class="service-items">
-            {category.items.map((item: ServiceItem, idx: number) => (
-              <span class="service-entry">
-                <span set:html={renderServiceItem(item)} />
-                {idx < category.items.length - 1 ? '' : ''}
-              </span>
-            ))}
-          </div>
-        ) : null}
+              ))}
+            </div>
+          ) : category.items ? (
+            // Handle categories with direct items (like Program Committee)
+            <div class="service-items">
+              {category.items.map((item: ServiceItem, idx: number) => (
+                <span class="service-entry">
+                  <span set:html={renderServiceItem(item)} />
+                </span>
+              ))}
+            </div>
+          ) : null}
+        </div>
       </div>
     </li>
   ))}
