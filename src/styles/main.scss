@@ -239,7 +239,7 @@ blockquote {
 h1,h2,h3,h4,h5 {
 	line-height: 1.5;
 	margin: 1rem 0;
-	font-weight: 600;
+	font-weight: 500;
 }
 
 h3 {
@@ -320,7 +320,7 @@ html.dark-theme .btn-back {
 }
 
 strong, b {
-	font-weight: bold;
+	font-weight: 500;
 }
 
 
@@ -402,7 +402,7 @@ figcaption {
 
 .news-date-inline {
     color: #000;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1rem;
     flex-shrink: 0;
     background-color: transparent !important;
@@ -481,7 +481,7 @@ figcaption {
 
 .pub-year-inline {
     color: #000;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1rem;
     flex-shrink: 0;
     background-color: transparent !important;
@@ -537,7 +537,7 @@ figcaption {
 
 .pub-authors strong {
     color: #000;
-    font-weight: 600;
+    font-weight: 500;
     background-color: rgba(0, 0, 0, 0.03);
     padding: 0.1rem 0.35rem;
     border-radius: 3px;
@@ -593,9 +593,94 @@ figcaption {
     padding: 0.15rem 0.5rem;
     border-radius: 3px;
     font-size: 0.85rem;
-    font-weight: 600;
+    font-weight: 500;
     border: 1px solid rgba(255, 215, 0, 0.3);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+// Service styling
+.service-list {
+    list-style: none;
+    padding: 0;
+}
+
+.service-item {
+    margin-bottom: 1.5rem;
+    padding: 0.75rem;
+    border-radius: 3px;
+    background-color: transparent;
+}
+
+.service-category-title {
+    font-weight: 500;
+    color: #000;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    background-color: transparent !important;
+}
+
+.service-content {
+    background-color: transparent !important;
+}
+
+.service-subcategories {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.service-subcategory {
+    background-color: transparent !important;
+}
+
+.service-subtype {
+    font-weight: 500;
+    color: #495057;
+    font-size: 0.95rem;
+    margin-bottom: 0.35rem;
+    background-color: transparent !important;
+}
+
+.service-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    background-color: transparent !important;
+}
+
+.service-entry {
+    background-color: transparent !important;
+    color: #495057;
+    font-size: 0.95rem;
+}
+
+.service-entry::after {
+    content: "•";
+    margin-left: 0.5rem;
+    color: #cbd5e1;
+}
+
+.service-entry:last-child::after {
+    content: "";
+    margin-left: 0;
+}
+
+// Dark theme service styles
+html.dark-theme .service-category-title {
+    color: #e2e8f0;
+}
+
+html.dark-theme .service-subtype {
+    color: #cbd5e1;
+}
+
+html.dark-theme .service-entry {
+    color: #cbd5e1;
+}
+
+html.dark-theme .service-entry::after {
+    color: #475569;
 }
 
 // Blog styling
@@ -617,7 +702,7 @@ figcaption {
 
 .blog-date-inline {
     color: #000;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1rem;
     flex-shrink: 0;
     background-color: transparent !important;
@@ -713,7 +798,7 @@ figcaption {
     cursor: pointer;
     font-size: 1rem;
     font-family: inherit;
-    font-weight: 600;
+    font-weight: 500;
     color: #64748b;
     border-bottom: 2px solid transparent;
     transition: all 0.3s ease;
