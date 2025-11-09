@@ -7,16 +7,16 @@ function renderMarkdown(text: string): string {
 }
 ---
 
-<ul class="news-list">
+<ul class="content-list">
   {newsData.map((newsItem) => (
-    <li class="news-item">
-      <div class="news-date-inline">{newsItem.date}</div>
-      <div class="news-content-block">
-        <div class="news-preview">
+    <li class="content-item">
+      <div class="content-item-label">{newsItem.date}</div>
+      <div class="content-item-body">
+        <div class="content-item-preview">
           {newsItem.title}
         </div>
-        <div class="news-details">
-          <div class="news-full-content" set:html={renderMarkdown(newsItem.content)} />
+        <div class="content-item-details">
+          <div class="content-item-full" set:html={renderMarkdown(newsItem.content)} />
         </div>
       </div>
     </li>

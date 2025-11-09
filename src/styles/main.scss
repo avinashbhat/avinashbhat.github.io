@@ -82,24 +82,25 @@ html.dark-theme .tab-navigation {
 	border-bottom-color: #334155;
 }
 
-// Dark theme news/publication items
-html.dark-theme .news-item:hover,
-html.dark-theme .publication-item:hover,
-html.dark-theme .blog-item:hover {
+// ========================================
+// Dark theme for shared content styles
+// ========================================
+
+html.dark-theme .content-item:hover {
 	background-color: rgba(255, 255, 255, 0.08);
 }
 
-html.dark-theme .news-date-inline,
-html.dark-theme .pub-year-inline,
-html.dark-theme .blog-date-inline,
-html.dark-theme .news-preview,
-html.dark-theme .pub-title,
-html.dark-theme .blog-title,
-html.dark-theme .news-full-content,
-html.dark-theme .blog-excerpt {
+html.dark-theme .content-item-label,
+html.dark-theme .content-item-preview,
+html.dark-theme .content-item-full {
 	color: #e2e8f0;
 }
 
+html.dark-theme .content-item-preview a {
+	color: #e2e8f0;
+}
+
+// Publication-specific dark theme
 html.dark-theme .pub-authors {
 	color: #cbd5e1;
 }
@@ -138,8 +139,17 @@ html.dark-theme .pub-award {
 	border-color: rgba(251, 191, 36, 0.4);
 }
 
-html.dark-theme .pub-year {
-	color: #e2e8f0;
+// Service-specific dark theme
+html.dark-theme .service-subtype {
+    color: #cbd5e1;
+}
+
+html.dark-theme .service-entry {
+    color: #cbd5e1;
+}
+
+html.dark-theme .service-entry::after {
+    color: #475569;
 }
   
 
@@ -383,13 +393,16 @@ figcaption {
 
 
 
-// News styling (hover-expandable like publications/blogs)
-.news-list {
+// ========================================
+// Shared base styles for all content tabs
+// ========================================
+
+.content-list {
     list-style: none;
     padding: 0;
 }
 
-.news-item {
+.content-item {
     margin-bottom: 0.25rem;
     padding: 0.75rem;
     cursor: pointer;
@@ -400,25 +413,24 @@ figcaption {
     background-color: transparent;
 }
 
-.news-date-inline {
+.content-item:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.content-item-label {
     color: #000;
     font-weight: 500;
     font-size: 1rem;
     flex-shrink: 0;
     background-color: transparent !important;
-    // margin-top: -0.1rem;
 }
 
-.news-content-block {
+.content-item-body {
     flex: 1;
     background-color: transparent !important;
 }
 
-.news-item:hover {
-    background-color: rgba(255, 255, 255, 0.6);
-}
-
-.news-preview {
+.content-item-preview {
     font-weight: normal;
     color: #000;
     font-size: 1rem;
@@ -427,7 +439,16 @@ figcaption {
     background-color: transparent !important;
 }
 
-.news-details {
+.content-item-preview a {
+    text-decoration: none;
+    color: #000;
+}
+
+.content-item-preview a:hover {
+    text-decoration: underline;
+}
+
+.content-item-details {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
@@ -435,13 +456,13 @@ figcaption {
     margin-top: 0;
 }
 
-.news-item:hover .news-details {
-    max-height: 300px;
+.content-item:hover .content-item-details {
+    max-height: 500px;
     opacity: 1;
     margin-top: 0.5rem;
 }
 
-.news-full-content {
+.content-item-full {
     font-size: 1rem;
     color: #000;
     line-height: 1.5;
@@ -450,80 +471,9 @@ figcaption {
     background-color: transparent !important;
 }
 
-// Publications hover-expandable styling
-.pub-year-group {
-    margin-bottom: 1.5rem;
-}
-
-.pub-year {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #000;
-    margin: 0 0 0.75rem 0;
-}
-
-
-.publications-list {
-    list-style: none;
-    padding: 0;
-}
-
-.publication-item {
-    margin-bottom: 0.25rem;
-    padding: 0.75rem;
-    cursor: pointer;
-    border-radius: 3px;
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    background-color: transparent;
-}
-
-.pub-year-inline {
-    color: #000;
-    font-weight: 500;
-    font-size: 1rem;
-    flex-shrink: 0;
-    background-color: transparent !important;
-}
-
-.pub-content {
-    flex: 1;
-    background-color: transparent !important;
-}
-
-.publication-item:hover {
-    background-color: rgba(255, 255, 255, 0.6);
-}
-
-.pub-title {
-    font-weight: normal;
-    color: #000;
-    font-size: 1rem;
-    line-height: 1.5;
-    text-transform: capitalize;
-    background-color: transparent !important;
-}
-
-.pub-link {
-    font-size: 1rem;
-    color: #000;
-    margin-left: 0.5rem;
-}
-
-.pub-details {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
-    margin-top: 0;
-}
-
-.publication-item:hover .pub-details {
-    max-height: 300px;
-    opacity: 1;
-    margin-top: 0.5rem;
-}
+// ========================================
+// Publication-specific styles
+// ========================================
 
 .pub-authors {
     font-size: 0.95rem;
@@ -598,30 +548,9 @@ figcaption {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-// Service styling
-.service-list {
-    list-style: none;
-    padding: 0;
-}
-
-.service-item {
-    margin-bottom: 1.5rem;
-    padding: 0.75rem;
-    border-radius: 3px;
-    background-color: transparent;
-}
-
-.service-category-title {
-    font-weight: 500;
-    color: #000;
-    font-size: 1rem;
-    margin-bottom: 0.75rem;
-    background-color: transparent !important;
-}
-
-.service-content {
-    background-color: transparent !important;
-}
+// ========================================
+// Service-specific styles
+// ========================================
 
 .service-subcategories {
     display: flex;
@@ -664,100 +593,6 @@ figcaption {
 .service-entry:last-child::after {
     content: "";
     margin-left: 0;
-}
-
-// Dark theme service styles
-html.dark-theme .service-category-title {
-    color: #e2e8f0;
-}
-
-html.dark-theme .service-subtype {
-    color: #cbd5e1;
-}
-
-html.dark-theme .service-entry {
-    color: #cbd5e1;
-}
-
-html.dark-theme .service-entry::after {
-    color: #475569;
-}
-
-// Blog styling
-.blog-list {
-    list-style: none;
-    padding: 0;
-}
-
-.blog-item {
-    margin-bottom: 0.25rem;
-    padding: 0.75rem;
-    cursor: pointer;
-    border-radius: 3px;
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    background-color: transparent;
-}
-
-.blog-date-inline {
-    color: #000;
-    font-weight: 500;
-    font-size: 1rem;
-    flex-shrink: 0;
-    background-color: transparent !important;
-    // margin-top: -0.1rem;
-}
-
-.blog-content {
-    flex: 1;
-    background-color: transparent !important;
-}
-
-.blog-item:hover {
-    background-color: rgba(255, 255, 255, 0.6);
-}
-
-.blog-title {
-    font-weight: normal;
-    color: #000;
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 0.25rem;
-    background-color: transparent !important;
-}
-
-.blog-title a {
-    text-decoration: none;
-    color: #000;
-}
-
-.blog-title a:hover {
-    text-decoration: underline;
-}
-
-.blog-details {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
-    margin-top: 0;
-}
-
-.blog-item:hover .blog-details {
-    max-height: 300px;
-    opacity: 1;
-    margin-top: 0.5rem;
-}
-
-.blog-excerpt {
-    font-size: 1rem;
-    color: #000;
-    line-height: 1.5;
-    margin-bottom: 0.5rem;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    background-color: transparent !important;
 }
 
 // Blog post content styling (only for blog pages)

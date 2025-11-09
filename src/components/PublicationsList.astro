@@ -11,19 +11,19 @@ function getLinkText(link: string): string {
 }
 ---
 
-<ul class="publications-list">
+<ul class="content-list">
   {publications.map((publication) => {
     const authors = publication.authors.split(',').map(a => a.trim());
     const hasCoauthor = publication.authors.includes('*');
 
     return (
-      <li class="publication-item">
-        <div class="pub-year-inline">{publication.year}</div>
-        <div class="pub-content">
-          <div class="pub-title">
+      <li class="content-item">
+        <div class="content-item-label">{publication.year}</div>
+        <div class="content-item-body">
+          <div class="content-item-preview">
             {publication.title}
           </div>
-          <div class="pub-details">
+          <div class="content-item-details">
             <div class="pub-authors">
               {authors.map((author, index) => (
                 <>
