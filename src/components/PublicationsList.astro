@@ -37,13 +37,13 @@ function getLinkText(link: string): string {
               ))}
             </div>
             <div class="pub-venue">
-              <em>{publication.conference} {publication.year}</em>
-              {hasCoauthor && ' | *Equal contribution'}
+              <span class="pub-venue-name">{publication.conference} {publication.year}</span>
+              {hasCoauthor && <span class="pub-contribution">*Equal contribution</span>}
               {publication.link && (
-                <> | <a href={publication.link} class="pub-link">{getLinkText(publication.link)}</a></>
+                <a href={publication.link} class="pub-link-badge">{getLinkText(publication.link)}</a>
               )}
               {publication.awards && publication.awards.map(award => (
-                <> | <span class="pub-award">{award}</span></>
+                <span class="pub-award">{award}</span>
               ))}
             </div>
           </div>
