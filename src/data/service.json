@@ -1,14 +1,108 @@
 [
   {
-    "title": "Program Committee",
-    "content": "IUI - [2026](https://iui.acm.org/2026/)"
+    "category": "Program Committee",
+    "items": [
+      {
+        "name": "IUI",
+        "year": 2026,
+        "url": "https://iui.acm.org/2026/"
+      }
+    ]
   },
   {
-    "title": "Peer Reviewing",
-    "content": "**Workshops**; DL4C Workshop - [2023](https://dl4c.github.io/); In2Writing Workshop - 2024, 2025; SMASH - [2025](https://smashcon.org/en/); **Conferences**; C&C - [2025](https://cc.acm.org/2025/); UIST - [2025](https://uist.acm.org/2025/); DIS - [2025](https://dis.acm.org/2025/); CHI - [2024](https://chi2024.acm.org/), [2025](https://chi2025.acm.org/), [2026](https://chi2026.acm.org/); ICSE - [2026 (As part of Shadow PC Program)](https://conf.researchr.org/track/icse-2026/icse-2026-shadow-research-track-program-committee); **Journal**; [Springer Automated Software Engineering](https://link.springer.com/journal/10515)"
+    "category": "Peer Reviewing",
+    "subcategories": [
+      {
+        "type": "Workshops",
+        "items": [
+          {
+            "name": "DL4C Workshop",
+            "year": 2023,
+            "url": "https://dl4c.github.io/"
+          },
+          {
+            "name": "In2Writing Workshop",
+            "years": [2024, 2025]
+          },
+          {
+            "name": "SMASH",
+            "year": 2025,
+            "url": "https://smashcon.org/en/"
+          }
+        ]
+      },
+      {
+        "type": "Conferences",
+        "items": [
+          {
+            "name": "C&C",
+            "year": 2025,
+            "url": "https://cc.acm.org/2025/"
+          },
+          {
+            "name": "UIST",
+            "year": 2025,
+            "url": "https://uist.acm.org/2025/"
+          },
+          {
+            "name": "DIS",
+            "year": 2025,
+            "url": "https://dis.acm.org/2025/"
+          },
+          {
+            "name": "CHI",
+            "years": [
+              {
+                "year": 2024,
+                "url": "https://chi2024.acm.org/"
+              },
+              {
+                "year": 2025,
+                "url": "https://chi2025.acm.org/"
+              },
+              {
+                "year": 2026,
+                "url": "https://chi2026.acm.org/"
+              }
+            ]
+          },
+          {
+            "name": "ICSE",
+            "year": 2026,
+            "url": "https://conf.researchr.org/track/icse-2026/icse-2026-shadow-research-track-program-committee",
+            "note": "As part of Shadow PC Program"
+          }
+        ]
+      },
+      {
+        "type": "Journal",
+        "items": [
+          {
+            "name": "Springer Automated Software Engineering",
+            "url": "https://link.springer.com/journal/10515"
+          }
+        ]
+      }
+    ]
   },
   {
-    "title": "Student Volunteer",
-    "content": "CHI - [2023](https://chi2023.acm.org/); C&C - [2023](https://cc.acm.org/2023/); CSCW - [2023](https://cscw.acm.org/2023/)"
+    "category": "Student Volunteer",
+    "items": [
+      {
+        "name": "CHI",
+        "year": 2023,
+        "url": "https://chi2023.acm.org/"
+      },
+      {
+        "name": "C&C",
+        "year": 2023,
+        "url": "https://cc.acm.org/2023/"
+      },
+      {
+        "name": "CSCW",
+        "year": 2023,
+        "url": "https://cscw.acm.org/2023/"
+      }
+    ]
   }
 ]
