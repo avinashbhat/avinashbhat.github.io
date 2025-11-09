@@ -1,23 +1,97 @@
 ---
-import { marked } from 'marked';
 import serviceData from '../data/service.json';
 
-function renderMarkdown(text: string): string {
-  return marked(text).replace(/; /g, '<br>').replace(/<\/?p>/g, '');
+interface ServiceItem {
+  name: string;
+  year?: number;
+  years?: number[] | { year: number; url: string }[];
+  url?: string;
+  note?: string;
+}
+
+interface Subcategory {
+  type: string;
+  items: ServiceItem[];
+}
+
+interface ServiceCategory {
+  category: string;
+  items?: ServiceItem[];
+  subcategories?: Subcategory[];
+}
+
+function renderServiceItem(item: ServiceItem): string {
+  const name = item.name;
+
+  // Handle items with multiple years (like CHI with different year objects)
+  if (item.years && Array.isArray(item.years)) {
+    const yearLinks = item.years.map((yearItem) => {
+      if (typeof yearItem === 'object' && 'year' in yearItem) {
+        return `<a href="${yearItem.url}" target="_blank" rel="noopener noreferrer">${yearItem.year}</a>`;
+      } else {
+        return yearItem.toString();
+      }
+    }).join(', ');
+
+    return `${name} - ${yearLinks}`;
+  }
+
+  // Handle items with a single year and/or URL
+  if (item.year || item.url) {
+    const yearPart = item.year ? item.year : '';
+    const link = item.url
+      ? `<a href="${item.url}" target="_blank" rel="noopener noreferrer">${yearPart || name}</a>`
+      : yearPart;
+
+    const display = item.year && item.url
+      ? `${name} - ${link}`
+      : (item.url ? link : `${name} - ${yearPart}`);
+
+    const note = item.note ? ` (${item.note})` : '';
+    return display + note;
+  }
+
+  // Just the name, possibly with URL
+  return item.url
+    ? `<a href="${item.url}" target="_blank" rel="noopener noreferrer">${name}</a>`
+    : name;
 }
 ---
 
-<ul class="news-list">
-  {serviceData.map((serviceItem) => (
-    <li class="news-item">
-      <div class="news-content-block">
-        <div class="news-preview">
-          <strong>{serviceItem.title}</strong>
+<ul class="content-list">
+  {serviceData.map((category: ServiceCategory) => (
+    <li class="content-item">
+      <div class="content-item-body">
+        <div class="content-item-preview">
+          {category.category}
         </div>
-        <div class="news-details">
-          <div class="news-full-content">
-            <i set:html={renderMarkdown(serviceItem.content)} />
-          </div>
+        <div class="content-item-details">
+          {category.subcategories ? (
+            // Handle categories with subcategories (like Peer Reviewing)
+            <div class="service-subcategories">
+              {category.subcategories.map((sub: Subcategory) => (
+                <div class="service-subcategory">
+                  <div class="service-subtype">{sub.type}</div>
+                  <div class="service-items">
+                    {sub.items.map((item: ServiceItem, idx: number) => (
+                      <span class="service-entry">
+                        <span set:html={renderServiceItem(item)} />
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : category.items ? (
+            // Handle categories with direct items (like Program Committee)
+            <div class="service-items">
+              {category.items.map((item: ServiceItem, idx: number) => (
+                <span class="service-entry">
+                  <span set:html={renderServiceItem(item)} />
+                </span>
+              ))}
+            </div>
+          ) : null}
         </div>
       </div>
     </li>
