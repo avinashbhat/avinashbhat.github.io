@@ -141,7 +141,8 @@ html.dark-theme .pub-award {
 
 // Service-specific dark theme
 html.dark-theme .service-subtype {
-    color: #f1f5f9;
+    color: #e2e8f0;
+    font-weight: 500;
 }
 
 html.dark-theme .service-entry {
@@ -561,8 +562,8 @@ figcaption {
 }
 
 .service-subtype {
-    font-weight: normal;
-    color: #2d3748;
+    font-weight: 500;
+    color: #000;
     font-size: 0.95rem;
     margin-bottom: 0.35rem;
     background-color: transparent !important;
