@@ -1,0 +1,25 @@
+---
+import { marked } from 'marked';
+import serviceData from '../data/service.json';
+
+function renderMarkdown(text: string): string {
+  return marked(text).replace(/; /g, '<br>').replace(/<\/?p>/g, '');
+}
+---
+
+<ul class="news-list">
+  {serviceData.map((serviceItem) => (
+    <li class="news-item">
+      <div class="news-content-block">
+        <div class="news-preview">
+          <strong>{serviceItem.title}</strong>
+        </div>
+        <div class="news-details">
+          <div class="news-full-content">
+            <i set:html={renderMarkdown(serviceItem.content)} />
+          </div>
+        </div>
+      </div>
+    </li>
+  ))}
+</ul>

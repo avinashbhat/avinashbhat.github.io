@@ -1,0 +1,21 @@
+---
+import blogsData from '../data/blogs.json';
+---
+
+<ul class="blog-list">
+  {blogsData.map((blog) => (
+    <li class="blog-item">
+      <div class="blog-date-inline">{blog.date}</div>
+      <div class="blog-content">
+        <div class="blog-title">
+          <a href={blog.url}>{blog.title}</a>
+        </div>
+        <div class="blog-details">
+          <div class="blog-excerpt">
+            {blog.excerpt}
+          </div>
+        </div>
+      </div>
+    </li>
+  ))}
+</ul>

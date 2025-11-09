@@ -1,0 +1,78 @@
+---
+import '../styles/main.scss';
+
+interface Props {
+  title?: string;
+}
+
+const { title = "Avinash Bhat" } = Astro.props;
+const currentYear = new Date().getFullYear();
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- MathJax -->
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2DY8YRN96T"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-2DY8YRN96T');
+    </script>
+
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content="Avinash Bhat - PhD student at McGill University researching Human-Computer Interaction and Software Engineering">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title}>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://avinashbhat.github.io/">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="@aviinashbhat">
+    <meta name="twitter:title" content={title}>
+
+    <!-- Favicon & Sitemap -->
+    <link rel="shortcut icon" href="/favicon.png">
+    <link rel="sitemap" type="application/xml" title="sitemap" href="/sitemap.xml" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://kit.fontawesome.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c86ea97818.js" crossorigin="anonymous" async></script>
+
+    <!-- Theme script - must run before page renders to prevent flash -->
+    <script is:inline>
+      try {
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+          document.documentElement.className += ' dark-theme';
+        }
+      } catch(e) {}
+    </script>
+  </head>
+
+  <body>
+    <main role="main">
+      <slot />
+    </main>
+
+    <!-- Scripts -->
+    <script src="/src/scripts/main.js"></script>
+    <script src="/src/scripts/sidenotes.js"></script>
+    <script src="/src/scripts/party-mode.js"></script>
+  </body>
+</html>

@@ -1,0 +1,872 @@
+*,:after,:before {
+	box-sizing:border-box;
+	background-color:inherit;
+	color:inherit;
+	margin:0;
+	padding:0;
+}
+
+
+body {
+	font-family: "Montserrat", sans-serif;
+	font-optical-sizing: auto;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+	line-height: 1.5;
+    font-size: 1rem;
+	color: rgb(0, 0, 0);
+	background-color: rgba(255, 255, 255, 0.4);
+	background-image:
+                linear-gradient(45deg, #64748b20 25%, transparent 25%),
+                linear-gradient(-45deg, #64748b20 25%, transparent 25%);
+	background-size: 8px 8px;
+	background-position: 0 0;
+	background-repeat: repeat;
+}
+
+// Dark theme styles
+html.dark-theme body {
+	color: #e2e8f0;
+	background-color: #0f172a;
+	background-image:
+                linear-gradient(45deg, #1e293b80 25%, transparent 25%),
+                linear-gradient(-45deg, #1e293b80 25%, transparent 25%);
+}
+
+html.dark-theme a {
+	color: #60a5fa;
+}
+
+html.dark-theme a:hover {
+	color: #93c5fd;
+}
+
+html.dark-theme code,
+html.dark-theme pre {
+	background: #1e293b;
+	color: #e2e8f0;
+}
+
+html.dark-theme nav ul,
+html.dark-theme header ul,
+html.dark-theme section {
+	border-color: #334155;
+}
+
+html.dark-theme blockquote {
+	border-left-color: #475569;
+}
+
+html.dark-theme hr {
+	background: #475569;
+}
+
+html.dark-theme .tab-button {
+	color: #94a3b8;
+	border-bottom-color: transparent;
+}
+
+html.dark-theme .tab-button:hover {
+	color: #e2e8f0;
+	background-color: rgba(255, 255, 255, 0.05);
+}
+
+html.dark-theme .tab-button.active {
+	color: #e2e8f0;
+	border-bottom-color: #e2e8f0;
+	background-color: rgba(255, 255, 255, 0.08);
+}
+
+html.dark-theme .tab-navigation {
+	border-bottom-color: #334155;
+}
+
+// Dark theme news/publication items
+html.dark-theme .news-item:hover,
+html.dark-theme .publication-item:hover,
+html.dark-theme .blog-item:hover {
+	background-color: rgba(255, 255, 255, 0.08);
+}
+
+html.dark-theme .news-date-inline,
+html.dark-theme .pub-year-inline,
+html.dark-theme .blog-date-inline,
+html.dark-theme .news-preview,
+html.dark-theme .pub-title,
+html.dark-theme .blog-title,
+html.dark-theme .news-full-content,
+html.dark-theme .pub-authors,
+html.dark-theme .pub-venue,
+html.dark-theme .blog-excerpt {
+	color: #e2e8f0;
+}
+
+html.dark-theme .pub-year {
+	color: #e2e8f0;
+}
+  
+
+nav ul {
+    border-right: 1px solid #edf2f7;
+}
+
+a {
+    text-decoration-skip-ink: auto;
+    text-decoration: underline;
+    background-color: transparent !important;
+}
+
+pre {
+	margin: .5rem 0;
+	padding: .5rem;
+}
+
+.post p {
+	margin: .5rem 0;
+}
+
+.post h1, .post h2, .post h3, .post h4 {
+	margin: 1rem 0;
+}
+
+.post h2:first-child {
+	margin-top: 0;
+}
+
+.meta {
+	margin: 2rem 0;
+}
+
+code,pre {
+	background: rgb(236, 237, 238);
+}
+
+code {
+	padding: .1rem;
+}
+
+pre code {
+	border: none;
+}
+
+pre {
+	padding: 1rem;
+	overflow-x: auto;
+}
+
+img {
+	max-width:100%;
+}
+
+hr {
+	background: #000;
+    height: 1px;
+    border: 0;
+}
+
+header {
+	// flex-basis:10rem;
+	// flex-grow:1;
+	position:relative;
+}
+
+header a {
+	text-decoration: none;
+}
+
+header li {
+	margin-bottom: .2rem;
+	text-align: right;
+	margin-right: 2rem;
+}
+
+header a.active {
+	font-weight: bold;
+}
+
+header,section {
+	padding: 1rem;
+}
+
+// Add padding to main content area
+section .page-header ~ * {
+	padding-left: 0.5rem;
+}
+
+blockquote {
+	font-style: italic;
+    border-left: 5px solid #ececec;
+    padding-left: 1rem;
+}
+
+h1,h2,h3,h4,h5 {
+	line-height: 1.5;
+	margin: 1rem 0;
+	font-weight: 600;
+}
+
+h3 {
+	font-size: 1.3rem;
+}
+
+section h1:first-child {
+	margin-top: 0;
+}
+
+// Page header layout
+.page-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	border-bottom: 1px solid #edf2f7;
+	padding: 0 1rem 8px 0.5rem;
+	margin-bottom: 20px;
+}
+
+.page-title {
+	margin: 0 !important;
+	line-height: 1.2;
+}
+
+.page-date {
+	margin: 0;
+	font-style: italic;
+	color: #6c757d;
+	font-size: 0.9rem;
+}
+
+.page-actions {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	margin-top: 0.2rem;
+}
+
+.btn {
+	text-decoration: none;
+	padding: 0.5rem 0.75rem;
+	border: none;
+	border-radius: 4px;
+	font-size: 0.9rem;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	height: fit-content;
+	line-height: 1;
+}
+
+.btn-back {
+	background-color: rgba(0, 0, 0, 0.05) !important;
+	color: #495057;
+}
+
+.btn-theme {
+	background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+// Dark theme button styles
+html.dark-theme .btn-theme {
+	background-color: rgba(255, 255, 255, 0.08) !important;
+	color: #e2e8f0;
+}
+
+html.dark-theme .btn-back {
+	background-color: rgba(255, 255, 255, 0.08) !important;
+	color: #e2e8f0;
+}
+
+// Fix icon background inheritance
+.btn i,
+.btn-theme i,
+.btn-back i {
+	background-color: transparent !important;
+}
+
+strong, b {
+	font-weight: bold;
+}
+
+
+header ul {
+	list-style:none;
+}
+
+
+.post ul, .post ol  {
+    list-style-position: outside;
+    padding-left: 2rem;
+}
+
+main {
+	display:flex;
+	flex-wrap:nowrap;
+	max-width:70rem;
+	margin:0.5rem auto;
+	padding:1rem;
+}
+
+
+@media screen and (max-width: 45rem ) {
+main {
+	flex-wrap:wrap;
+	flex-direction:row;
+	max-width:50rem;
+}
+header li {
+    display: inline;
+	margin-right: 1rem;
+}
+.logo {
+	padding-bottom: 1rem;
+}
+header ul {
+	border-bottom: 1px solid #edf2f7;
+	padding-bottom: 2rem;	
+}
+nav ul {
+    border-right: 0px;
+}
+
+
+}
+
+section {
+	flex-basis:0;
+	flex-grow:999;
+	min-width:70%;
+	display:flex;
+	flex-direction:column;
+	border-right: 1px solid #edf2f7;
+	
+}
+
+figcaption {
+    font-size: 0.7rem;
+}
+
+
+
+// News styling (hover-expandable like publications/blogs)
+.news-list {
+    list-style: none;
+    padding: 0;
+}
+
+.news-item {
+    margin-bottom: 0.25rem;
+    padding: 0.75rem;
+    cursor: pointer;
+    border-radius: 3px;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background-color: transparent;
+}
+
+.news-date-inline {
+    color: #000;
+    font-weight: 600;
+    font-size: 1rem;
+    flex-shrink: 0;
+    background-color: transparent !important;
+    // margin-top: -0.1rem;
+}
+
+.news-content-block {
+    flex: 1;
+    background-color: transparent !important;
+}
+
+.news-item:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.news-preview {
+    font-weight: normal;
+    color: #000;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 0.25rem;
+    background-color: transparent !important;
+}
+
+.news-details {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
+    margin-top: 0;
+}
+
+.news-item:hover .news-details {
+    max-height: 300px;
+    opacity: 1;
+    margin-top: 0.5rem;
+}
+
+.news-full-content {
+    font-size: 1rem;
+    color: #000;
+    line-height: 1.5;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    background-color: transparent !important;
+}
+
+// Publications hover-expandable styling
+.pub-year-group {
+    margin-bottom: 1.5rem;
+}
+
+.pub-year {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000;
+    margin: 0 0 0.75rem 0;
+}
+
+
+.publications-list {
+    list-style: none;
+    padding: 0;
+}
+
+.publication-item {
+    margin-bottom: 0.25rem;
+    padding: 0.75rem;
+    cursor: pointer;
+    border-radius: 3px;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background-color: transparent;
+}
+
+.pub-year-inline {
+    color: #000;
+    font-weight: 600;
+    font-size: 1rem;
+    flex-shrink: 0;
+    background-color: transparent !important;
+}
+
+.pub-content {
+    flex: 1;
+    background-color: transparent !important;
+}
+
+.publication-item:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.pub-title {
+    font-weight: normal;
+    color: #000;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-transform: capitalize;
+    background-color: transparent !important;
+}
+
+.pub-link {
+    font-size: 1rem;
+    color: #000;
+    margin-left: 0.5rem;
+}
+
+.pub-details {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
+    margin-top: 0;
+}
+
+.publication-item:hover .pub-details {
+    max-height: 300px;
+    opacity: 1;
+    margin-top: 0.5rem;
+}
+
+.pub-authors {
+    font-size: 1rem;
+    color: #000;
+    line-height: 1.5;
+    margin-bottom: 0.25rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    background-color: transparent !important;
+}
+
+.pub-venue {
+    font-size: 1rem;
+    color: #000;
+    background-color: transparent !important;
+}
+
+.pub-award {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+// Blog styling
+.blog-list {
+    list-style: none;
+    padding: 0;
+}
+
+.blog-item {
+    margin-bottom: 0.25rem;
+    padding: 0.75rem;
+    cursor: pointer;
+    border-radius: 3px;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background-color: transparent;
+}
+
+.blog-date-inline {
+    color: #000;
+    font-weight: 600;
+    font-size: 1rem;
+    flex-shrink: 0;
+    background-color: transparent !important;
+    // margin-top: -0.1rem;
+}
+
+.blog-content {
+    flex: 1;
+    background-color: transparent !important;
+}
+
+.blog-item:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.blog-title {
+    font-weight: normal;
+    color: #000;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 0.25rem;
+    background-color: transparent !important;
+}
+
+.blog-title a {
+    text-decoration: none;
+    color: #000;
+}
+
+.blog-title a:hover {
+    text-decoration: underline;
+}
+
+.blog-details {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
+    margin-top: 0;
+}
+
+.blog-item:hover .blog-details {
+    max-height: 300px;
+    opacity: 1;
+    margin-top: 0.5rem;
+}
+
+.blog-excerpt {
+    font-size: 1rem;
+    color: #000;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    background-color: transparent !important;
+}
+
+// Blog post content styling (only for blog pages)
+.blog-content-page p, .blog-content-page li {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.blog-content-page h1 {
+    font-size: 1.5rem;
+}
+
+.blog-content-page h2 {
+    font-size: 1.3rem;
+}
+
+.blog-content-page pre, .blog-content-page code {
+    font-size: 0.8rem;
+}
+
+// Tab styling
+.content-tabs {
+    margin: 2rem 0;
+}
+
+.tab-navigation {
+    display: flex;
+    border-bottom: 2px solid #edf2f7;
+    margin-bottom: 1.5rem;
+    gap: 0;
+}
+
+.tab-button {
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: inherit;
+    font-weight: 600;
+    color: #64748b;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 10;
+    pointer-events: auto;
+}
+
+.tab-button:hover {
+    color: #000;
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.tab-button.active {
+    color: #000;
+    border-bottom-color: #000;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.tab-content {
+    position: relative;
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+// Remove margin from first h3 in tab panels
+.tab-panel h3:first-child {
+    margin-top: 0;
+}
+
+// Modal sidenotes
+.blog-content-page,
+.post {
+    counter-reset: sidenote-counter;
+}
+
+.sidenote-ref {
+    counter-increment: sidenote-counter;
+    position: relative;
+    cursor: pointer;
+    color: #007acc;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 1px 2px;
+    border-radius: 3px;
+    transition: all 0.2s ease;
+    outline: none;
+    display: inline;
+}
+
+.sidenote-ref:focus {
+    outline: none;
+    text-decoration: none;
+}
+
+.sidenote-ref:after {
+    content: counter(sidenote-counter);
+    font-size: 0.7rem;
+    vertical-align: super;
+    margin-left: 0;
+}
+
+.sidenote-ref:hover {
+    text-decoration: underline;
+}
+
+// Dark theme refs
+html.dark-theme .sidenote-ref {
+    color: #60a5fa;
+}
+
+html.dark-theme .sidenote-ref:hover {
+    text-decoration: underline;
+}
+
+// Modal overlay
+.sidenote-modal,
+.sidenote-modal *,
+.sidenote-modal *:before,
+.sidenote-modal *:after {
+    transition: none !important;
+    animation: none !important;
+}
+
+.sidenote-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    pointer-events: none;
+    display: block;
+}
+
+.sidenote-modal.show {
+    display: block;
+}
+
+.sidenote-content {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    width: 450px;
+    max-width: 450px;
+    min-width: 450px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: absolute;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    cursor: move;
+    pointer-events: auto;
+}
+
+
+.sidenote-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #333;
+}
+
+.sidenote-content p strong {
+    color: #007acc;
+    font-size: 1rem;
+}
+
+.sidenote-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+    padding: 0;
+    line-height: 1;
+}
+
+.sidenote-close:hover {
+    color: #000;
+}
+
+// Dark theme modal
+html.dark-theme .sidenote-content {
+    background: #1e293b;
+    color: #e2e8f0;
+}
+
+html.dark-theme .sidenote-content p {
+    color: #e2e8f0;
+}
+
+html.dark-theme .sidenote-content p strong {
+    color: #60a5fa;
+}
+
+html.dark-theme .sidenote-close {
+    color: #94a3b8;
+}
+
+html.dark-theme .sidenote-close:hover {
+    color: #e2e8f0;
+}
+
+
+// Multi-column intro section layout (3/4 - 1/4)
+.intro-section {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: start;
+}
+
+.intro-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-image {
+    margin-bottom: 0.25rem;
+}
+
+.profile-image img {
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    background: none;
+}
+
+.profile-links {
+    font-size: 0.8rem;
+    text-align: left;
+    line-height: 1.2;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-links a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.profile-links a:hover {
+    text-decoration: underline;
+}
+
+// Responsive design for smaller screens
+@media screen and (max-width: 768px) {
+    .intro-section {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .profile-section {
+        order: -1;
+        margin-bottom: 1rem;
+    }
+}
+

@@ -1,0 +1,24 @@
+---
+import { marked } from 'marked';
+import newsData from '../data/news.json';
+
+function renderMarkdown(text: string): string {
+  return marked(text).replace(/<\/?p>/g, '');
+}
+---
+
+<ul class="news-list">
+  {newsData.map((newsItem) => (
+    <li class="news-item">
+      <div class="news-date-inline">{newsItem.date}</div>
+      <div class="news-content-block">
+        <div class="news-preview">
+          {newsItem.title}
+        </div>
+        <div class="news-details">
+          <div class="news-full-content" set:html={renderMarkdown(newsItem.content)} />
+        </div>
+      </div>
+    </li>
+  ))}
+</ul>

@@ -1,0 +1,35 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  pageClass?: string;
+  date?: string;
+}
+
+const { title, pageClass, date } = Astro.props;
+---
+
+<BaseLayout title={title}>
+  <section class={`post ${pageClass || ''}`}>
+    <header class="page-header">
+      <div>
+        <h2 class="page-title">{title}</h2>
+        {pageClass === 'blog-content-page' && date && (
+          <p class="page-date">{date}</p>
+        )}
+      </div>
+
+      <div class="page-actions">
+        {pageClass === 'blog-content-page' && (
+          <a href="/about" class="btn btn-back">← Back to Home</a>
+        )}
+        <button id="theme-toggle" class="btn btn-theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </header>
+
+    <slot />
+  </section>
+</BaseLayout>

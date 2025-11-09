@@ -1,0 +1,52 @@
+[
+  {
+    "title": "Do LLMs Meet the Needs of Software Tutorial Writers? Opportunities and Design Implications",
+    "authors": "Avinash Bhat, Disha Shrivastava, Jin L.C. Guo",
+    "conference": "ACM DIS",
+    "year": 2024,
+    "link": "assets/papers/bhat_do_2024.pdf"
+  },
+  {
+    "title": "A Design Space for Intelligent and Interactive Writing Assistants",
+    "authors": "Mina Lee, Katy Ilonka Gero, John Joon Young Chung, Simon Buckingham Shum, Vipul Raheja, Hua Shen, Subhashini Venugopalan, Thiemo Wambsganss, David Zhou, Emad A. Alghamdi, Tal August, Avinash Bhat, Madiha Zahrah Choksi, Senjuti Dutta, Jin L.C. Guo, Md Naimul Hoque, Yewon Kim, Simon Knight, Seyed Parsa Neshaei, Agnia Sergeyuk, Antonette Shibani, Disha Shrivastava, Lila Shroff, Jessi Stark, Sarah Sterman, Sitong Wang, Antoine Bosselut, Daniel Buschek, Joseph Chee Chang, Sherol Chen, Max Kreminski, Joonsuk Park, Roy Pea, Eugenia H. Rho, Shannon Zejiang Shen, Pao Siangliulue",
+    "conference": "ACM CHI",
+    "year": 2024,
+    "link": "https://writing-assistant.github.io/"
+  },
+  {
+    "title": "A human-centered approach to designing effective large language model (LLM) based tools for writing software tutorials",
+    "authors": "Avinash Bhat",
+    "conference": "MSc Thesis",
+    "year": 2023,
+    "link": "assets/papers/bhat_human_2023.pdf"
+  },
+  {
+    "title": "SUMMIT: Scaffolding Open Source Software Issue Discussion through Summarization",
+    "authors": "Saskia Gilmer, Avinash Bhat, Shuvam Shah, Kevin Cherry, Jinghui Cheng, Jin L.C. Guo",
+    "conference": "ACM CSCW",
+    "year": 2023,
+    "link": "assets/papers/gilmer_summit_2023.pdf",
+    "awards": ["Best Paper", "Methods Recognition"]
+  },
+  {
+    "title": "Approach Intelligent Writing Assistants Usability with Seven Stages of Action",
+    "authors": "Avinash Bhat, Disha Shrivastava, Jin L.C. Guo",
+    "conference": "In2Writing",
+    "year": 2023,
+    "link": "assets/papers/bhat_approach_2023.pdf"
+  },
+  {
+    "title": "Aspirations and Practice of Model Documentation: Moving the Needle with Nudging and Traceability",
+    "authors": "Avinash Bhat*, Austin Coursey*, Grace Hu, Sixian Li, Nadia Nahar, Shurui Zhou, Christian Kästner, Jin L.C. Guo",
+    "conference": "ACM CHI",
+    "year": 2023,
+    "link": "assets/papers/bhat_aspirations_2023.pdf"
+  },
+  {
+    "title": "A Novel Deterministic Framework for Non-probabilistic Recommender Systems",
+    "authors": "Avinash Bhat*, Divya Madhav Kamath*, C. Anitha",
+    "conference": "IEMIS",
+    "year": 2018,
+    "link": "https://link.springer.com/chapter/10.1007/978-981-13-1498-8_8"
+  }
+]
