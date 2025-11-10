@@ -4,6 +4,7 @@ import NewsList from '../components/NewsList.astro';
 import PublicationsList from '../components/PublicationsList.astro';
 import ServiceList from '../components/ServiceList.astro';
 import BlogsList from '../components/BlogsList.astro';
+import ToolsList from '../components/ToolsList.astro';
 
 const currentYear = new Date().getFullYear();
 ---
@@ -30,6 +31,7 @@ const currentYear = new Date().getFullYear();
         <div class="tab-navigation">
           <button class="tab-button active" data-tab="news">News</button>
           <button class="tab-button" data-tab="publications">Publications</button>
+          <button class="tab-button" data-tab="tools">Tools</button>
           <button class="tab-button" data-tab="service">Service</button>
         </div>
 
@@ -40,6 +42,10 @@ const currentYear = new Date().getFullYear();
 
           <div id="publications" class="tab-panel">
             <PublicationsList />
+          </div>
+
+          <div id="tools" class="tab-panel">
+            <ToolsList />
           </div>
 
           <div id="service" class="tab-panel">

@@ -1,0 +1,31 @@
+---
+import toolsData from '../data/tools.json';
+
+interface Tool {
+  name: string;
+  year?: number;
+  description?: string;
+  url: string;
+}
+---
+
+<ul class="content-list">
+  {toolsData.map((tool: Tool) => (
+    <li class="content-item">
+      {tool.year && <div class="content-item-label">{tool.year}</div>}
+      <div class="content-item-body">
+        <div class="content-item-preview">
+          {tool.name}
+        </div>
+        <div class="content-item-details">
+          <div class="pub-venue">
+            {tool.description && <span class="tool-description">{tool.description}</span>}
+            <a href={tool.url} target="_blank" rel="noopener noreferrer" class="pub-link-badge">
+              <i class="fa-brands fa-github"></i> GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+    </li>
+  ))}
+</ul>
