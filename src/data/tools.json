@@ -4,5 +4,11 @@
     "year": 2023,
     "description": "Jupyter Lab extension to create model cards for notebooks.",
     "url": "https://github.com/avinashbhat/DocML"
+  },
+  {
+    "name": "SUMMIT",
+    "year": 2023,
+    "description": "Chrome extension to summarize long GitHub issue threads to find pertinent information.",
+    "url": "https://github.com/oss-u/IssueAnalysis"
   }
 ]
