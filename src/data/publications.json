@@ -4,7 +4,7 @@
     "authors": "Avinash Bhat, Disha Shrivastava, Jin L.C. Guo",
     "conference": "ACM DIS",
     "year": 2024,
-    "link": "papers/bhat_do_2024.pdf"
+    "link": "/papers/bhat_do_2024.pdf"
   },
   {
     "title": "A Design Space for Intelligent and Interactive Writing Assistants",
@@ -18,14 +18,14 @@
     "authors": "Avinash Bhat",
     "conference": "MSc Thesis",
     "year": 2023,
-    "link": "papers/bhat_human_2023.pdf"
+    "link": "/papers/bhat_human_2023.pdf"
   },
   {
     "title": "SUMMIT: Scaffolding Open Source Software Issue Discussion through Summarization",
     "authors": "Saskia Gilmer, Avinash Bhat, Shuvam Shah, Kevin Cherry, Jinghui Cheng, Jin L.C. Guo",
     "conference": "ACM CSCW",
     "year": 2023,
-    "link": "public/papers/gilmer_summit_2023.pdf",
+    "link": "/papers/gilmer_summit_2023.pdf",
     "awards": ["Best Paper", "Methods Recognition"]
   },
   {
@@ -33,14 +33,14 @@
     "authors": "Avinash Bhat, Disha Shrivastava, Jin L.C. Guo",
     "conference": "In2Writing",
     "year": 2023,
-    "link": "papers/bhat_approach_2023.pdf"
+    "link": "/papers/bhat_approach_2023.pdf"
   },
   {
     "title": "Aspirations and Practice of Model Documentation: Moving the Needle with Nudging and Traceability",
     "authors": "Avinash Bhat*, Austin Coursey*, Grace Hu, Sixian Li, Nadia Nahar, Shurui Zhou, Christian Kästner, Jin L.C. Guo",
     "conference": "ACM CHI",
     "year": 2023,
-    "link": "papers/bhat_aspirations_2023.pdf"
+    "link": "/papers/bhat_aspirations_2023.pdf"
   },
   {
     "title": "A Novel Deterministic Framework for Non-probabilistic Recommender Systems",
