@@ -1,18 +1,18 @@
 ---
-import blogsData from '../data/blogs.json';
+import notesData from '../data/notes.json';
 ---
 
 <ul class="content-list">
-  {blogsData.map((blog) => (
+  {notesData.map((note) => (
     <li class="content-item">
-      <div class="content-item-label">{blog.date}</div>
+      <div class="content-item-label">{note.date}</div>
       <div class="content-item-body">
         <div class="content-item-preview">
-          <a href={blog.url}>{blog.title}</a>
+          <a href={note.url}>{note.title}</a>
         </div>
         <div class="content-item-details">
           <div class="content-item-full">
-            {blog.excerpt}
+            {note.excerpt}
           </div>
         </div>
       </div>

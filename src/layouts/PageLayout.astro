@@ -2,12 +2,20 @@
 import BaseLayout from './BaseLayout.astro';
 
 interface Props {
-  title: string;
+  title?: string;
   pageClass?: string;
   date?: string;
+  frontmatter?: {
+    title: string;
+    pageClass?: string;
+    date?: string;
+  };
 }
 
-const { title, pageClass, date } = Astro.props;
+const { frontmatter } = Astro.props;
+const title = frontmatter?.title || Astro.props.title;
+const pageClass = frontmatter?.pageClass || Astro.props.pageClass;
+const date = frontmatter?.date || Astro.props.date;
 ---
 
 <BaseLayout title={title}>
@@ -15,14 +23,14 @@ const { title, pageClass, date } = Astro.props;
     <header class="page-header">
       <div>
         <h2 class="page-title">{title}</h2>
-        {pageClass === 'blog-content-page' && date && (
+        {pageClass === 'note-content-page' && date && (
           <p class="page-date">{date}</p>
         )}
       </div>
 
       <div class="page-actions">
-        {pageClass === 'blog-content-page' && (
-          <a href="/about" class="btn btn-back">← Back to Home</a>
+        {pageClass === 'note-content-page' && (
+          <a href="/about#notes" class="btn btn-back">← Back to Home</a>
         )}
         <button id="theme-toggle" class="btn btn-theme">
           <i class="fa-solid fa-moon"></i>

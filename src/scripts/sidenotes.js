@@ -45,6 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Make modal draggable
         makeDraggable(modalContent);
 
+        // Make modal resizable
+        makeResizable(modalContent);
+
         openModals.push(modalContainer);
         return modalContainer;
     }
@@ -62,12 +65,21 @@ document.addEventListener('DOMContentLoaded', function() {
         function dragStart(e) {
             if (e.target.classList.contains('sidenote-close')) return;
 
+            // Don't drag if clicking in the resize handle area (bottom-right 20px)
+            const rect = element.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const clickY = e.clientY - rect.top;
+            const resizeHandleSize = 20;
+
+            if (clickX > rect.width - resizeHandleSize && clickY > rect.height - resizeHandleSize) {
+                return; // Let the resize handle work
+            }
+
             isDragging = true;
             startX = e.clientX;
             startY = e.clientY;
 
             // Get current position
-            const rect = element.getBoundingClientRect();
             startLeft = rect.left;
             startTop = rect.top;
 
@@ -93,6 +105,64 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function dragEnd() {
             isDragging = false;
+        }
+    }
+
+    // Make element resizable from bottom-right corner
+    function makeResizable(element) {
+        let isResizing = false;
+        let startX, startY, startWidth, startHeight;
+
+        element.addEventListener('mousedown', resizeStart);
+        document.addEventListener('mousemove', resize);
+        document.addEventListener('mouseup', resizeEnd);
+
+        function resizeStart(e) {
+            // Only start resize if clicking in the bottom-right corner
+            const rect = element.getBoundingClientRect();
+            const clickX = e.clientX - rect.left;
+            const clickY = e.clientY - rect.top;
+            const resizeHandleSize = 20;
+
+            if (clickX > rect.width - resizeHandleSize && clickY > rect.height - resizeHandleSize) {
+                isResizing = true;
+                startX = e.clientX;
+                startY = e.clientY;
+                startWidth = rect.width;
+                startHeight = rect.height;
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        }
+
+        function resize(e) {
+            if (!isResizing) return;
+
+            e.preventDefault();
+
+            const deltaX = e.clientX - startX;
+            const deltaY = e.clientY - startY;
+
+            const newWidth = startWidth + deltaX;
+            const newHeight = startHeight + deltaY;
+
+            // Apply min/max constraints
+            const minWidth = 300;
+            const minHeight = 150;
+            const maxWidth = window.innerWidth * 0.9;
+            const maxHeight = window.innerHeight * 0.8;
+
+            if (newWidth >= minWidth && newWidth <= maxWidth) {
+                element.style.width = newWidth + 'px';
+            }
+
+            if (newHeight >= minHeight && newHeight <= maxHeight) {
+                element.style.height = newHeight + 'px';
+            }
+        }
+
+        function resizeEnd() {
+            isResizing = false;
         }
     }
 

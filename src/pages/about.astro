@@ -3,7 +3,7 @@ import PageLayout from '../layouts/PageLayout.astro';
 import NewsList from '../components/NewsList.astro';
 import PublicationsList from '../components/PublicationsList.astro';
 import ServiceList from '../components/ServiceList.astro';
-import BlogsList from '../components/BlogsList.astro';
+import NotesList from '../components/NotesList.astro';
 import ToolsList from '../components/ToolsList.astro';
 
 const currentYear = new Date().getFullYear();
@@ -53,7 +53,7 @@ const currentYear = new Date().getFullYear();
           </div>
 
           <div id="notes" class="tab-panel">
-            <BlogsList />
+            <NotesList />
           </div>
         </div>
       </div>
@@ -66,7 +66,7 @@ const currentYear = new Date().getFullYear();
     </div>
   </div>
   <br>
-  <div style="text-align: center; font-size: 75%;">
+  <div class="copyright">
     &copy; Avinash Bhat {currentYear} | All Rights Reserved.
   </div>
 </PageLayout>
