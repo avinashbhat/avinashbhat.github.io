@@ -51,8 +51,16 @@
           },
           {
             "name": "DIS",
-            "year": 2025,
-            "url": "https://dis.acm.org/2025/"
+            "years": [
+              {
+                "year": 2025,
+                "url": "https://dis.acm.org/2025/"
+              }, 
+              {
+                "year": 2026,
+                "url": "https://dis.acm.org/2026/"
+              } 
+            ] 
           },
           {
             "name": "CHI",
