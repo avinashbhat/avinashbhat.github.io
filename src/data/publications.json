@@ -1,14 +1,16 @@
 [{
     "title": "Malleable Interfaces for Reviewing Software Documentation",
-    "authors": "Avinash Bhat, Disha Shrivastava, Jin L.C. Guo",
-    "conference": "[FSE 2026 -- Doctoral Symposium Track](https://conf.researchr.org/track/fse-2026/fse-2026-doctoral-symposium)",
+    "authors": "Avinash Bhat",
+    "conference": "FSE 2026 -- Doctoral Symposium Track",
+    "conferenceLink": "https://conf.researchr.org/track/fse-2026/fse-2026-doctoral-symposium",
     "year": 2026,
     "link": "/papers/bhat_malleable_2026.pdf"
   },
   {
     "title": "Who Tells the Documentation Team? How AI Agents Disrupt Documentation Feedback Loops",
     "authors": "Avinash Bhat, Jin L.C. Guo",
-    "conference": "[HumanAISE Workshop](https://humanai4se.github.io/)",
+    "conference": "HumanAISE Workshop",
+    "conferenceLink": "https://humanai4se.github.io/",
     "year": 2026,
     "link": "/papers/bhat_who_2026.pdf"
   },

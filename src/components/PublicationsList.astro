@@ -37,7 +37,13 @@ function getLinkText(link: string): string {
               ))}
             </div>
             <div class="pub-venue">
-              <span class="pub-venue-name">{publication.conference} {publication.year}</span>
+              <span class="pub-venue-name">
+                {publication.conferenceLink ? (
+                  <a href={publication.conferenceLink}>{publication.conference}</a>
+                ) : (
+                  publication.conference
+                )} {publication.year}
+              </span>
               {hasCoauthor && <span class="pub-contribution">*Equal contribution</span>}
               {publication.link && (
                 <a href={publication.link} class="pub-link-badge">{getLinkText(publication.link)}</a>
