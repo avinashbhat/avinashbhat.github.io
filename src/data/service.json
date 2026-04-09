@@ -3,6 +3,11 @@
     "category": "Program Committee",
     "items": [
       {
+        "name": "ICSE Research Track",
+        "year": 2027,
+        "url": "https://conf.researchr.org/track/icse-2027/icse-2027-research-track"
+      },
+      {
         "name": "IUI",
         "year": 2026,
         "url": "https://iui.acm.org/2026/"
