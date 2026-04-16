@@ -4,7 +4,7 @@ import serviceData from '../data/service.json';
 interface ServiceItem {
   name: string;
   year?: number;
-  years?: number[] | { year: number; url: string }[];
+  years?: number[] | { year: number; url?: string; track?: string; note?: string; recognition?: boolean }[];
   url?: string;
   note?: string;
 }
@@ -27,7 +27,13 @@ function renderServiceItem(item: ServiceItem): string {
   if (item.years && Array.isArray(item.years)) {
     const yearLinks = item.years.map((yearItem) => {
       if (typeof yearItem === 'object' && 'year' in yearItem) {
-        return `<a href="${yearItem.url}" target="_blank" rel="noopener noreferrer">${yearItem.year}</a>`;
+        const label = yearItem.track ? `${yearItem.year} (${yearItem.track})` : `${yearItem.year}`;
+        const linked = yearItem.url
+          ? `<a href="${yearItem.url}" target="_blank" rel="noopener noreferrer">${label}</a>`
+          : label;
+        const note = yearItem.note ? ` <span class="service-note">(${yearItem.note})</span>` : '';
+        const star = yearItem.recognition ? `<sup class="service-recognition" title="Special Recognition for Reviews">*</sup>` : '';
+        return linked + note + star;
       } else {
         return yearItem.toString();
       }
@@ -69,6 +75,9 @@ function renderServiceItem(item: ServiceItem): string {
           {category.subcategories ? (
             // Handle categories with subcategories (like Peer Reviewing)
             <div class="service-subcategories">
+              {category.category === 'Peer Reviewing' && (
+                <p class="service-legend">* Special Recognition for Reviews</p>
+              )}
               {category.subcategories.map((sub: Subcategory) => (
                 <div class="service-subcategory">
                   <div class="service-subtype">{sub.type}</div>
@@ -97,3 +106,18 @@ function renderServiceItem(item: ServiceItem): string {
     </li>
   ))}
 </ul>
+
+<style>
+  .service-recognition {
+    cursor: default;
+  }
+  .service-note {
+    color: var(--color-text-muted, #888);
+    font-size: 0.85em;
+  }
+  .service-legend {
+    margin-top: 0.5rem;
+    font-size: 0.8em;
+    color: var(--color-text-muted, #888);
+  }
+</style>
