@@ -5,10 +5,13 @@ import newsData from '../data/news.json';
 function renderMarkdown(text: string): string {
   return marked(text).replace(/<\/?p>/g, '');
 }
+
+const recentNews = newsData.filter((item) => item.recent);
+const olderNews = newsData.filter((item) => !item.recent);
 ---
 
 <ul class="content-list">
-  {newsData.map((newsItem) => (
+  {recentNews.map((newsItem) => (
     <li class="content-item">
       <div class="content-item-label">{newsItem.date}</div>
       <div class="content-item-body">
@@ -22,3 +25,56 @@ function renderMarkdown(text: string): string {
     </li>
   ))}
 </ul>
+
+{olderNews.length > 0 && (
+  <>
+    <div data-older-news style="display: none;">
+      <ul class="content-list">
+        {olderNews.map((newsItem) => (
+          <li class="content-item">
+            <div class="content-item-label">{newsItem.date}</div>
+            <div class="content-item-body">
+              <div class="content-item-preview">
+                {newsItem.title}
+              </div>
+              <div class="content-item-details">
+                <div class="content-item-full" set:html={renderMarkdown(newsItem.content)} />
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <button id="older-news-btn" class="older-news-btn">older</button>
+  </>
+)}
+
+<style>
+  .older-news-btn {
+    display: block;
+    margin-left: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: var(--color-text-muted, #888);
+    padding: 0.25rem 0;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .older-news-btn:hover {
+    color: var(--color-text, #333);
+  }
+</style>
+
+<script>
+  const btn = document.getElementById('older-news-btn');
+  const older = document.querySelector('[data-older-news]') as HTMLElement | null;
+
+  btn?.addEventListener('click', () => {
+    if (!older) return;
+    const isHidden = older.style.display === 'none';
+    older.style.display = isHidden ? 'block' : 'none';
+    btn.textContent = isHidden ? 'hide older' : 'older';
+  });
+</script>

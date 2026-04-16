@@ -3,19 +3,34 @@
     "category": "Program Committee",
     "items": [
       {
-        "name": "ICSE Research Track",
-        "year": 2027,
-        "url": "https://conf.researchr.org/track/icse-2027/icse-2027-research-track"
+        "name": "ICSE",
+        "years": [
+          {
+            "year": 2027,
+            "track": "Research Track",
+            "url": "https://conf.researchr.org/track/icse-2027/icse-2027-research-track"
+          }
+        ]
       },
       {
         "name": "IUI",
-        "year": 2026,
-        "url": "https://iui.acm.org/2026/"
+        "years": [
+          {
+            "year": 2026,
+            "track": "Papers Track",
+            "url": "https://iui.acm.org/2026/"
+          }
+        ]
       },
       {
-        "name": "FSE Ideas, Visions and Reflections Track",
-        "year": 2026,
-        "url": "https://conf.researchr.org/track/fse-2026/fse-2026-ideas-visions-and-reflections"
+        "name": "FSE",
+        "years": [
+          {
+            "year": 2026,
+            "track": "Ideas, Visions and Reflections Track",
+            "url": "https://conf.researchr.org/track/fse-2026/fse-2026-ideas-visions-and-reflections"
+          }
+        ]
       }
     ]
   },
@@ -46,54 +61,99 @@
         "items": [
           {
             "name": "C&C",
-            "year": 2025,
-            "url": "https://cc.acm.org/2025/"
+            "years": [
+              {
+                "year": 2025,
+                "track": "Papers",
+                "url": "https://cc.acm.org/2025/"
+              }
+            ]
+          },
+          {
+            "name": "IUI",
+            "years": [
+              {
+                "year": 2026,
+                "track": "Papers",
+                "url": "https://iui.acm.org/2026/"
+              }
+            ]
           },
           {
             "name": "UIST",
-            "year": 2025,
-            "url": "https://uist.acm.org/2025/"
+            "years": [
+              {
+                "year": 2025,
+                "url": "https://uist.acm.org/2025/",
+                "track": "Papers",
+                "recognition": true
+              }
+            ]
           },
           {
             "name": "DIS",
             "years": [
               {
                 "year": 2025,
-                "url": "https://dis.acm.org/2025/"
-              }, 
+                "url": "https://dis.acm.org/2025/",
+                "track": "Papers"
+              },
               {
                 "year": 2026,
-                "url": "https://dis.acm.org/2026/"
-              } 
-            ] 
+                "url": "https://dis.acm.org/2026/",
+                "track": "Papers",
+                "recognition": true
+              }
+            ]
+          },
+          {
+            "name": "CHI PLAY",
+            "years": [
+              {
+                "year": 2025,
+                "url": "https://chiplay.acm.org/2025/index.html",
+                "track": "Work-In-Progress",
+                "recognition": true
+              }
+            ]
           },
           {
             "name": "CHI",
             "years": [
               {
                 "year": 2024,
-                "url": "https://chi2024.acm.org/"
+                "url": "https://chi2024.acm.org/",
+                "track": "Case Studies",
+                "recognition": true
               },
               {
                 "year": 2025,
-                "url": "https://chi2025.acm.org/"
+                "url": "https://chi2025.acm.org/",
+                "track": "Case Studies"
+              },
+              {
+                "year": 2025,
+                "url": "https://chi2025.acm.org/",
+                "track": "Late Breaking Work",
+                "recognition": true
               },
               {
                 "year": 2026,
-                "url": "https://chi2026.acm.org/"
+                "url": "https://chi2026.acm.org/",
+                "track": "Papers"
               }
             ]
           },
           {
             "name": "ICSE",
-            "year": 2026,
-            "url": "https://conf.researchr.org/track/icse-2026/icse-2026-shadow-research-track-program-committee",
-            "note": "As part of Shadow PC Program"
-          }, 
-          {
-            "name": "IUI",
-            "year": 2026,
-            "url": "https://iui.acm.org/2026/",
+            "years": [
+              {
+                "year": 2026,
+                "url": "https://conf.researchr.org/track/icse-2026/icse-2026-shadow-research-track-program-committee",
+                "note": "As part of Shadow PC Program",
+                "recognition": true
+              }
+            ]
           }
         ]
       },

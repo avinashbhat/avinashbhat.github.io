@@ -881,6 +881,22 @@ html.dark-theme .sidenote-close {
 	}
 }
 
+.profile-links--text a {
+	width: auto;
+	height: auto;
+	background: none;
+	display: inline;
+	border-radius: 0;
+	font-size: var(--font-sm);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+
+	&:hover {
+		background: none;
+		transform: none;
+	}
+}
+
 html.dark-theme .profile-links a {
 	background-color: rgba(255, 255, 255, 0.06);
 
