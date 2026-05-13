@@ -66,6 +66,11 @@
                 "year": 2025,
                 "track": "Papers",
                 "url": "https://cc.acm.org/2025/"
+              },
+              {
+                "year": 2025,
+                "track": "Posters",
+                "url": "https://cc.acm.org/2026/posters/"
               }
             ]
           },
