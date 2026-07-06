@@ -9,6 +9,16 @@ function getLinkText(link: string): string {
   if (link.includes('.pdf')) return 'PDF';
   return 'Website';
 }
+
+const presentationLabels: Record<string, string> = {
+  slides: 'Slides',
+  poster: 'Poster',
+  talk: 'Talk',
+};
+
+function getPresentationText(presentation: { type: string; label?: string }): string {
+  return presentation.label ?? presentationLabels[presentation.type] ?? presentation.type;
+}
 ---
 
 <ul class="content-list">
@@ -48,6 +58,9 @@ function getLinkText(link: string): string {
               {publication.link && (
                 <a href={publication.link} class="pub-link-badge">{getLinkText(publication.link)}</a>
               )}
+              {publication.presentations && publication.presentations.map(presentation => (
+                <a href={presentation.link} class="pub-link-badge">{getPresentationText(presentation)}</a>
+              ))}
               {publication.awards && publication.awards.map(award => (
                 <span class="pub-award">{award}</span>
               ))}
