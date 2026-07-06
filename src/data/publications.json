@@ -4,7 +4,10 @@
     "conference": "FSE Doctoral Symposium Track",
     "conferenceLink": "https://conf.researchr.org/track/fse-2026/fse-2026-doctoral-symposium",
     "year": 2026,
-    "link": "/papers/bhat_malleable_2026.pdf"
+    "link": "/papers/bhat_malleable_2026.pdf",
+    "presentations": [
+      { "type": "Long Talk", "link": "/papers/talk_bhat_malleable_2026.pdf" }, { "type": "Short talk", "link": "/papers/short_talk_bhat_malleable_2026.pdf" }, { "type": "poster", "link": "/papers/poster_bhat_malleable_2026.pdf" }
+    ]
   },
   {
     "title": "Who Tells the Documentation Team? How AI Agents Disrupt Documentation Feedback Loops",
@@ -12,7 +15,10 @@
     "conference": "HumanAISE Workshop",
     "conferenceLink": "https://humanai4se.github.io/",
     "year": 2026,
-    "link": "/papers/bhat_who_2026.pdf"
+    "link": "/papers/bhat_who_2026.pdf",
+    "presentations": [
+      { "type": "Long Talk", "link": "/papers/talk_bhat_who_2026.pdf" }
+    ]
   },
   {
     "title": "Do LLMs Meet the Needs of Software Tutorial Writers? Opportunities and Design Implications",
