@@ -12,6 +12,10 @@ export default defineConfig({
     format: 'directory'
   },
 
+  redirects: {
+    '/cv': '/cv.pdf'
+  },
+
   // Markdown configuration
   markdown: {
     shikiConfig: {
