@@ -875,6 +875,8 @@ html.dark-theme .sidenote-close {
 	margin: 0;
 }
 
+// --proximity (0 far, 1 at the centre) and --tilt-* are written by main.js as
+// the pointer approaches. Keeping the maths in CSS means JS only sets numbers.
 .profile-image {
 	margin-bottom: var(--space-xs);
 
@@ -882,9 +884,47 @@ html.dark-theme .sidenote-close {
 		width: 100%;
 		max-width: var(--profile-width);
 		height: auto;
-		box-shadow: var(--shadow-md);
 		border-radius: var(--radius-md);
 		background: none;
+
+		// Three stacked shadows instead of one: a tight contact shadow, a mid
+		// spread, and a wide soft cast that deepens as you approach. A single
+		// blur reads as a flat rectangle; layered ones read as an object with
+		// height above the page.
+		box-shadow:
+			0 1px 2px rgba(0, 0, 0, 0.11),
+			0 5px 14px rgba(0, 0, 0, calc(0.08 + var(--proximity, 0) * 0.05)),
+			0 18px 42px rgba(0, 0, 0, calc(0.04 + var(--proximity, 0) * 0.13));
+
+		transform:
+			// Shorter perspective on a 240px element: 700px is nearly orthographic
+			// at this size, so the rotation barely reads.
+			perspective(420px)
+			translateY(calc(var(--proximity, 0) * -9px))
+			scale(calc(1 + var(--proximity, 0) * 0.022))
+			rotateX(calc(var(--tilt-x, 0) * 1deg))
+			rotateY(calc(var(--tilt-y, 0) * 1deg));
+
+		// Short enough to feel responsive, long enough to smooth the per-frame
+		// updates without a easing loop in JS.
+		transition: transform 160ms ease-out, box-shadow 260ms ease-out;
+		will-change: transform;
+	}
+}
+
+// Black shadows barely register on a dark ground, so the dark theme leans on a
+// rim highlight for the same sense of lift.
+html.dark-theme .profile-image img {
+	box-shadow:
+		0 1px 2px rgba(0, 0, 0, 0.5),
+		0 6px 18px rgba(0, 0, 0, calc(0.35 + var(--proximity, 0) * 0.2)),
+		0 0 0 1px rgba(255, 255, 255, calc(0.06 + var(--proximity, 0) * 0.12));
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.profile-image img {
+		transition: none;
+		transform: none;
 	}
 }
 
