@@ -16,6 +16,11 @@
         "name": "IUI",
         "years": [
           {
+            "year": 2027,
+            "track": "Papers Track",
+            "url": "https://iui.acm.org/2027/"
+          },
+          {
             "year": 2026,
             "track": "Papers Track",
             "url": "https://iui.acm.org/2026/"
@@ -47,7 +52,10 @@
           },
           {
             "name": "In2Writing Workshop",
-            "years": [2024, 2025]
+            "years": [
+              2024,
+              2025
+            ]
           },
           {
             "name": "SMASH",

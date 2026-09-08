@@ -1,4 +1,13 @@
-[{
+[
+  {
+    "title": "“A Second Set of Eyes”: The Process and Challenges of Software Documentation Review",
+    "authors": "Avinash Bhat, Ian Arawjo, Disha Shrivastava, Jin L.C. Guo",
+    "conference": "ACM GROUP",
+    "conferenceLink": "https://group.acm.org/conferences/group27/",
+    "year": 2027,
+    "link": "https://arxiv.org/abs/2608.26232"
+  },
+  {
     "title": "Malleable Interfaces for Reviewing Software Documentation",
     "authors": "Avinash Bhat",
     "conference": "FSE Doctoral Symposium Track",
@@ -6,7 +15,18 @@
     "year": 2026,
     "link": "/papers/bhat_malleable_2026.pdf",
     "presentations": [
-      { "type": "Long Talk", "link": "/papers/talk_bhat_malleable_2026.pdf" }, { "type": "Short talk", "link": "/papers/short_talk_bhat_malleable_2026.pdf" }, { "type": "poster", "link": "/papers/poster_bhat_malleable_2026.pdf" }
+      {
+        "type": "Long Talk",
+        "link": "/papers/talk_bhat_malleable_2026.pdf"
+      },
+      {
+        "type": "Short talk",
+        "link": "/papers/short_talk_bhat_malleable_2026.pdf"
+      },
+      {
+        "type": "poster",
+        "link": "/papers/poster_bhat_malleable_2026.pdf"
+      }
     ]
   },
   {
@@ -17,7 +37,10 @@
     "year": 2026,
     "link": "/papers/bhat_who_2026.pdf",
     "presentations": [
-      { "type": "Long Talk", "link": "/papers/talk_bhat_who_2026.pdf" }
+      {
+        "type": "Long Talk",
+        "link": "/papers/talk_bhat_who_2026.pdf"
+      }
     ]
   },
   {
@@ -47,7 +70,10 @@
     "conference": "ACM CSCW",
     "year": 2023,
     "link": "/papers/gilmer_summit_2023.pdf",
-    "awards": ["Best Paper", "Methods Recognition"]
+    "awards": [
+      "Best Paper",
+      "Methods Recognition"
+    ]
   },
   {
     "title": "Approach Intelligent Writing Assistants Usability with Seven Stages of Action",

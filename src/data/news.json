@@ -1,5 +1,17 @@
 [
   {
+    "date": "September 2026",
+    "title": "Paper accepted to GROUP 2027",
+    "content": "Our paper [“A Second Set of Eyes”: The Process and Challenges of Software Documentation Review](https://arxiv.org/abs/2608.26232) is accepted to [GROUP 2027](https://group.acm.org/conferences/group27/). Preprint is available on arXiv.",
+    "recent": true
+  },
+  {
+    "date": "September 2026",
+    "title": "IUI 2027 Program Committee",
+    "content": "I am on the Program Committee for [IUI 2027](https://iui.acm.org/2027/).",
+    "recent": true
+  },
+  {
     "date": "April 2026",
     "title": "ICSE 2027 Program Committee",
     "content": "I am on the Program Committee for [ICSE 2027 Research Track](https://conf.researchr.org/track/icse-2027/icse-2027-research-track).",
@@ -8,8 +20,7 @@
   {
     "date": "April 2026",
     "title": "I will be at FSE 2026 in Montréal in July",
-    "content": "Papers accepted to [doctoral symposium](https://conf.researchr.org/track/fse-2026/fse-2026-doctoral-symposium) and the [HumanAISE workshop](https://humanai4se.github.io/) at [FSE 2026](https://conf.researchr.org/home/fse-2026).",
-    "recent": true
+    "content": "Papers accepted to [doctoral symposium](https://conf.researchr.org/track/fse-2026/fse-2026-doctoral-symposium) and the [HumanAISE workshop](https://humanai4se.github.io/) at [FSE 2026](https://conf.researchr.org/home/fse-2026)."
   },
   {
     "date": "February 2026",
