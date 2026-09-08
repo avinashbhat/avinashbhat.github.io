@@ -3,7 +3,7 @@ import PageLayout from '../layouts/PageLayout.astro';
 import NewsList from '../components/NewsList.astro';
 import PublicationsList from '../components/PublicationsList.astro';
 import ServiceList from '../components/ServiceList.astro';
-import NotesList from '../components/NotesList.astro';
+import EssaysList from '../components/EssaysList.astro';
 import ToolsList from '../components/ToolsList.astro';
 
 const currentYear = new Date().getFullYear();
@@ -13,7 +13,7 @@ const currentYear = new Date().getFullYear();
   <div class="intro-section">
     <div class="intro-text">
       <p>
-        I am a PhD student in the <a href="https://www.cs.mcgill.ca/~jguo/lab.html">Software Technology Lab</a> at School of Computer Science, McGill University, advised by <a href="https://www.cs.mcgill.ca/~jguo">Professor Jin Guo</a>. Broadly, my research interest is about how software practitioners create knowledge while collaborating in software teams. As part of this research, I am investigating existing documentation practices and developing tools to help practitioners create documentation.
+        I am a PhD student in the <a href="https://www.cs.mcgill.ca/~jguo/lab.html">Software Technology Lab</a> at School of Computer Science, McGill University, advised by <a href="https://www.cs.mcgill.ca/~jguo">Professor Jin Guo</a>. I am interested in understanding how practitioners in software engineering organizations create, use, and maintain knowledge about software, and more recently, in how AI agents are reshaping that process. See more of my work under publications and essays.
       </p>
       <div class="profile-links">
         <span class="contact-label">Email & Socials:</span>
@@ -38,6 +38,7 @@ const currentYear = new Date().getFullYear();
           <button class="tab-button" data-tab="publications">Publications</button>
           <button class="tab-button" data-tab="tools">Tools</button>
           <button class="tab-button" data-tab="service">Service</button>
+          <button class="tab-button" data-tab="essays">Essays</button>
         </div>
 
         <div class="tab-content">
@@ -57,8 +58,8 @@ const currentYear = new Date().getFullYear();
             <ServiceList />
           </div>
 
-          <div id="notes" class="tab-panel">
-            <NotesList />
+          <div id="essays" class="tab-panel">
+            <EssaysList />
           </div>
         </div>
       </div>

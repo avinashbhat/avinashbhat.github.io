@@ -28,14 +28,14 @@ const date = frontmatter?.date || Astro.props.date;
           ? <h2 class="page-title" set:html={displayTitle} />
           : <h2 class="page-title">{title}</h2>
         }
-        {pageClass === 'note-content-page' && date && (
+        {pageClass === 'essay-content-page' && date && (
           <p class="page-date">{date}</p>
         )}
       </div>
 
       <div class="page-actions">
-        {pageClass === 'note-content-page' && (
-          <a href="/about#notes" class="btn btn-back">← Back to Home</a>
+        {pageClass === 'essay-content-page' && (
+          <a href="/about#essays" class="btn btn-back">← Back to Home</a>
         )}
         <button id="theme-toggle" class="btn btn-theme">
           <i class="fa-solid fa-moon"></i>

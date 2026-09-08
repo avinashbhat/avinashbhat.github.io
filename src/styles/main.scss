@@ -566,10 +566,10 @@ html.dark-theme .pub-award {
 }
 
 // ========================================
-// Note Content (for note pages)
+// Essay Content (for essay pages)
 // ========================================
 
-.note-content-page {
+.essay-content-page {
 	p, li {
 		font-size: var(--font-lg);
 		line-height: 1.6;
@@ -653,7 +653,7 @@ html.dark-theme .pub-award {
 // Sidenote Modals
 // ========================================
 
-.note-content-page,
+.essay-content-page,
 .post {
 	counter-reset: sidenote-counter;
 }
