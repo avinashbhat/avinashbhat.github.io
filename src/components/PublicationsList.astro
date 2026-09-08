@@ -48,10 +48,12 @@ function getPresentationText(presentation: { type: string; label?: string }): st
             </div>
             <div class="pub-venue">
               <span class="pub-venue-name">
+                {/* One label for both branches. Built separately, the fragment
+                    path lost the space between name and year. */}
                 {publication.conferenceLink ? (
-                  <a href={publication.conferenceLink}>{publication.conference} {publication.year}</a>
+                  <a href={publication.conferenceLink}>{`${publication.conference} ${publication.year}`}</a>
                 ) : (
-                  <>{publication.conference} {publication.year}</>
+                  `${publication.conference} ${publication.year}`
                 )}
               </span>
               {hasCoauthor && <span class="pub-contribution">*Equal contribution</span>}

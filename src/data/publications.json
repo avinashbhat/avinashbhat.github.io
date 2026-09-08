@@ -47,6 +47,7 @@
     "title": "Do LLMs Meet the Needs of Software Tutorial Writers? Opportunities and Design Implications",
     "authors": "Avinash Bhat, Disha Shrivastava, Jin L.C. Guo",
     "conference": "ACM DIS",
+    "conferenceLink": "https://dis.acm.org/2024/",
     "year": 2024,
     "link": "/papers/bhat_do_2024.pdf"
   },
@@ -54,6 +55,7 @@
     "title": "A Design Space for Intelligent and Interactive Writing Assistants",
     "authors": "Mina Lee, Katy Ilonka Gero, John Joon Young Chung, Simon Buckingham Shum, Vipul Raheja, Hua Shen, Subhashini Venugopalan, Thiemo Wambsganss, David Zhou, Emad A. Alghamdi, Tal August, Avinash Bhat, Madiha Zahrah Choksi, Senjuti Dutta, Jin L.C. Guo, Md Naimul Hoque, Yewon Kim, Simon Knight, Seyed Parsa Neshaei, Agnia Sergeyuk, Antonette Shibani, Disha Shrivastava, Lila Shroff, Jessi Stark, Sarah Sterman, Sitong Wang, Antoine Bosselut, Daniel Buschek, Joseph Chee Chang, Sherol Chen, Max Kreminski, Joonsuk Park, Roy Pea, Eugenia H. Rho, Shannon Zejiang Shen, Pao Siangliulue",
     "conference": "ACM CHI",
+    "conferenceLink": "https://chi2024.acm.org/",
     "year": 2024,
     "link": "https://writing-assistant.github.io/"
   },
@@ -61,13 +63,22 @@
     "title": "A Human-Centered Approach to Designing Effective Large Language Model (LLM) Based Tools for Writing Software Tutorials",
     "authors": "Avinash Bhat",
     "conference": "MSc Thesis",
+    "conferenceLink": "https://mcgill.scholaris.ca/items/44b72ab7-912a-497c-95c0-ad8f039ef268",
     "year": 2023,
-    "link": "/papers/bhat_human_2023.pdf"
+    "link": "/papers/bhat_human_2023.pdf",
+    "presentations": [
+      {
+        "type": "proquest",
+        "label": "ProQuest",
+        "link": "https://www.proquest.com/openview/02dcfa07fefc6ab1ed750242170d8864/1?pq-origsite=gscholar&cbl=18750&diss=y"
+      }
+    ]
   },
   {
     "title": "SUMMIT: Scaffolding Open Source Software Issue Discussion through Summarization",
     "authors": "Saskia Gilmer, Avinash Bhat, Shuvam Shah, Kevin Cherry, Jinghui Cheng, Jin L.C. Guo",
     "conference": "ACM CSCW",
+    "conferenceLink": "https://cscw.acm.org/2023/",
     "year": 2023,
     "link": "/papers/gilmer_summit_2023.pdf",
     "awards": [
@@ -79,6 +90,7 @@
     "title": "Approach Intelligent Writing Assistants Usability with Seven Stages of Action",
     "authors": "Avinash Bhat, Disha Shrivastava, Jin L.C. Guo",
     "conference": "In2Writing",
+    "conferenceLink": "https://in2writing.github.io/archive/2023/",
     "year": 2023,
     "link": "/papers/bhat_approach_2023.pdf"
   },
@@ -86,6 +98,7 @@
     "title": "Aspirations and Practice of Model Documentation: Moving the Needle with Nudging and Traceability",
     "authors": "Avinash Bhat*, Austin Coursey*, Grace Hu, Sixian Li, Nadia Nahar, Shurui Zhou, Christian Kästner, Jin L.C. Guo",
     "conference": "ACM CHI",
+    "conferenceLink": "https://chi2023.acm.org/",
     "year": 2023,
     "link": "/papers/bhat_aspirations_2023.pdf"
   },
@@ -94,6 +107,13 @@
     "authors": "Avinash Bhat*, Divya Madhav Kamath*, C. Anitha",
     "conference": "IEMIS",
     "year": 2018,
-    "link": "https://link.springer.com/chapter/10.1007/978-981-13-1498-8_8"
+    "link": "/papers/bhat_novel_2018.pdf",
+    "presentations": [
+      {
+        "type": "springer",
+        "label": "Springer",
+        "link": "https://link.springer.com/chapter/10.1007/978-981-13-1498-8_8"
+      }
+    ]
   }
 ]
