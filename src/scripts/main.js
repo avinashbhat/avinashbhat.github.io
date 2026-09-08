@@ -132,3 +132,90 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 450);
   });
 });
+// Profile photo proximity. The photo lifts and tilts toward the pointer as it
+// gets close, before any hover happens. JS only writes three numbers; the
+// transform itself lives in the stylesheet.
+document.addEventListener('DOMContentLoaded', function() {
+  var frame = document.querySelector('.profile-image');
+  if (!frame) return;
+
+  var img = frame.querySelector('img');
+  if (!img || !window.matchMedia) return;
+
+  // Pointer proximity is meaningless on touch, and the whole effect is motion
+  // for its own sake, so it is skipped when either is true.
+  if (!window.matchMedia('(hover: hover)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var REACH = 110;    // px of empty space around the photo that still counts as "close"
+  var MAX_TILT = 9;   // degrees, reached at the photo's own edge
+
+  var pointer = null;
+  var queued = false;
+
+  function clamp(n, min, max) {
+    return n < min ? min : (n > max ? max : n);
+  }
+
+  function reset() {
+    frame.style.setProperty('--proximity', '0');
+    frame.style.setProperty('--tilt-x', '0');
+    frame.style.setProperty('--tilt-y', '0');
+  }
+
+  function update() {
+    queued = false;
+    if (!pointer) return;
+
+    var r = img.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+
+    var dx = pointer.x - (r.left + r.width / 2);
+    var dy = pointer.y - (r.top + r.height / 2);
+    var distance = Math.sqrt(dx * dx + dy * dy);
+    var falloff = REACH + Math.max(r.width, r.height) / 2;
+
+    // Squared so the photo stays still until you are genuinely near it, rather
+    // than drifting the whole time the pointer is anywhere on the page.
+    var near = clamp(1 - distance / falloff, 0, 1);
+    var proximity = near * near;
+
+    if (proximity < 0.001) {
+      reset();
+      return;
+    }
+
+    frame.style.setProperty('--proximity', proximity.toFixed(3));
+
+    // Offsets are normalised against the half-width and half-height, so the
+    // pointer sitting on an edge gives a full 1 and the whole tilt range is
+    // actually reachable. Dividing by the full width caps it at half.
+    // The tilt uses the linear falloff rather than the squared one, so it ramps
+    // in as you approach instead of only appearing on top of the photo.
+    frame.style.setProperty('--tilt-y', (clamp(dx / (r.width / 2), -1, 1) * MAX_TILT * near).toFixed(2));
+    frame.style.setProperty('--tilt-x', (clamp(-dy / (r.height / 2), -1, 1) * MAX_TILT * near).toFixed(2));
+  }
+
+  function schedule() {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(update);
+  }
+
+  window.addEventListener('pointermove', function(e) {
+    if (e.pointerType === 'touch') return;
+    pointer = { x: e.clientX, y: e.clientY };
+    schedule();
+  }, { passive: true });
+
+  // Scrolling moves the photo under a stationary pointer, so the last known
+  // position has to be re-measured against the new layout.
+  window.addEventListener('scroll', schedule, { passive: true });
+
+  document.addEventListener('pointerleave', function() {
+    pointer = null;
+    reset();
+  });
+
+  reset();
+});
