@@ -18,6 +18,12 @@ const title = frontmatter?.title || Astro.props.title;
 const displayTitle = Astro.props.displayTitle;
 const pageClass = frontmatter?.pageClass || Astro.props.pageClass;
 const date = frontmatter?.date || Astro.props.date;
+
+// Every page except the home page offers a way back to it. Essays return to the
+// tab they were listed under; anything else (404 included) goes to the top.
+const path = Astro.url.pathname.replace(/\/$/, '');
+const isHome = path === '' || path === '/about';
+const homeHref = pageClass === 'essay-content-page' ? '/about#essays' : '/about';
 ---
 
 <BaseLayout title={title}>
@@ -34,8 +40,10 @@ const date = frontmatter?.date || Astro.props.date;
       </div>
 
       <div class="page-actions">
-        {pageClass === 'essay-content-page' && (
-          <a href="/about#essays" class="btn btn-back">← Back to Home</a>
+        {!isHome && (
+          <a href={homeHref} class="btn btn-back" aria-label="Back to home" title="Back to home">
+            <i class="fa-solid fa-house fa-fw"></i>
+          </a>
         )}
         <button id="theme-toggle" class="btn btn-theme">
           <i class="fa-solid fa-moon"></i>

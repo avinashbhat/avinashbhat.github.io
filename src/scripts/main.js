@@ -37,13 +37,49 @@ document.addEventListener('click', function(e) {
   }
 });
 
-// Handle hash navigation on page load
-document.addEventListener('DOMContentLoaded', function() {
-  // Check if there's a hash in the URL
+// Handle hash navigation on page load and on same-page hash links
+function switchToHashTab() {
   var hash = window.location.hash.substring(1); // Remove the #
   if (hash && document.getElementById(hash)) {
     switchToTab(hash);
   }
+}
+
+document.addEventListener('DOMContentLoaded', switchToHashTab);
+window.addEventListener('hashchange', switchToHashTab);
+
+// Content items expand on hover for pointers. Make them reachable by click and
+// keyboard too, so the same reveal works on touch and for keyboard users.
+document.addEventListener('DOMContentLoaded', function() {
+  var items = document.querySelectorAll('.content-item');
+
+  for (var i = 0; i < items.length; i++) {
+    var item = items[i];
+    if (!item.querySelector('.content-item-details')) continue;
+    item.setAttribute('tabindex', '0');
+    item.setAttribute('role', 'button');
+    item.setAttribute('aria-expanded', 'false');
+  }
+});
+
+function toggleItem(item) {
+  var open = item.classList.toggle('is-open');
+  item.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+
+document.addEventListener('click', function(e) {
+  // Let links inside an item do their own job.
+  if (e.target.closest && e.target.closest('a')) return;
+  var item = e.target.closest && e.target.closest('.content-item');
+  if (item && item.hasAttribute('tabindex')) toggleItem(item);
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key !== 'Enter' && e.key !== ' ') return;
+  var item = e.target.classList && e.target.classList.contains('content-item') ? e.target : null;
+  if (!item) return;
+  e.preventDefault();
+  toggleItem(item);
 });
 
 // Theme toggle functionality
@@ -66,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Theme toggle click handler
-  themeToggle.addEventListener('click', function() {
+  function applyTheme() {
     const isDark = document.documentElement.classList.contains('dark-theme');
 
     if (isDark) {
@@ -80,5 +116,19 @@ document.addEventListener('DOMContentLoaded', function() {
       themeIcon.className = 'fa-solid fa-sun';
       localStorage.setItem('theme', 'dark');
     }
+  }
+
+  let themeTransitionTimer = null;
+
+  themeToggle.addEventListener('click', function() {
+    // The class enables colour transitions only while the swap is happening,
+    // so ordinary rendering is never carrying a transition it doesn't need.
+    document.documentElement.classList.add('theme-transition');
+    applyTheme();
+
+    clearTimeout(themeTransitionTimer);
+    themeTransitionTimer = setTimeout(function() {
+      document.documentElement.classList.remove('theme-transition');
+    }, 450);
   });
 });

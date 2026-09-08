@@ -42,14 +42,24 @@
 	--radius-md: 4px;
 	--radius-lg: 8px;
 
-	// Font sizes
-	--font-xs: 0.7rem;
-	--font-sm: 0.85rem;
-	--font-md: 0.9rem;
-	--font-base: 0.95rem;
-	--font-lg: 1rem;
-	--font-xl: 1.3rem;
-	--font-2xl: 1.5rem;
+	// Font sizes, anchored on a 14px body (--font-lg). Expressed in rem rather
+	// than px so they still scale with a reader's own browser font setting;
+	// the rem base is left alone because --space-* and main's max-width use it too.
+	--font-xs: 0.6875rem;  // 11px
+	--font-sm: 0.75rem;    // 12px
+	--font-md: 0.8125rem;  // 13px
+	--font-base: 0.85rem;  // 13.6px
+	--font-lg: 0.875rem;   // 14px — body
+	--font-xl: 1.05rem;    // 16.8px
+	--font-2xl: 1.25rem;   // 20px
+	--font-3xl: 1.625rem;  // 26px
+
+	// Reading measure. Serif text tolerates a slightly longer line than sans.
+	--measure: 68ch;
+
+	// Profile photo width. Drives both the image and its grid track, so the
+	// track can't be sized by the image's intrinsic dimensions.
+	--profile-width: 240px;
 
 	// Transitions
 	--transition-fast: all 0.2s ease;
@@ -105,27 +115,32 @@ html.dark-theme {
 // ========================================
 
 body {
-	font-family: "Noto Sans", sans-serif;
+	// One family across the whole site. Literata carries an optical-size axis, so
+	// the small dense lists get their own drawing rather than a shrunk display cut.
+	font-family: "Literata", Georgia, "Times New Roman", serif;
+	// Required for the opsz axis above to do anything.
 	font-optical-sizing: auto;
 	font-style: normal;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
-	line-height: 1.5;
+	line-height: 1.6;
 	font-size: var(--font-lg);
 	color: var(--color-text);
 	background-color: var(--color-bg);
+	// Coarser and fainter than before: at 8px the crosshatch sat in the same
+	// frequency range as the letterforms and read as noise behind the text.
 	background-image:
-		linear-gradient(45deg, #64748b20 25%, transparent 25%),
-		linear-gradient(-45deg, #64748b20 25%, transparent 25%);
-	background-size: 8px 8px;
+		linear-gradient(45deg, #64748b12 25%, transparent 25%),
+		linear-gradient(-45deg, #64748b12 25%, transparent 25%);
+	background-size: 14px 14px;
 	background-position: 0 0;
 	background-repeat: repeat;
 }
 
 html.dark-theme body {
 	background-image:
-		linear-gradient(45deg, #1e293b80 25%, transparent 25%),
-		linear-gradient(-45deg, #1e293b80 25%, transparent 25%);
+		linear-gradient(45deg, #1e293b55 25%, transparent 25%),
+		linear-gradient(-45deg, #1e293b55 25%, transparent 25%);
 }
   
 
@@ -134,10 +149,14 @@ html.dark-theme body {
 // ========================================
 
 h1, h2, h3, h4, h5 {
-	line-height: 1.5;
-	margin: var(--space-lg) 0;
-	font-weight: var(--font-weight-medium);
+	line-height: 1.25;
+	margin: var(--space-xl) 0 var(--space-md);
+	font-weight: var(--font-weight-semibold);
+	letter-spacing: -0.01em;
 }
+
+h1 { font-size: var(--font-2xl); }
+h2 { font-size: var(--font-xl); }
 
 h3 {
 	font-size: var(--font-xl);
@@ -202,20 +221,18 @@ figcaption {
 // ========================================
 
 main {
-	display: flex;
-	flex-wrap: nowrap;
 	max-width: 70rem;
 	margin: var(--space-sm) auto;
 	padding: var(--space-lg);
 }
 
+// main used to be a flex row with a nav column beside the content. The nav is
+// gone, so the flex machinery and the right border are dropped: the border was
+// drawing a rule with nothing after it, which made page margin read as an empty
+// column.
 section {
-	flex-basis: 0;
-	flex-grow: 999;
-	min-width: 70%;
 	display: flex;
 	flex-direction: column;
-	border-right: 1px solid var(--color-border);
 	padding: var(--space-lg);
 
 	h1:first-child {
@@ -224,33 +241,6 @@ section {
 
 	.page-header ~ * {
 		padding-left: var(--space-sm);
-	}
-}
-
-nav ul {
-	border-right: 1px solid var(--color-border);
-}
-
-header {
-	position: relative;
-	padding: var(--space-lg);
-
-	a {
-		text-decoration: none;
-	}
-
-	li {
-		margin-bottom: 0.2rem;
-		text-align: right;
-		margin-right: var(--space-2xl);
-	}
-
-	a.active {
-		font-weight: bold;
-	}
-
-	ul {
-		list-style: none;
 	}
 }
 
@@ -297,22 +287,24 @@ header {
 
 .page-title {
 	margin: 0 !important;
-	line-height: 1.2;
+	font-size: var(--font-3xl);
+	font-weight: 400;
+	line-height: 1.15;
+	letter-spacing: -0.01em;
 	color: var(--color-text);
-	font-family: 'Lora', Georgia, serif;
 }
 
 .page-date {
-	margin: 0;
+	margin: var(--space-sm) 0 0;
 	font-style: italic;
 	color: var(--color-text-muted);
-	font-size: var(--font-md);
+	font-size: var(--font-lg);
 }
 
 .page-actions {
 	display: flex;
 	align-items: center;
-	gap: var(--space-lg);
+	gap: var(--space-sm);
 	margin-top: 0.2rem;
 }
 
@@ -338,10 +330,17 @@ header {
 	}
 }
 
+// Both are icon-only, so they are sized as identical squares rather than left
+// to whatever their glyph measures. fa-fw normalises the icon width inside.
 .btn-back,
 .btn-theme {
 	background-color: var(--overlay-active) !important;
 	color: var(--color-text-secondary);
+	width: 2.25rem;
+	height: 2.25rem;
+	padding: 0;
+	justify-content: center;
+	font-size: var(--font-md);
 }
 
 
@@ -367,14 +366,37 @@ header {
 	background-color: transparent;
 	transition: var(--transition-fast);
 
-	&:hover {
+	// Pointer devices keep hover as the fast path.
+	@media (hover: hover) {
+		&:hover {
+			background-color: var(--overlay-strong);
+
+			.content-item-details {
+				// ponytail: fixed ceiling so max-height can transition; raise if an
+				// author list ever wraps past this. grid-template-rows: 0fr->1fr is
+				// the real fix but needs a single wrapper child in every list component.
+				max-height: 60rem;
+				opacity: 1;
+				margin-top: var(--space-sm);
+			}
+		}
+	}
+
+	// Touch and keyboard reach the same state by toggling, not hovering.
+	&.is-open {
 		background-color: var(--overlay-strong);
 
 		.content-item-details {
-			max-height: 500px;
+			max-height: 60rem;
 			opacity: 1;
 			margin-top: var(--space-sm);
 		}
+	}
+
+	&:focus-visible {
+		outline: none;
+		background-color: var(--overlay-hover);
+		box-shadow: inset 0 0 0 2px var(--color-link);
 	}
 }
 
@@ -572,7 +594,8 @@ html.dark-theme .pub-award {
 .essay-content-page {
 	p, li {
 		font-size: var(--font-lg);
-		line-height: 1.6;
+		line-height: 1.7;
+		max-width: var(--measure);
 	}
 
 	h1 {
@@ -592,6 +615,8 @@ html.dark-theme .pub-award {
 // Tab Styling
 // ========================================
 
+// Sits below .intro-section and spans the full width: lists are scanned, so they
+// want the width the reading measure deliberately gives up.
 .content-tabs {
 	margin: var(--space-2xl) 0;
 }
@@ -616,8 +641,7 @@ html.dark-theme .pub-award {
 	border-bottom: 2px solid transparent;
 	transition: var(--transition-medium);
 	position: relative;
-	text-transform: uppercase;
-	letter-spacing: 0.5px;
+	letter-spacing: 0;
 	z-index: 10;
 	pointer-events: auto;
 
@@ -668,7 +692,6 @@ html.dark-theme .pub-award {
 	padding: 1px 2px;
 	border-radius: var(--radius-sm);
 	transition: var(--transition-fast);
-	outline: none;
 	display: inline;
 
 	&:after {
@@ -678,10 +701,14 @@ html.dark-theme .pub-award {
 		margin-left: 0;
 	}
 
-	&:hover,
-	&:focus {
+	&:hover {
 		text-decoration: underline;
-		outline: none;
+	}
+
+	&:focus-visible {
+		text-decoration: underline;
+		outline: 2px solid var(--color-link);
+		outline-offset: 2px;
 	}
 }
 
@@ -819,8 +846,11 @@ html.dark-theme .sidenote-close {
 
 .intro-section {
 	display: grid;
-	grid-template-columns: 3fr 1fr;
-	gap: var(--space-lg);
+	// The text column takes everything left beside the photo. Nothing inside it
+	// is capped: a max-width narrower than the column shows up as dead space
+	// beside the photo, and narrowing the column wraps the lists below.
+	grid-template-columns: minmax(0, 1fr) var(--profile-width);
+	gap: var(--space-2xl);
 	margin-bottom: var(--space-lg);
 	align-items: start;
 }
@@ -829,6 +859,11 @@ html.dark-theme .sidenote-close {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+
+	// The grid column above enforces the measure now.
+	> p {
+		margin-top: 0;
+	}
 }
 
 .profile-section {
@@ -845,7 +880,7 @@ html.dark-theme .sidenote-close {
 
 	img {
 		width: 100%;
-		max-width: 240px;
+		max-width: var(--profile-width);
 		height: auto;
 		box-shadow: var(--shadow-md);
 		border-radius: var(--radius-md);
@@ -927,29 +962,7 @@ html.dark-theme .profile-links a {
 // Medium screens breakpoint (tablets)
 @media screen and (max-width: 45rem) {
 	main {
-		flex-wrap: wrap;
-		flex-direction: row;
 		max-width: 50rem;
-	}
-
-	header {
-		li {
-			display: inline;
-			margin-right: var(--space-lg);
-		}
-
-		ul {
-			border-bottom: 1px solid var(--color-border);
-			padding-bottom: var(--space-2xl);
-		}
-	}
-
-	.logo {
-		padding-bottom: var(--space-lg);
-	}
-
-	nav ul {
-		border-right: 0;
 	}
 }
 
@@ -968,7 +981,6 @@ html.dark-theme .profile-links a {
 	.tab-button {
 		padding: var(--space-sm) var(--space-lg);
 		font-size: var(--font-md);
-		letter-spacing: 0.3px;
 	}
 
 	.tab-navigation {
@@ -1136,3 +1148,123 @@ html.dark-theme .profile-links a {
 	color: var(--color-text-secondary);
 }
 
+
+// ========================================
+// Motion & Focus
+// ========================================
+
+// One shared focus treatment. The ring grows into place rather than snapping,
+// so keyboard navigation gets the same small-animation feel as everything else.
+@keyframes focus-ring-in {
+	from {
+		outline-offset: 6px;
+		outline-color: transparent;
+	}
+	to {
+		outline-offset: 2px;
+	}
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+	outline: 2px solid var(--color-link);
+	outline-offset: 2px;
+	border-radius: var(--radius-sm);
+	animation: focus-ring-in 0.18s ease-out;
+}
+
+.content-item:focus-visible {
+	animation: none;
+}
+
+// Tab panels cut instantly because display can't transition. The incoming
+// panel plays itself in instead.
+@keyframes panel-in {
+	from {
+		opacity: 0;
+		transform: translateY(4px);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+.tab-panel.active {
+	animation: panel-in 0.28s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.tab-button {
+	// The underline sweeps in from the left rather than appearing under the label.
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: -2px;
+		height: 2px;
+		background: var(--color-text);
+		transform: scaleX(0);
+		transform-origin: left;
+		transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.3, 1);
+	}
+
+	&.active {
+		border-bottom-color: transparent;
+
+		&::after {
+			transform: scaleX(1);
+		}
+	}
+}
+
+// Theme change: colors ease instead of snapping. Scoped to a class the toggle
+// adds for the duration of the swap, so it never slows down normal rendering.
+html.theme-transition,
+html.theme-transition body,
+html.theme-transition .content-item,
+html.theme-transition .tab-button,
+html.theme-transition .btn,
+html.theme-transition .pub-link-badge,
+html.theme-transition .sidenote-content {
+	transition: background-color 0.35s ease, color 0.35s ease,
+		border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.btn-theme i {
+	transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.btn-theme:hover i {
+	transform: rotate(-20deg);
+}
+
+html.theme-transition .btn-theme i {
+	transform: rotate(360deg);
+}
+
+// Respect the OS setting for everything above. Party mode is deliberately
+// exempt: it is opt-in, typed on purpose, and dismissable with Escape.
+@media (prefers-reduced-motion: reduce) {
+	.tab-panel.active,
+	a:focus-visible,
+	button:focus-visible,
+	[tabindex]:focus-visible {
+		animation: none;
+	}
+
+	.tab-button::after,
+	.btn-theme i,
+	.content-item,
+	.content-item-details,
+	html.theme-transition,
+	html.theme-transition body,
+	html.theme-transition .content-item,
+	html.theme-transition .tab-button,
+	html.theme-transition .btn,
+	html.theme-transition .pub-link-badge,
+	html.theme-transition .sidenote-content {
+		transition-duration: 0.01ms;
+	}
+}
