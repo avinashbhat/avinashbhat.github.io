@@ -1,5 +1,51 @@
 // Main JavaScript file - combines tabs and theme toggle functionality
 
+// The single underline that travels between tabs. Created here rather than in
+// the markup so the tab bar still renders correctly with JS disabled.
+var tabIndicator = null;
+
+function positionIndicator(button) {
+  if (!tabIndicator || !button) return;
+  // offsetLeft/offsetWidth are relative to .tab-navigation, which is the
+  // offsetParent, so this stays correct while the bar scrolls on narrow screens.
+  tabIndicator.style.transform =
+    'translateX(' + button.offsetLeft + 'px) scaleX(' + button.offsetWidth + ')';
+}
+
+function activeTabButton() {
+  return document.querySelector('.tab-button.active');
+}
+
+function setUpIndicator() {
+  var nav = document.querySelector('.tab-navigation');
+  if (!nav || tabIndicator) return;
+
+  tabIndicator = document.createElement('span');
+  tabIndicator.className = 'tab-indicator';
+  nav.appendChild(tabIndicator);
+
+  positionIndicator(activeTabButton());
+
+  // Animate only from here on: the first placement should not slide in.
+  requestAnimationFrame(function() {
+    nav.classList.add('is-ready');
+  });
+
+  // Label widths change when the webfont lands and when the bar is resized.
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function() {
+      var wasReady = nav.classList.contains('is-ready');
+      nav.classList.remove('is-ready');
+      positionIndicator(activeTabButton());
+      if (wasReady) requestAnimationFrame(function() { nav.classList.add('is-ready'); });
+    });
+  }
+
+  window.addEventListener('resize', function() {
+    positionIndicator(activeTabButton());
+  });
+}
+
 // Function to switch to a specific tab
 function switchToTab(tabId) {
   // Remove active class from all buttons
@@ -25,6 +71,8 @@ function switchToTab(tabId) {
   if (targetPanel) {
     targetPanel.classList.add('active');
   }
+
+  positionIndicator(targetButton);
 }
 
 // Tab functionality - click handler
@@ -45,7 +93,10 @@ function switchToHashTab() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', switchToHashTab);
+document.addEventListener('DOMContentLoaded', function() {
+  setUpIndicator();
+  switchToHashTab();
+});
 window.addEventListener('hashchange', switchToHashTab);
 
 // Content items expand on hover for pointers. Make them reachable by click and

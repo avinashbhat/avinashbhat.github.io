@@ -18,6 +18,14 @@
 	--overlay-active: rgba(0, 0, 0, 0.05);
 	--overlay-strong: rgba(0, 0, 0, 0.08);
 
+	// Keycap surface. The face is opaque so a key reads the same on the page as
+	// it does inside a tinted publication row, and the skirt is dark enough to
+	// stay visible against either.
+	--key-face: #ffffff;
+	--key-face-hover: #f6f8fa;
+	--key-skirt: rgba(15, 23, 42, 0.22);
+	--key-edge: #c4cdd8;
+
 	// Code colors
 	--color-code-bg: rgb(236, 237, 238);
 	--color-code-text: var(--color-text);
@@ -90,6 +98,11 @@ html.dark-theme {
 	--overlay-hover: rgba(255, 255, 255, 0.05);
 	--overlay-active: rgba(255, 255, 255, 0.08);
 	--overlay-strong: rgba(255, 255, 255, 0.1);
+
+	--key-face: #1e293b;
+	--key-face-hover: #273449;
+	--key-skirt: rgba(0, 0, 0, 0.55);
+	--key-edge: #475569;
 
 	--color-code-bg: #1e293b;
 	--color-code-text: #e2e8f0;
@@ -166,10 +179,18 @@ strong, b {
 	font-weight: var(--font-weight-medium);
 }
 
+// Form controls use the browser's own font unless told otherwise, which is how
+// the "older" toggle ended up in system sans while everything else was Literata.
+button {
+	font-family: inherit;
+}
+
 a {
 	text-decoration-skip-ink: auto;
 	text-decoration: underline;
-	background-color: transparent !important;
+	// Not !important: that beat every class, so any link styled as a surface —
+	// the keycap badges — lost its background and rendered face-less.
+	background-color: transparent;
 	color: var(--color-link);
 
 	&:hover {
@@ -408,6 +429,24 @@ section {
 	background-color: transparent !important;
 }
 
+// A repeated year is hidden with opacity rather than removed, so the column
+// keeps its width and no title shifts left when the year disappears. It also
+// stays in the accessibility tree, so every entry still reads with its year.
+.content-item-label.is-repeat-year {
+	opacity: 0;
+	transition: opacity 0.2s ease;
+}
+
+@media (hover: hover) {
+	.content-item:hover .content-item-label.is-repeat-year {
+		opacity: 1;
+	}
+}
+
+.content-item.is-open .content-item-label.is-repeat-year {
+	opacity: 1;
+}
+
 .content-item-body {
 	flex: 1;
 	background-color: transparent !important;
@@ -433,7 +472,13 @@ section {
 
 .content-item-details {
 	max-height: 0;
+	// Required by the max-height reveal, but it also clips anything drawn
+	// outside the box — the keycap skirt on the last row of badges sits below
+	// its element, so the padding gives that 4px somewhere to land.
+	// It costs nothing while collapsed: box-sizing is border-box, so max-height
+	// 0 still resolves to zero height.
 	overflow: hidden;
+	padding-bottom: 4px;
 	opacity: 0;
 	transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
 	margin-top: 0;
@@ -494,34 +539,51 @@ section {
 	font-size: var(--font-md);
 }
 
+// Keycap. The unblurred 2px shadow is the skirt — the side wall of the key
+// visible under its front face. Blurring it would turn it back into an ordinary
+// drop shadow; keeping it hard is what gives the key height.
 .pub-link-badge {
-	background-color: rgba(0, 123, 255, 0.08);
-	color: var(--color-link-hover);
-	padding: 0.15rem var(--space-sm);
-	border-radius: var(--radius-sm);
-	font-size: var(--font-sm);
-	font-weight: var(--font-weight-medium);
+	color: var(--color-text-secondary);
+	background-color: var(--key-face);
+	border: 1px solid var(--key-edge);
+	border-radius: 5px;
 	text-decoration: none;
-	transition: var(--transition-fast);
-	border: 1px solid rgba(0, 123, 255, 0.2);
+	cursor: pointer;
+	box-shadow:
+		0 2px 0 var(--key-skirt),
+		0 3px 4px rgba(0, 0, 0, 0.10);
+
+	// The press has to land immediately to feel physical; the colour change on
+	// hover can afford to be slower.
+	transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+		transform 0.06s ease, box-shadow 0.06s ease;
 
 	&:hover {
-		background-color: rgba(0, 123, 255, 0.15);
-		border-color: rgba(0, 123, 255, 0.4);
+		color: var(--color-text);
+		background-color: var(--key-face-hover);
 		text-decoration: none;
 	}
-}
 
-html.dark-theme .pub-link-badge {
-	background-color: rgba(96, 165, 250, 0.15);
-	color: #93c5fd;
-	border-color: rgba(96, 165, 250, 0.3);
-
-	&:hover {
-		background-color: rgba(96, 165, 250, 0.25);
-		border-color: rgba(96, 165, 250, 0.5);
+	// Travels exactly the height of its own skirt, and the skirt collapses with
+	// it. Moving further than the wall is tall is what makes a press look fake.
+	&:active {
+		transform: translateY(2px);
+		box-shadow:
+			0 0 0 var(--key-skirt),
+			0 1px 2px rgba(0, 0, 0, 0.10);
 	}
 }
+
+.pub-link-badge {
+	display: inline-block;
+	// A keycap needs room above and below its label.
+	padding: 0.24rem 0.55rem;
+	font-size: var(--font-md);
+	font-weight: var(--font-weight-medium);
+}
+
+// No dark-theme override needed: --key-face, --key-edge and --key-skirt already
+// carry the theme, which is the point of giving the key its own tokens.
 
 .pub-award {
 	background: linear-gradient(135deg, var(--color-accent-gold) 0%, var(--color-accent-gold-light) 100%);
@@ -622,6 +684,7 @@ html.dark-theme .pub-award {
 }
 
 .tab-navigation {
+	position: relative;
 	display: flex;
 	border-bottom: 2px solid var(--color-border);
 	margin-bottom: var(--space-xl);
@@ -635,7 +698,6 @@ html.dark-theme .pub-award {
 	padding: var(--space-md) var(--space-xl);
 	cursor: pointer;
 	font-size: var(--font-lg);
-	font-family: inherit;
 	font-weight: var(--font-weight-medium);
 	color: var(--color-text-muted);
 	border-bottom: 2px solid transparent;
@@ -946,12 +1008,13 @@ html.dark-theme .profile-image img {
 		justify-content: center;
 		width: 1.1rem;
 		height: 1.75rem;
-		border-radius: var(--radius-md);
-		background-color: rgba(0, 0, 0, 0.04);
+		// No resting background: the icons are their own shape, and a tile behind
+		// each one competes with the keycaps, which are the things meant to look
+		// pressable. The lift on hover carries the interaction instead.
+		background-color: transparent;
 
 		&:hover {
 			color: var(--color-text);
-			background-color: var(--overlay-strong);
 			transform: translateY(-2px);
 		}
 	}
@@ -970,14 +1033,6 @@ html.dark-theme .profile-image img {
 	&:hover {
 		background: none;
 		transform: none;
-	}
-}
-
-html.dark-theme .profile-links a {
-	background-color: rgba(255, 255, 255, 0.06);
-
-	&:hover {
-		background-color: rgba(255, 255, 255, 0.12);
 	}
 }
 
@@ -1235,27 +1290,35 @@ button:focus-visible,
 	animation: panel-in 0.28s cubic-bezier(0.2, 0.7, 0.3, 1);
 }
 
-.tab-button {
-	// The underline sweeps in from the left rather than appearing under the label.
-	&::after {
-		content: '';
-		position: absolute;
-		left: 0;
-		right: 0;
-		bottom: -2px;
-		height: 2px;
-		background: var(--color-text);
-		transform: scaleX(0);
-		transform-origin: left;
-		transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.3, 1);
-	}
+// A single underline travels between tabs instead of five separate ones fading
+// in and out. It is 1px wide and stretched with scaleX, so both its position and
+// its width are one transform — no layout work per frame.
+.tab-indicator {
+	position: absolute;
+	left: 0;
+	bottom: -2px;
+	width: 1px;
+	height: 2px;
+	background: var(--color-text);
+	transform-origin: left center;
+	transform: translateX(0) scaleX(0);
+	transition: transform 0.34s cubic-bezier(0.22, 0.75, 0.28, 1);
+	pointer-events: none;
+}
 
-	&.active {
-		border-bottom-color: transparent;
+// Placed without animating on first paint, so it doesn't slide in from the left
+// on load. The class is added once the first measurement is in.
+.tab-navigation:not(.is-ready) .tab-indicator {
+	transition: none;
+}
 
-		&::after {
-			transform: scaleX(1);
-		}
+.tab-button.active {
+	border-bottom-color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.tab-indicator {
+		transition: none;
 	}
 }
 
@@ -1294,7 +1357,6 @@ html.theme-transition .btn-theme i {
 		animation: none;
 	}
 
-	.tab-button::after,
 	.btn-theme i,
 	.content-item,
 	.content-item-details,
@@ -1306,5 +1368,102 @@ html.theme-transition .btn-theme i {
 	html.theme-transition .pub-link-badge,
 	html.theme-transition .sidenote-content {
 		transition-duration: 0.01ms;
+	}
+}
+
+// ========================================
+// Pixel Avinash
+// ========================================
+
+// A 9x28 sheet of 50x56 frames: seven animations, each in four directions.
+// Position and frame are both set from JS, so this only describes the surface.
+.walker {
+	position: fixed;
+	top: 0;
+	left: 0;
+	// Pixel art only scales cleanly at whole multiples: at 1.5x some source
+	// pixels land on two screen pixels and others on one, which reads as a
+	// blurry, uneven sprite. Keep this an integer — 1, 2 or 3.
+	--walker-scale: 1;
+	width: calc(50px * var(--walker-scale));
+	height: calc(56px * var(--walker-scale));
+	z-index: 40;
+	cursor: grab;
+	// Explicitly transparent: the global reset sets background-color: inherit on
+	// every element, so without this he inherits body's translucent white and
+	// carries a pale box around with him.
+	background-color: transparent;
+	background-image: url('/images/avinash-walk.png');
+	background-repeat: no-repeat;
+	// 9 columns and 28 rows. These MUST match COLS/ROWS in walker.js: a mismatch
+	// squashes the sheet, rows land on fractional boundaries, and slices of the
+	// neighbouring frames bleed in.
+	background-size: 900% 2800%;
+	image-rendering: pixelated;
+	transition: opacity 0.35s ease;
+	will-change: transform, background-position;
+	// So dragging pans him rather than scrolling the page or selecting text.
+	touch-action: none;
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+.walker.is-held {
+	cursor: grabbing;
+}
+
+.walker.is-leaving {
+	opacity: 0;
+	pointer-events: none;
+}
+
+// What he is currently up to. Centred over his head and allowed to overflow
+// his box, since the words are wider than he is.
+.walker-bubble {
+	position: absolute;
+	left: 50%;
+	bottom: 100%;
+	transform: translate(-50%, 4px);
+	margin-bottom: -14px;
+	white-space: nowrap;
+	pointer-events: none;
+
+	font-size: var(--font-xs);
+	font-style: italic;
+	color: var(--color-text-secondary);
+	background-color: var(--key-face);
+	border: 1px solid var(--key-edge);
+	border-radius: 5px;
+	padding: 0.15rem 0.4rem;
+	box-shadow: 0 2px 0 var(--key-skirt);
+
+	opacity: 0;
+	transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.walker-bubble.is-visible {
+	opacity: 1;
+	transform: translate(-50%, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.walker {
+		display: none;
+	}
+}
+
+// Required by the LPC sprite's CC-BY-SA / GPL / OGA-BY licences, so it is part
+// of the page rather than something that can quietly fall off.
+.attribution {
+	display: inline-block;
+	margin-top: var(--space-xs);
+	font-size: var(--font-xs);
+	color: var(--color-text-muted);
+	line-height: 1.5;
+	max-width: var(--measure);
+
+	a {
+		color: inherit;
+		text-underline-offset: 2px;
 	}
 }
