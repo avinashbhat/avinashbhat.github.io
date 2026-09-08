@@ -10,9 +10,17 @@ interface Tool {
 ---
 
 <ul class="content-list">
-  {toolsData.map((tool: Tool) => (
+  {toolsData.map((tool: Tool, index: number) => (
     <li class="content-item">
-      {tool.year && <div class="content-item-label">{tool.year}</div>}
+      {/* Same grouping as the publications list: a year prints once, and the
+          rest of its group reveals it on hover or click. */}
+      {tool.year && (
+        <div class={index > 0 && toolsData[index - 1].year === tool.year
+          ? 'content-item-label is-repeat-year'
+          : 'content-item-label'}>
+          {tool.year}
+        </div>
+      )}
       <div class="content-item-body">
         <div class="content-item-preview">
           {tool.name}

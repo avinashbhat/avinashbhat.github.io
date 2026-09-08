@@ -22,13 +22,18 @@ function getPresentationText(presentation: { type: string; label?: string }): st
 ---
 
 <ul class="content-list">
-  {publications.map((publication) => {
+  {publications.map((publication, index) => {
     const authors = publication.authors.split(',').map(a => a.trim());
     const hasCoauthor = publication.authors.includes('*');
+    // The list is ordered newest first, so a year only needs printing when it
+    // differs from the row above: the rest of the group repeats it silently.
+    const repeatsYear = index > 0 && publications[index - 1].year === publication.year;
 
     return (
       <li class="content-item">
-        <div class="content-item-label">{publication.year}</div>
+        <div class={repeatsYear ? 'content-item-label is-repeat-year' : 'content-item-label'}>
+          {publication.year}
+        </div>
         <div class="content-item-body">
           <div class="content-item-preview">
             {publication.title}
