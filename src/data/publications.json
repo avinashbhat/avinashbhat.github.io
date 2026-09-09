@@ -8,6 +8,13 @@
     "link": "https://arxiv.org/abs/2608.26232"
   },
   {
+    "title": "Look Before You Prompt, and After: Scaffolding Human-AI Collaboration in Software Tutorial Creation",
+    "authors": "Avinash Bhat, Vy Bui, Jin L.C. Guo",
+    "conference": "Preprint",
+    "year": 2026,
+    "link": "https://arxiv.org/abs/2609.05563"
+  },
+  {
     "title": "Malleable Interfaces for Reviewing Software Documentation",
     "authors": "Avinash Bhat",
     "conference": "FSE Doctoral Symposium Track",
