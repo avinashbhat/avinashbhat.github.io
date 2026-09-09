@@ -1,6 +1,12 @@
 [
   {
     "date": "September 2026",
+    "title": "New preprint! Our work on using LLMs for software tutorial creation is now on arXiv",
+    "content": "Link to preprint: https://arxiv.org/abs/2609.05563",
+    "recent": true
+  },
+  {
+    "date": "September 2026",
     "title": "Paper accepted to GROUP 2027",
     "content": "Our paper [“A Second Set of Eyes”: The Process and Challenges of Software Documentation Review](https://arxiv.org/abs/2608.26232) is accepted to [GROUP 2027](https://group.acm.org/conferences/group27/). Preprint is available on arXiv.",
     "recent": true
