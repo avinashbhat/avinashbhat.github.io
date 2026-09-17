@@ -1,0 +1,33 @@
+---
+import essaysData from '../data/essays.json';
+---
+
+{essaysData.length === 0 ? (
+  <p class="content-empty">Coming soon!</p>
+) : (
+  <ul class="content-list">
+    {essaysData.map((essay) => (
+      <li class="content-item">
+        <div class="content-item-label">{essay.date}</div>
+        <div class="content-item-body">
+          <div class="content-item-preview">
+            <a href={essay.url}>{essay.title}</a>
+          </div>
+          <div class="content-item-details">
+            <div class="content-item-full">
+              {essay.excerpt}
+            </div>
+          </div>
+        </div>
+      </li>
+    ))}
+  </ul>
+)}
+
+<style>
+  .content-empty {
+    color: var(--color-text-muted, #888);
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+</style>

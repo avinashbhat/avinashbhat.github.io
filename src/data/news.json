@@ -1,5 +1,34 @@
 [
   {
+    "date": "September 2026",
+    "title": "Our work on using LLMs for software tutorial creation is now on arXiv!",
+    "content": "New preprint! Our work on using LLMs for software tutorial creation is now [on arXiv](https://arxiv.org/abs/2609.05563).",
+    "recent": true
+  },
+  {
+    "date": "September 2026",
+    "title": "\"A Second Set of Eyes\" accepted to GROUP 2027!",
+    "content": "Our paper [“A Second Set of Eyes”: The Process and Challenges of Software Documentation Review](https://arxiv.org/abs/2608.26232) is accepted to [GROUP 2027](https://group.acm.org/conferences/group27/). Preprint is available on arXiv.",
+    "recent": true
+  },
+  {
+    "date": "September 2026",
+    "title": "I am on IUI 2027 PC!",
+    "content": "I am on the Program Committee for [IUI 2027](https://iui.acm.org/2027/).",
+    "recent": true
+  },
+  {
+    "date": "April 2026",
+    "title": "I am on ICSE 2027 PC!",
+    "content": "I am on the Program Committee for [ICSE 2027 Research Track](https://conf.researchr.org/track/icse-2027/icse-2027-research-track).",
+    "recent": true
+  },
+  {
+    "date": "April 2026",
+    "title": "I will be at FSE 2026 in Montréal in July",
+    "content": "Papers accepted to [doctoral symposium](https://conf.researchr.org/track/fse-2026/fse-2026-doctoral-symposium) and the [HumanAISE workshop](https://humanai4se.github.io/) at [FSE 2026](https://conf.researchr.org/home/fse-2026)."
+  },
+  {
     "date": "February 2026",
     "title": "FSE 2026 IVR Program Committee",
     "content": "I am on the Program Committee of FSE Ideas, Visions and Reflections Track."
