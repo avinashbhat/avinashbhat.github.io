@@ -18,6 +18,14 @@
 	--overlay-active: rgba(0, 0, 0, 0.05);
 	--overlay-strong: rgba(0, 0, 0, 0.08);
 
+	// Keycap surface. The face is opaque so a key reads the same on the page as
+	// it does inside a tinted publication row, and the skirt is dark enough to
+	// stay visible against either.
+	--key-face: #ffffff;
+	--key-face-hover: #f6f8fa;
+	--key-skirt: rgba(15, 23, 42, 0.22);
+	--key-edge: #c4cdd8;
+
 	// Code colors
 	--color-code-bg: rgb(236, 237, 238);
 	--color-code-text: var(--color-text);
@@ -42,14 +50,24 @@
 	--radius-md: 4px;
 	--radius-lg: 8px;
 
-	// Font sizes
-	--font-xs: 0.7rem;
-	--font-sm: 0.85rem;
-	--font-md: 0.9rem;
-	--font-base: 0.95rem;
-	--font-lg: 1rem;
-	--font-xl: 1.3rem;
-	--font-2xl: 1.5rem;
+	// Font sizes, anchored on a 14px body (--font-lg). Expressed in rem rather
+	// than px so they still scale with a reader's own browser font setting;
+	// the rem base is left alone because --space-* and main's max-width use it too.
+	--font-xs: 0.6875rem;  // 11px
+	--font-sm: 0.75rem;    // 12px
+	--font-md: 0.8125rem;  // 13px
+	--font-base: 0.85rem;  // 13.6px
+	--font-lg: 0.875rem;   // 14px — body
+	--font-xl: 1.05rem;    // 16.8px
+	--font-2xl: 1.25rem;   // 20px
+	--font-3xl: 1.625rem;  // 26px
+
+	// Reading measure. Serif text tolerates a slightly longer line than sans.
+	--measure: 68ch;
+
+	// Profile photo width. Drives both the image and its grid track, so the
+	// track can't be sized by the image's intrinsic dimensions.
+	--profile-width: 240px;
 
 	// Transitions
 	--transition-fast: all 0.2s ease;
@@ -81,6 +99,11 @@ html.dark-theme {
 	--overlay-active: rgba(255, 255, 255, 0.08);
 	--overlay-strong: rgba(255, 255, 255, 0.1);
 
+	--key-face: #1e293b;
+	--key-face-hover: #273449;
+	--key-skirt: rgba(0, 0, 0, 0.55);
+	--key-edge: #475569;
+
 	--color-code-bg: #1e293b;
 	--color-code-text: #e2e8f0;
 
@@ -105,27 +128,32 @@ html.dark-theme {
 // ========================================
 
 body {
-	font-family: "Noto Sans", sans-serif;
+	// One family across the whole site. Literata carries an optical-size axis, so
+	// the small dense lists get their own drawing rather than a shrunk display cut.
+	font-family: "Literata", Georgia, "Times New Roman", serif;
+	// Required for the opsz axis above to do anything.
 	font-optical-sizing: auto;
 	font-style: normal;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
-	line-height: 1.5;
+	line-height: 1.6;
 	font-size: var(--font-lg);
 	color: var(--color-text);
 	background-color: var(--color-bg);
+	// Coarser and fainter than before: at 8px the crosshatch sat in the same
+	// frequency range as the letterforms and read as noise behind the text.
 	background-image:
-		linear-gradient(45deg, #64748b20 25%, transparent 25%),
-		linear-gradient(-45deg, #64748b20 25%, transparent 25%);
-	background-size: 8px 8px;
+		linear-gradient(45deg, #64748b12 25%, transparent 25%),
+		linear-gradient(-45deg, #64748b12 25%, transparent 25%);
+	background-size: 14px 14px;
 	background-position: 0 0;
 	background-repeat: repeat;
 }
 
 html.dark-theme body {
 	background-image:
-		linear-gradient(45deg, #1e293b80 25%, transparent 25%),
-		linear-gradient(-45deg, #1e293b80 25%, transparent 25%);
+		linear-gradient(45deg, #1e293b55 25%, transparent 25%),
+		linear-gradient(-45deg, #1e293b55 25%, transparent 25%);
 }
   
 
@@ -134,10 +162,14 @@ html.dark-theme body {
 // ========================================
 
 h1, h2, h3, h4, h5 {
-	line-height: 1.5;
-	margin: var(--space-lg) 0;
-	font-weight: var(--font-weight-medium);
+	line-height: 1.25;
+	margin: var(--space-xl) 0 var(--space-md);
+	font-weight: var(--font-weight-semibold);
+	letter-spacing: -0.01em;
 }
+
+h1 { font-size: var(--font-2xl); }
+h2 { font-size: var(--font-xl); }
 
 h3 {
 	font-size: var(--font-xl);
@@ -147,10 +179,18 @@ strong, b {
 	font-weight: var(--font-weight-medium);
 }
 
+// Form controls use the browser's own font unless told otherwise, which is how
+// the "older" toggle ended up in system sans while everything else was Literata.
+button {
+	font-family: inherit;
+}
+
 a {
 	text-decoration-skip-ink: auto;
 	text-decoration: underline;
-	background-color: transparent !important;
+	// Not !important: that beat every class, so any link styled as a surface —
+	// the keycap badges — lost its background and rendered face-less.
+	background-color: transparent;
 	color: var(--color-link);
 
 	&:hover {
@@ -202,20 +242,18 @@ figcaption {
 // ========================================
 
 main {
-	display: flex;
-	flex-wrap: nowrap;
 	max-width: 70rem;
 	margin: var(--space-sm) auto;
 	padding: var(--space-lg);
 }
 
+// main used to be a flex row with a nav column beside the content. The nav is
+// gone, so the flex machinery and the right border are dropped: the border was
+// drawing a rule with nothing after it, which made page margin read as an empty
+// column.
 section {
-	flex-basis: 0;
-	flex-grow: 999;
-	min-width: 70%;
 	display: flex;
 	flex-direction: column;
-	border-right: 1px solid var(--color-border);
 	padding: var(--space-lg);
 
 	h1:first-child {
@@ -224,33 +262,6 @@ section {
 
 	.page-header ~ * {
 		padding-left: var(--space-sm);
-	}
-}
-
-nav ul {
-	border-right: 1px solid var(--color-border);
-}
-
-header {
-	position: relative;
-	padding: var(--space-lg);
-
-	a {
-		text-decoration: none;
-	}
-
-	li {
-		margin-bottom: 0.2rem;
-		text-align: right;
-		margin-right: var(--space-2xl);
-	}
-
-	a.active {
-		font-weight: bold;
-	}
-
-	ul {
-		list-style: none;
 	}
 }
 
@@ -297,21 +308,24 @@ header {
 
 .page-title {
 	margin: 0 !important;
-	line-height: 1.2;
+	font-size: var(--font-3xl);
+	font-weight: 400;
+	line-height: 1.15;
+	letter-spacing: -0.01em;
 	color: var(--color-text);
 }
 
 .page-date {
-	margin: 0;
+	margin: var(--space-sm) 0 0;
 	font-style: italic;
 	color: var(--color-text-muted);
-	font-size: var(--font-md);
+	font-size: var(--font-lg);
 }
 
 .page-actions {
 	display: flex;
 	align-items: center;
-	gap: var(--space-lg);
+	gap: var(--space-sm);
 	margin-top: 0.2rem;
 }
 
@@ -337,10 +351,17 @@ header {
 	}
 }
 
+// Both are icon-only, so they are sized as identical squares rather than left
+// to whatever their glyph measures. fa-fw normalises the icon width inside.
 .btn-back,
 .btn-theme {
 	background-color: var(--overlay-active) !important;
 	color: var(--color-text-secondary);
+	width: 2.25rem;
+	height: 2.25rem;
+	padding: 0;
+	justify-content: center;
+	font-size: var(--font-md);
 }
 
 
@@ -356,9 +377,8 @@ header {
 }
 
 .content-item {
-	margin-bottom: var(--space-xs);
-	padding: var(--space-md);
-	cursor: pointer;
+	margin-bottom: 0;
+	padding: var(--space-sm) var(--space-md);
 	border-radius: var(--radius-sm);
 	display: flex;
 	align-items: flex-start;
@@ -366,14 +386,44 @@ header {
 	background-color: transparent;
 	transition: var(--transition-fast);
 
-	&:hover {
+	// Only items that expand are interactive. main.js puts a tabindex on exactly
+	// those, so the attribute is what the affordances hang off: a news row is a
+	// row, not a button, and should not invite a click.
+	&[tabindex] {
+		cursor: pointer;
+	}
+
+	// Pointer devices keep hover as the fast path.
+	@media (hover: hover) {
+		&[tabindex]:hover {
+			background-color: var(--overlay-strong);
+
+			.content-item-details {
+				// ponytail: fixed ceiling so max-height can transition; raise if an
+				// author list ever wraps past this. grid-template-rows: 0fr->1fr is
+				// the real fix but needs a single wrapper child in every list component.
+				max-height: 60rem;
+				opacity: 1;
+				margin-top: var(--space-sm);
+			}
+		}
+	}
+
+	// Touch and keyboard reach the same state by toggling, not hovering.
+	&.is-open {
 		background-color: var(--overlay-strong);
 
 		.content-item-details {
-			max-height: 500px;
+			max-height: 60rem;
 			opacity: 1;
 			margin-top: var(--space-sm);
 		}
+	}
+
+	&:focus-visible {
+		outline: none;
+		background-color: var(--overlay-hover);
+		box-shadow: inset 0 0 0 2px var(--color-link);
 	}
 }
 
@@ -383,6 +433,24 @@ header {
 	font-size: var(--font-base);
 	flex-shrink: 0;
 	background-color: transparent !important;
+}
+
+// A repeated year is hidden with opacity rather than removed, so the column
+// keeps its width and no title shifts left when the year disappears. It also
+// stays in the accessibility tree, so every entry still reads with its year.
+.content-item-label.is-repeat-year {
+	opacity: 0;
+	transition: opacity 0.2s ease;
+}
+
+@media (hover: hover) {
+	.content-item:hover .content-item-label.is-repeat-year {
+		opacity: 1;
+	}
+}
+
+.content-item.is-open .content-item-label.is-repeat-year {
+	opacity: 1;
 }
 
 .content-item-body {
@@ -395,7 +463,6 @@ header {
 	color: var(--color-text);
 	font-size: var(--font-base);
 	line-height: 1.5;
-	margin-bottom: var(--space-xs);
 	background-color: transparent !important;
 
 	a {
@@ -410,7 +477,13 @@ header {
 
 .content-item-details {
 	max-height: 0;
+	// Required by the max-height reveal, but it also clips anything drawn
+	// outside the box — the keycap skirt on the last row of badges sits below
+	// its element, so the padding gives that 4px somewhere to land.
+	// It costs nothing while collapsed: box-sizing is border-box, so max-height
+	// 0 still resolves to zero height.
 	overflow: hidden;
+	padding-bottom: 4px;
 	opacity: 0;
 	transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
 	margin-top: 0;
@@ -471,34 +544,51 @@ header {
 	font-size: var(--font-md);
 }
 
+// Keycap. The unblurred 2px shadow is the skirt — the side wall of the key
+// visible under its front face. Blurring it would turn it back into an ordinary
+// drop shadow; keeping it hard is what gives the key height.
 .pub-link-badge {
-	background-color: rgba(0, 123, 255, 0.08);
-	color: var(--color-link-hover);
-	padding: 0.15rem var(--space-sm);
-	border-radius: var(--radius-sm);
-	font-size: var(--font-sm);
-	font-weight: var(--font-weight-medium);
+	color: var(--color-text-secondary);
+	background-color: var(--key-face);
+	border: 1px solid var(--key-edge);
+	border-radius: 5px;
 	text-decoration: none;
-	transition: var(--transition-fast);
-	border: 1px solid rgba(0, 123, 255, 0.2);
+	cursor: pointer;
+	box-shadow:
+		0 2px 0 var(--key-skirt),
+		0 3px 4px rgba(0, 0, 0, 0.10);
+
+	// The press has to land immediately to feel physical; the colour change on
+	// hover can afford to be slower.
+	transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease,
+		transform 0.06s ease, box-shadow 0.06s ease;
 
 	&:hover {
-		background-color: rgba(0, 123, 255, 0.15);
-		border-color: rgba(0, 123, 255, 0.4);
+		color: var(--color-text);
+		background-color: var(--key-face-hover);
 		text-decoration: none;
 	}
-}
 
-html.dark-theme .pub-link-badge {
-	background-color: rgba(96, 165, 250, 0.15);
-	color: #93c5fd;
-	border-color: rgba(96, 165, 250, 0.3);
-
-	&:hover {
-		background-color: rgba(96, 165, 250, 0.25);
-		border-color: rgba(96, 165, 250, 0.5);
+	// Travels exactly the height of its own skirt, and the skirt collapses with
+	// it. Moving further than the wall is tall is what makes a press look fake.
+	&:active {
+		transform: translateY(2px);
+		box-shadow:
+			0 0 0 var(--key-skirt),
+			0 1px 2px rgba(0, 0, 0, 0.10);
 	}
 }
+
+.pub-link-badge {
+	display: inline-block;
+	// A keycap needs room above and below its label.
+	padding: 0.24rem 0.55rem;
+	font-size: var(--font-md);
+	font-weight: var(--font-weight-medium);
+}
+
+// No dark-theme override needed: --key-face, --key-edge and --key-skirt already
+// carry the theme, which is the point of giving the key its own tokens.
 
 .pub-award {
 	background: linear-gradient(135deg, var(--color-accent-gold) 0%, var(--color-accent-gold-light) 100%);
@@ -565,13 +655,14 @@ html.dark-theme .pub-award {
 }
 
 // ========================================
-// Note Content (for note pages)
+// Essay Content (for essay pages)
 // ========================================
 
-.note-content-page {
+.essay-content-page {
 	p, li {
 		font-size: var(--font-lg);
-		line-height: 1.6;
+		line-height: 1.7;
+		max-width: var(--measure);
 	}
 
 	h1 {
@@ -591,11 +682,14 @@ html.dark-theme .pub-award {
 // Tab Styling
 // ========================================
 
+// Sits below .intro-section and spans the full width: lists are scanned, so they
+// want the width the reading measure deliberately gives up.
 .content-tabs {
 	margin: var(--space-2xl) 0;
 }
 
 .tab-navigation {
+	position: relative;
 	display: flex;
 	border-bottom: 2px solid var(--color-border);
 	margin-bottom: var(--space-xl);
@@ -609,14 +703,12 @@ html.dark-theme .pub-award {
 	padding: var(--space-md) var(--space-xl);
 	cursor: pointer;
 	font-size: var(--font-lg);
-	font-family: inherit;
 	font-weight: var(--font-weight-medium);
 	color: var(--color-text-muted);
 	border-bottom: 2px solid transparent;
 	transition: var(--transition-medium);
 	position: relative;
-	text-transform: uppercase;
-	letter-spacing: 0.5px;
+	letter-spacing: 0;
 	z-index: 10;
 	pointer-events: auto;
 
@@ -652,7 +744,7 @@ html.dark-theme .pub-award {
 // Sidenote Modals
 // ========================================
 
-.note-content-page,
+.essay-content-page,
 .post {
 	counter-reset: sidenote-counter;
 }
@@ -667,7 +759,6 @@ html.dark-theme .pub-award {
 	padding: 1px 2px;
 	border-radius: var(--radius-sm);
 	transition: var(--transition-fast);
-	outline: none;
 	display: inline;
 
 	&:after {
@@ -677,10 +768,14 @@ html.dark-theme .pub-award {
 		margin-left: 0;
 	}
 
-	&:hover,
-	&:focus {
+	&:hover {
 		text-decoration: underline;
-		outline: none;
+	}
+
+	&:focus-visible {
+		text-decoration: underline;
+		outline: 2px solid var(--color-link);
+		outline-offset: 2px;
 	}
 }
 
@@ -818,8 +913,11 @@ html.dark-theme .sidenote-close {
 
 .intro-section {
 	display: grid;
-	grid-template-columns: 3fr 1fr;
-	gap: var(--space-lg);
+	// The text column takes everything left beside the photo. Nothing inside it
+	// is capped: a max-width narrower than the column shows up as dead space
+	// beside the photo, and narrowing the column wraps the lists below.
+	grid-template-columns: minmax(0, 1fr) var(--profile-width);
+	gap: var(--space-2xl);
 	margin-bottom: var(--space-lg);
 	align-items: start;
 }
@@ -828,6 +926,11 @@ html.dark-theme .sidenote-close {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+
+	// The grid column above enforces the measure now.
+	> p {
+		margin-top: 0;
+	}
 }
 
 .profile-section {
@@ -839,16 +942,56 @@ html.dark-theme .sidenote-close {
 	margin: 0;
 }
 
+// --proximity (0 far, 1 at the centre) and --tilt-* are written by main.js as
+// the pointer approaches. Keeping the maths in CSS means JS only sets numbers.
 .profile-image {
 	margin-bottom: var(--space-xs);
 
 	img {
 		width: 100%;
-		max-width: 240px;
+		max-width: var(--profile-width);
 		height: auto;
-		box-shadow: var(--shadow-md);
 		border-radius: var(--radius-md);
 		background: none;
+
+		// Three stacked shadows instead of one: a tight contact shadow, a mid
+		// spread, and a wide soft cast that deepens as you approach. A single
+		// blur reads as a flat rectangle; layered ones read as an object with
+		// height above the page.
+		box-shadow:
+			0 1px 2px rgba(0, 0, 0, 0.11),
+			0 5px 14px rgba(0, 0, 0, calc(0.08 + var(--proximity, 0) * 0.05)),
+			0 18px 42px rgba(0, 0, 0, calc(0.04 + var(--proximity, 0) * 0.13));
+
+		transform:
+			// Shorter perspective on a 240px element: 700px is nearly orthographic
+			// at this size, so the rotation barely reads.
+			perspective(420px)
+			translateY(calc(var(--proximity, 0) * -9px))
+			scale(calc(1 + var(--proximity, 0) * 0.022))
+			rotateX(calc(var(--tilt-x, 0) * 1deg))
+			rotateY(calc(var(--tilt-y, 0) * 1deg));
+
+		// Short enough to feel responsive, long enough to smooth the per-frame
+		// updates without a easing loop in JS.
+		transition: transform 160ms ease-out, box-shadow 260ms ease-out;
+		will-change: transform;
+	}
+}
+
+// Black shadows barely register on a dark ground, so the dark theme leans on a
+// rim highlight for the same sense of lift.
+html.dark-theme .profile-image img {
+	box-shadow:
+		0 1px 2px rgba(0, 0, 0, 0.5),
+		0 6px 18px rgba(0, 0, 0, calc(0.35 + var(--proximity, 0) * 0.2)),
+		0 0 0 1px rgba(255, 255, 255, calc(0.06 + var(--proximity, 0) * 0.12));
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.profile-image img {
+		transition: none;
+		transform: none;
 	}
 }
 
@@ -870,22 +1013,31 @@ html.dark-theme .sidenote-close {
 		justify-content: center;
 		width: 1.1rem;
 		height: 1.75rem;
-		border-radius: var(--radius-md);
-		background-color: rgba(0, 0, 0, 0.04);
+		// No resting background: the icons are their own shape, and a tile behind
+		// each one competes with the keycaps, which are the things meant to look
+		// pressable. The lift on hover carries the interaction instead.
+		background-color: transparent;
 
 		&:hover {
 			color: var(--color-text);
-			background-color: var(--overlay-strong);
 			transform: translateY(-2px);
 		}
 	}
 }
 
-html.dark-theme .profile-links a {
-	background-color: rgba(255, 255, 255, 0.06);
+.profile-links--text a {
+	width: auto;
+	height: auto;
+	background: none;
+	display: inline;
+	border-radius: 0;
+	font-size: var(--font-sm);
+	text-decoration: underline;
+	text-underline-offset: 3px;
 
 	&:hover {
-		background-color: rgba(255, 255, 255, 0.12);
+		background: none;
+		transform: none;
 	}
 }
 
@@ -910,29 +1062,7 @@ html.dark-theme .profile-links a {
 // Medium screens breakpoint (tablets)
 @media screen and (max-width: 45rem) {
 	main {
-		flex-wrap: wrap;
-		flex-direction: row;
 		max-width: 50rem;
-	}
-
-	header {
-		li {
-			display: inline;
-			margin-right: var(--space-lg);
-		}
-
-		ul {
-			border-bottom: 1px solid var(--color-border);
-			padding-bottom: var(--space-2xl);
-		}
-	}
-
-	.logo {
-		padding-bottom: var(--space-lg);
-	}
-
-	nav ul {
-		border-right: 0;
 	}
 }
 
@@ -951,7 +1081,6 @@ html.dark-theme .profile-links a {
 	.tab-button {
 		padding: var(--space-sm) var(--space-lg);
 		font-size: var(--font-md);
-		letter-spacing: 0.3px;
 	}
 
 	.tab-navigation {
@@ -1119,3 +1248,280 @@ html.dark-theme .profile-links a {
 	color: var(--color-text-secondary);
 }
 
+
+// ========================================
+// Motion & Focus
+// ========================================
+
+// One shared focus treatment. The ring grows into place rather than snapping,
+// so keyboard navigation gets the same small-animation feel as everything else.
+@keyframes focus-ring-in {
+	from {
+		outline-offset: 6px;
+		outline-color: transparent;
+	}
+	to {
+		outline-offset: 2px;
+	}
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+	outline: 2px solid var(--color-link);
+	outline-offset: 2px;
+	border-radius: var(--radius-sm);
+	animation: focus-ring-in 0.18s ease-out;
+}
+
+.content-item:focus-visible {
+	animation: none;
+}
+
+// Tab panels cut instantly because display can't transition. The incoming
+// panel plays itself in instead.
+@keyframes panel-in {
+	from {
+		opacity: 0;
+		transform: translateY(4px);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+.tab-panel.active {
+	animation: panel-in 0.28s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+// A single underline travels between tabs instead of five separate ones fading
+// in and out. It is 1px wide and stretched with scaleX, so both its position and
+// its width are one transform — no layout work per frame.
+.tab-indicator {
+	position: absolute;
+	left: 0;
+	bottom: -2px;
+	width: 1px;
+	height: 2px;
+	background: var(--color-text);
+	transform-origin: left center;
+	transform: translateX(0) scaleX(0);
+	transition: transform 0.34s cubic-bezier(0.22, 0.75, 0.28, 1);
+	pointer-events: none;
+}
+
+// Placed without animating on first paint, so it doesn't slide in from the left
+// on load. The class is added once the first measurement is in.
+.tab-navigation:not(.is-ready) .tab-indicator {
+	transition: none;
+}
+
+.tab-button.active {
+	border-bottom-color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.tab-indicator {
+		transition: none;
+	}
+}
+
+// Theme change: colors ease instead of snapping. Scoped to a class the toggle
+// adds for the duration of the swap, so it never slows down normal rendering.
+html.theme-transition,
+html.theme-transition body,
+html.theme-transition .content-item,
+html.theme-transition .tab-button,
+html.theme-transition .btn,
+html.theme-transition .pub-link-badge,
+html.theme-transition .sidenote-content {
+	transition: background-color 0.35s ease, color 0.35s ease,
+		border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.btn-theme i {
+	transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.btn-theme:hover i {
+	transform: rotate(-20deg);
+}
+
+html.theme-transition .btn-theme i {
+	transform: rotate(360deg);
+}
+
+// Respect the OS setting for everything above. Party mode is deliberately
+// exempt: it is opt-in, typed on purpose, and dismissable with Escape.
+@media (prefers-reduced-motion: reduce) {
+	.tab-panel.active,
+	a:focus-visible,
+	button:focus-visible,
+	[tabindex]:focus-visible {
+		animation: none;
+	}
+
+	.btn-theme i,
+	.content-item,
+	.content-item-details,
+	html.theme-transition,
+	html.theme-transition body,
+	html.theme-transition .content-item,
+	html.theme-transition .tab-button,
+	html.theme-transition .btn,
+	html.theme-transition .pub-link-badge,
+	html.theme-transition .sidenote-content {
+		transition-duration: 0.01ms;
+	}
+}
+
+// ========================================
+// Pixel Avinash
+// ========================================
+
+// A 9x28 sheet of 50x56 frames: seven animations, each in four directions.
+// Position and frame are both set from JS, so this only describes the surface.
+.walker {
+	position: fixed;
+	top: 0;
+	left: 0;
+	// Pixel art only scales cleanly at whole multiples: at 1.5x some source
+	// pixels cover two screen pixels and others one, so the grid is uneven.
+	// image-rendering: pixelated keeps it sharp rather than blurry, which is
+	// why the half step is liveable — but 1 and 2 are the clean values.
+	--walker-scale: 1.5;
+	width: calc(50px * var(--walker-scale));
+	height: calc(56px * var(--walker-scale));
+	z-index: 40;
+	cursor: grab;
+	// Explicitly transparent: the global reset sets background-color: inherit on
+	// every element, so without this he inherits body's translucent white and
+	// carries a pale box around with him.
+	background-color: transparent;
+	background-image: url('/images/avinash-walk.png');
+	background-repeat: no-repeat;
+	// 9 columns and 28 rows. These MUST match COLS/ROWS in walker.js: a mismatch
+	// squashes the sheet, rows land on fractional boundaries, and slices of the
+	// neighbouring frames bleed in.
+	background-size: 900% 2800%;
+	image-rendering: pixelated;
+	// His feet, so the landing squash compresses him into the floor rather than
+	// shrinking him around his waist.
+	transform-origin: 50% 100%;
+	transition: opacity 0.35s ease;
+	will-change: transform, background-position;
+	// So dragging pans him rather than scrolling the page or selecting text.
+	touch-action: none;
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+.walker.is-held {
+	cursor: grabbing;
+}
+
+.walker.is-leaving {
+	opacity: 0;
+	pointer-events: none;
+}
+
+// What he is currently up to. Centred over his head and allowed to overflow
+// his box, since the words are wider than he is.
+.walker-bubble {
+	position: absolute;
+	left: 50%;
+	bottom: 100%;
+	transform: translate(-50%, 4px);
+	margin-bottom: -14px;
+	white-space: nowrap;
+	pointer-events: none;
+
+	font-size: var(--font-xs);
+	font-style: italic;
+	color: var(--color-text-secondary);
+	background-color: var(--key-face);
+	border: 1px solid var(--key-edge);
+	border-radius: 5px;
+	padding: 0.15rem 0.4rem;
+	box-shadow: 0 2px 0 var(--key-skirt);
+
+	opacity: 0;
+	transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+// A news headline is a sentence, not a word, so the bubble has to wrap for it.
+.walker-bubble.is-wide {
+	white-space: normal;
+	width: max-content;
+	max-width: 240px;
+	text-align: center;
+	font-style: normal;
+}
+
+.walker-bubble.is-visible {
+	opacity: 1;
+	transform: translate(-50%, 0);
+}
+
+// The news item he is currently pointing at. A wash of colour and a rule down
+// the side — enough to follow his arm to, without the page jumping.
+.content-item.is-noticed {
+	background-color: var(--key-face);
+	box-shadow: -3px 0 0 var(--color-accent-blue);
+	transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+// The dust ring thrown out by a landing. Sits at his feet and is invisible
+// until the class goes on, so it costs nothing the rest of the time.
+.walker-shock {
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	// Tied to the sprite's scale so the dust ring grows with him.
+	width: calc(46px * var(--walker-scale));
+	height: calc(12px * var(--walker-scale));
+	margin-left: calc(-23px * var(--walker-scale));
+	border: 2px solid var(--color-text-muted);
+	border-radius: 50%;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.walker-shock.is-active {
+	animation: walker-shock 0.45s ease-out;
+}
+
+@keyframes walker-shock {
+	from {
+		opacity: 0.55;
+		transform: scale(0.3);
+	}
+
+	to {
+		opacity: 0;
+		transform: scale(2.4);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.walker {
+		display: none;
+	}
+}
+
+// Required by the LPC sprite's CC-BY-SA / GPL / OGA-BY licences, so it is part
+// of the page rather than something that can quietly fall off.
+.attribution {
+	display: inline-block;
+	margin-top: var(--space-xs);
+	font-size: var(--font-xs);
+	color: var(--color-text-muted);
+	line-height: 1.5;
+	max-width: var(--measure);
+
+	a {
+		color: inherit;
+		text-underline-offset: 2px;
+	}
+}

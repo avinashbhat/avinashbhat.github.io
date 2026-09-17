@@ -29,6 +29,10 @@
   function activatePartyMode() {
     partyModeActive = true;
 
+    // Announced rather than called directly, so anything else on the page can
+    // join in without party mode needing to know about it.
+    document.dispatchEvent(new CustomEvent('partymode', { detail: { active: true } }));
+
     // Start strobe effect
     startStrobeEffect();
 
@@ -348,6 +352,7 @@
     }
 
     partyModeActive = false;
+    document.dispatchEvent(new CustomEvent('partymode', { detail: { active: false } }));
   }
 
   // Allow manual deactivation with Escape key

@@ -3,7 +3,7 @@ import PageLayout from '../layouts/PageLayout.astro';
 import NewsList from '../components/NewsList.astro';
 import PublicationsList from '../components/PublicationsList.astro';
 import ServiceList from '../components/ServiceList.astro';
-import NotesList from '../components/NotesList.astro';
+import EssaysList from '../components/EssaysList.astro';
 import ToolsList from '../components/ToolsList.astro';
 
 const currentYear = new Date().getFullYear();
@@ -13,7 +13,8 @@ const currentYear = new Date().getFullYear();
   <div class="intro-section">
     <div class="intro-text">
       <p>
-        I am a PhD student in the <a href="https://www.cs.mcgill.ca/~jguo/lab.html">Software Technology Lab</a> at School of Computer Science, McGill University, advised by <a href="https://www.cs.mcgill.ca/~jguo">Professor Jin Guo</a>. Broadly, my research interest is about how software practitioners create knowledge while collaborating in software teams. As part of this research, I am investigating existing documentation practices and developing tools to help practitioners create documentation.
+        I am a PhD student in the <a href="https://www.cs.mcgill.ca/~jguo/lab.html">Software Technology Lab</a> at School of Computer Science, McGill University, advised by <a href="https://www.cs.mcgill.ca/~jguo">Professor Jin Guo</a>. See more of my work under publications and essays.
+        <!-- I am interested in understanding how practitioners in software engineering organizations create, use, and maintain knowledge about software, and more recently, in how AI agents are reshaping that process. -->
       </p>
       <div class="profile-links">
         <span class="contact-label">Email & Socials:</span>
@@ -27,12 +28,18 @@ const currentYear = new Date().getFullYear();
         <a href="https://bsky.app/profile/aviinashbhat.bsky.social" target="_blank" title="Bluesky"><i class="fa-brands fa-bluesky"></i></a>
       </div>
 
+      <div class="profile-links profile-links--text">
+        <span class="contact-label">Other Links:</span>
+        <span class="email-text"><a href="https://ianarawjo.github.io/mila-hcai/" target="_blank">Human-Centered AI Reading Group @ Mila</a></span>
+      </div>
+
       <div class="content-tabs">
         <div class="tab-navigation">
           <button class="tab-button active" data-tab="news">News</button>
           <button class="tab-button" data-tab="publications">Publications</button>
           <button class="tab-button" data-tab="tools">Tools</button>
           <button class="tab-button" data-tab="service">Service</button>
+          <button class="tab-button" data-tab="essays">Essays</button>
         </div>
 
         <div class="tab-content">
@@ -52,8 +59,8 @@ const currentYear = new Date().getFullYear();
             <ServiceList />
           </div>
 
-          <div id="notes" class="tab-panel">
-            <NotesList />
+          <div id="essays" class="tab-panel">
+            <EssaysList />
           </div>
         </div>
       </div>
@@ -61,12 +68,20 @@ const currentYear = new Date().getFullYear();
 
     <div class="profile-section">
       <div class="profile-image">
-        <img alt="Profile Picture" src="/images/avinashbhat_image_2.jpeg" />
+        <img alt="Profile Picture" src="/images/avinashbhat_image_2.jpeg"
+             width="480" height="640" />
       </div>
     </div>
   </div>
+
   <br>
   <div class="copyright">
     &copy; Avinash Bhat {currentYear} | All Rights Reserved.
+    <br />
+    <span class="attribution">
+      Sprite built with the
+      <a href="https://liberatedpixelcup.github.io/Universal-LPC-Spritesheet-Character-Generator/" target="_blank" rel="noopener noreferrer">Universal LPC Spritesheet Generator</a>,
+      <a href="/images/credits.txt">Art Credits</a>.
+    </span>
   </div>
 </PageLayout>
