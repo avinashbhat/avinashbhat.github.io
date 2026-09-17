@@ -1,4 +1,9 @@
 ---
+// News is one line per entry, and nothing to click. Each item in news.json
+// carries two strings, only one of which is rendered:
+//   content — the line itself. Markdown, so links go inline.
+//   title   — a few words, never shown. It is what the walking sprite says
+//             when it stops to point at the entry, so keep it short.
 import { marked } from 'marked';
 import newsData from '../data/news.json';
 
@@ -12,15 +17,10 @@ const olderNews = newsData.filter((item) => !item.recent);
 
 <ul class="content-list">
   {recentNews.map((newsItem) => (
-    <li class="content-item">
+    <li class="content-item" data-headline={newsItem.title}>
       <div class="content-item-label">{newsItem.date}</div>
       <div class="content-item-body">
-        <div class="content-item-preview">
-          {newsItem.title}
-        </div>
-        <div class="content-item-details">
-          <div class="content-item-full" set:html={renderMarkdown(newsItem.content)} />
-        </div>
+        <div class="content-item-full" set:html={renderMarkdown(newsItem.content)} />
       </div>
     </li>
   ))}
@@ -31,15 +31,10 @@ const olderNews = newsData.filter((item) => !item.recent);
     <div data-older-news style="display: none;">
       <ul class="content-list">
         {olderNews.map((newsItem) => (
-          <li class="content-item">
+          <li class="content-item" data-headline={newsItem.title}>
             <div class="content-item-label">{newsItem.date}</div>
             <div class="content-item-body">
-              <div class="content-item-preview">
-                {newsItem.title}
-              </div>
-              <div class="content-item-details">
-                <div class="content-item-full" set:html={renderMarkdown(newsItem.content)} />
-              </div>
+              <div class="content-item-full" set:html={renderMarkdown(newsItem.content)} />
             </div>
           </li>
         ))}

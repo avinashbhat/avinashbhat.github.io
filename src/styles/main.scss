@@ -379,7 +379,6 @@ section {
 .content-item {
 	margin-bottom: var(--space-xs);
 	padding: var(--space-md);
-	cursor: pointer;
 	border-radius: var(--radius-sm);
 	display: flex;
 	align-items: flex-start;
@@ -387,9 +386,16 @@ section {
 	background-color: transparent;
 	transition: var(--transition-fast);
 
+	// Only items that expand are interactive. main.js puts a tabindex on exactly
+	// those, so the attribute is what the affordances hang off: a news row is a
+	// row, not a button, and should not invite a click.
+	&[tabindex] {
+		cursor: pointer;
+	}
+
 	// Pointer devices keep hover as the fast path.
 	@media (hover: hover) {
-		&:hover {
+		&[tabindex]:hover {
 			background-color: var(--overlay-strong);
 
 			.content-item-details {
@@ -1382,9 +1388,10 @@ html.theme-transition .btn-theme i {
 	top: 0;
 	left: 0;
 	// Pixel art only scales cleanly at whole multiples: at 1.5x some source
-	// pixels land on two screen pixels and others on one, which reads as a
-	// blurry, uneven sprite. Keep this an integer — 1, 2 or 3.
-	--walker-scale: 1;
+	// pixels cover two screen pixels and others one, so the grid is uneven.
+	// image-rendering: pixelated keeps it sharp rather than blurry, which is
+	// why the half step is liveable — but 1 and 2 are the clean values.
+	--walker-scale: 1.5;
 	width: calc(50px * var(--walker-scale));
 	height: calc(56px * var(--walker-scale));
 	z-index: 40;
@@ -1400,6 +1407,9 @@ html.theme-transition .btn-theme i {
 	// neighbouring frames bleed in.
 	background-size: 900% 2800%;
 	image-rendering: pixelated;
+	// His feet, so the landing squash compresses him into the floor rather than
+	// shrinking him around his waist.
+	transform-origin: 50% 100%;
 	transition: opacity 0.35s ease;
 	will-change: transform, background-position;
 	// So dragging pans him rather than scrolling the page or selecting text.
@@ -1441,9 +1451,58 @@ html.theme-transition .btn-theme i {
 	transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
+// A news headline is a sentence, not a word, so the bubble has to wrap for it.
+.walker-bubble.is-wide {
+	white-space: normal;
+	width: max-content;
+	max-width: 240px;
+	text-align: center;
+	font-style: normal;
+}
+
 .walker-bubble.is-visible {
 	opacity: 1;
 	transform: translate(-50%, 0);
+}
+
+// The news item he is currently pointing at. A wash of colour and a rule down
+// the side — enough to follow his arm to, without the page jumping.
+.content-item.is-noticed {
+	background-color: var(--key-face);
+	box-shadow: -3px 0 0 var(--color-accent-blue);
+	transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+// The dust ring thrown out by a landing. Sits at his feet and is invisible
+// until the class goes on, so it costs nothing the rest of the time.
+.walker-shock {
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	// Tied to the sprite's scale so the dust ring grows with him.
+	width: calc(46px * var(--walker-scale));
+	height: calc(12px * var(--walker-scale));
+	margin-left: calc(-23px * var(--walker-scale));
+	border: 2px solid var(--color-text-muted);
+	border-radius: 50%;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.walker-shock.is-active {
+	animation: walker-shock 0.45s ease-out;
+}
+
+@keyframes walker-shock {
+	from {
+		opacity: 0.55;
+		transform: scale(0.3);
+	}
+
+	to {
+		opacity: 0;
+		transform: scale(2.4);
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {
