@@ -377,8 +377,8 @@ section {
 }
 
 .content-item {
-	margin-bottom: var(--space-xs);
-	padding: var(--space-md);
+	margin-bottom: 0;
+	padding: var(--space-sm) var(--space-md);
 	border-radius: var(--radius-sm);
 	display: flex;
 	align-items: flex-start;
@@ -463,7 +463,6 @@ section {
 	color: var(--color-text);
 	font-size: var(--font-base);
 	line-height: 1.5;
-	margin-bottom: var(--space-xs);
 	background-color: transparent !important;
 
 	a {
