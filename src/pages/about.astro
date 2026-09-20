@@ -1,4 +1,5 @@
 ---
+import { execFileSync } from 'node:child_process';
 import PageLayout from '../layouts/PageLayout.astro';
 import NewsList from '../components/NewsList.astro';
 import PublicationsList from '../components/PublicationsList.astro';
@@ -7,6 +8,32 @@ import EssaysList from '../components/EssaysList.astro';
 import ToolsList from '../components/ToolsList.astro';
 
 const currentYear = new Date().getFullYear();
+
+let cvUpdatedDate: string | undefined;
+
+try {
+  const commitDate = execFileSync(
+    'git',
+    ['log', '-1', '--format=%cs', '--', 'public/cv.pdf'],
+    { encoding: 'utf8' },
+  ).trim();
+
+  if (/^\d{4}-\d{2}-\d{2}$/.test(commitDate)) {
+    cvUpdatedDate = commitDate;
+  }
+} catch {
+  // Git metadata may be unavailable outside a repository. The CV link still
+  // renders; only its update date is omitted.
+}
+
+const cvUpdatedLabel = cvUpdatedDate
+  ? new Intl.DateTimeFormat('en-US', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+      timeZone: 'UTC',
+    }).format(new Date(`${cvUpdatedDate}T00:00:00Z`))
+  : undefined;
 ---
 
 <PageLayout title="Hello! I'm Avinash Bhat.">
@@ -29,8 +56,15 @@ const currentYear = new Date().getFullYear();
       </div>
 
       <div class="profile-links profile-links--text">
-        <span class="contact-label">Other Links:</span>
+        <span class="contact-label">Links:</span>
         <span class="email-text"><a href="https://ianarawjo.github.io/mila-hcai/" target="_blank">Human-Centered AI Reading Group @ Mila</a></span>
+        <span class="separator">•</span>
+        <span class="email-text">
+          <a href="/cv.pdf">CV</a>
+          {cvUpdatedDate && cvUpdatedLabel && (
+            <> (updated <time datetime={cvUpdatedDate}>{cvUpdatedLabel}</time>)</>
+          )}
+        </span>
       </div>
 
       <div class="content-tabs">

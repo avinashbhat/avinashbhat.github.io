@@ -20,6 +20,9 @@ function getPresentationText(presentation: { type: string; label?: string }): st
   return presentation.label ?? presentationLabels[presentation.type] ?? presentation.type;
 }
 ---
+<aside class="publication-correspondence">
+  I invite (in fact, encourage) any correspondence regarding these papers, including comments, reviews, critiques, or objections. These should be sent to me by email.
+</aside>
 
 <ul class="content-list">
   {publications.map((publication, index) => {

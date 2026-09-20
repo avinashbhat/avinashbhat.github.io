@@ -24,6 +24,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # The build reads the latest commit date for public/cv.pdf.
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
