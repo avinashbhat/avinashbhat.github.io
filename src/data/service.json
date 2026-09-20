@@ -76,7 +76,7 @@
                 "url": "https://cc.acm.org/2025/"
               },
               {
-                "year": 2025,
+                "year": 2026,
                 "track": "Posters",
                 "url": "https://cc.acm.org/2026/posters/"
               }
@@ -198,6 +198,11 @@
         "name": "CSCW",
         "year": 2023,
         "url": "https://cscw.acm.org/2023/"
+      },
+      {
+        "name": "SEMLA",
+        "year": 2026,
+        "url": "https://semla.polymtl.ca/"
       }
     ]
   }
