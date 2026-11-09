@@ -32,7 +32,6 @@
 
 	// Accent colors
 	--color-accent-blue: #007acc;
-	--color-accent-blue-light: #60a5fa;
 	--color-accent-gold: #ffd700;
 	--color-accent-gold-light: #ffed4e;
 	--color-accent-gold-dark: #6b5400;
@@ -50,17 +49,17 @@
 	--radius-md: 4px;
 	--radius-lg: 8px;
 
-	// Font sizes, anchored on a 14px body (--font-lg). Expressed in rem rather
-	// than px so they still scale with a reader's own browser font setting;
-	// the rem base is left alone because --space-* and main's max-width use it too.
-	--font-xs: 0.6875rem;  // 11px
-	--font-sm: 0.75rem;    // 12px
-	--font-md: 0.8125rem;  // 13px
-	--font-base: 0.85rem;  // 13.6px
-	--font-lg: 0.875rem;   // 14px — body
-	--font-xl: 1.05rem;    // 16.8px
-	--font-2xl: 1.25rem;   // 20px
-	--font-3xl: 1.625rem;  // 26px
+	// Font sizes, anchored on a 16px body (--font-lg). Expressed in rem rather
+	// than px so they still scale with a reader's own browser font setting; the
+	// rem base is left alone because --space-* and main's max-width use it too.
+	--font-xs: 0.8rem;      // 12.8px
+	--font-sm: 0.875rem;    // 14px
+	--font-md: 0.9375rem;   // 15px
+	--font-base: 0.975rem;  // 15.6px
+	--font-lg: 1rem;        // 16px — body
+	--font-xl: 1.2rem;      // 19.2px
+	--font-2xl: 1.4rem;     // 22.4px
+	--font-3xl: 1.875rem;   // 30px
 
 	// Reading measure. Serif text tolerates a slightly longer line than sans.
 	--measure: 68ch;
@@ -75,11 +74,9 @@
 
 	// Shadows
 	--shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-	--shadow-md: 2px 2px 8px rgba(0, 0, 0, 0.1);
 	--shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.2);
 
 	// Font weights
-	--font-weight-normal: 400;
 	--font-weight-medium: 500;
 	--font-weight-semibold: 600;
 }
@@ -107,7 +104,6 @@ html.dark-theme {
 	--color-code-bg: #1e293b;
 	--color-code-text: #e2e8f0;
 
-	--shadow-md: 2px 2px 8px rgba(0, 0, 0, 0.3);
 	--shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
@@ -127,12 +123,27 @@ html.dark-theme {
 // Base Styles
 // ========================================
 
+// TeX Gyre Pagella: a free Palatino clone (GUST Font License), self-hosted so
+// every platform gets the same face. Only regular and bold exist, so the weight
+// ranges map medium (500) to regular and semibold (600) to bold.
+@each $file, $weight, $style in
+	("regular", 400 500, normal),
+	("italic", 400 500, italic),
+	("bold", 600 700, normal),
+	("bolditalic", 600 700, italic)
+{
+	@font-face {
+		font-family: "TeX Gyre Pagella";
+		src: url("/fonts/texgyrepagella-#{$file}.woff2") format("woff2");
+		font-weight: $weight;
+		font-style: $style;
+		font-display: swap;
+	}
+}
+
 body {
-	// One family across the whole site. Literata carries an optical-size axis, so
-	// the small dense lists get their own drawing rather than a shrunk display cut.
-	font-family: "Literata", Georgia, "Times New Roman", serif;
-	// Required for the opsz axis above to do anything.
-	font-optical-sizing: auto;
+	// One family across the whole site.
+	font-family: "TeX Gyre Pagella", Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
 	font-style: normal;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
@@ -140,22 +151,7 @@ body {
 	font-size: var(--font-lg);
 	color: var(--color-text);
 	background-color: var(--color-bg);
-	// Coarser and fainter than before: at 8px the crosshatch sat in the same
-	// frequency range as the letterforms and read as noise behind the text.
-	background-image:
-		linear-gradient(45deg, #64748b12 25%, transparent 25%),
-		linear-gradient(-45deg, #64748b12 25%, transparent 25%);
-	background-size: 14px 14px;
-	background-position: 0 0;
-	background-repeat: repeat;
 }
-
-html.dark-theme body {
-	background-image:
-		linear-gradient(45deg, #1e293b55 25%, transparent 25%),
-		linear-gradient(-45deg, #1e293b55 25%, transparent 25%);
-}
-  
 
 // ========================================
 // Typography & Content
@@ -180,7 +176,7 @@ strong, b {
 }
 
 // Form controls use the browser's own font unless told otherwise, which is how
-// the "older" toggle ended up in system sans while everything else was Literata.
+// the "older" toggle ended up in system sans while everything else was the body serif.
 button {
 	font-family: inherit;
 }
@@ -245,6 +241,15 @@ main {
 	max-width: 70rem;
 	margin: var(--space-sm) auto;
 	padding: var(--space-lg);
+	// At least one screen tall, so a short page can push the copyright to the
+	// bottom; a long page grows past this and the copyright follows the content.
+	display: flex;
+	flex-direction: column;
+	min-height: calc(100dvh - 2 * var(--space-sm));
+
+	> section {
+		flex: 1;
+	}
 }
 
 // main used to be a flex row with a nav column beside the content. The nav is
@@ -1259,6 +1264,8 @@ html.dark-theme .profile-image img {
 // ========================================
 
 .copyright {
+	// Takes up the spare height of a short page; zero once content fills it.
+	margin-top: auto;
 	text-align: center;
 	font-size: 75%;
 	color: var(--color-text-secondary);
@@ -1389,155 +1396,5 @@ html.theme-transition .btn-theme i {
 	html.theme-transition .pub-link-badge,
 	html.theme-transition .sidenote-content {
 		transition-duration: 0.01ms;
-	}
-}
-
-// ========================================
-// Pixel Avinash
-// ========================================
-
-// A 9x28 sheet of 50x56 frames: seven animations, each in four directions.
-// Position and frame are both set from JS, so this only describes the surface.
-.walker {
-	position: fixed;
-	top: 0;
-	left: 0;
-	// Pixel art only scales cleanly at whole multiples: at 1.5x some source
-	// pixels cover two screen pixels and others one, so the grid is uneven.
-	// image-rendering: pixelated keeps it sharp rather than blurry, which is
-	// why the half step is liveable — but 1 and 2 are the clean values.
-	--walker-scale: 1.5;
-	width: calc(50px * var(--walker-scale));
-	height: calc(56px * var(--walker-scale));
-	z-index: 40;
-	cursor: grab;
-	// Explicitly transparent: the global reset sets background-color: inherit on
-	// every element, so without this he inherits body's translucent white and
-	// carries a pale box around with him.
-	background-color: transparent;
-	background-image: url('/images/avinash-walk.png');
-	background-repeat: no-repeat;
-	// 9 columns and 28 rows. These MUST match COLS/ROWS in walker.js: a mismatch
-	// squashes the sheet, rows land on fractional boundaries, and slices of the
-	// neighbouring frames bleed in.
-	background-size: 900% 2800%;
-	image-rendering: pixelated;
-	// His feet, so the landing squash compresses him into the floor rather than
-	// shrinking him around his waist.
-	transform-origin: 50% 100%;
-	transition: opacity 0.35s ease;
-	will-change: transform, background-position;
-	// So dragging pans him rather than scrolling the page or selecting text.
-	touch-action: none;
-	user-select: none;
-	-webkit-user-select: none;
-}
-
-.walker.is-held {
-	cursor: grabbing;
-}
-
-.walker.is-leaving {
-	opacity: 0;
-	pointer-events: none;
-}
-
-// What he is currently up to. Centred over his head and allowed to overflow
-// his box, since the words are wider than he is.
-.walker-bubble {
-	position: absolute;
-	left: 50%;
-	bottom: 100%;
-	transform: translate(-50%, 4px);
-	margin-bottom: -14px;
-	white-space: nowrap;
-	pointer-events: none;
-
-	font-size: var(--font-xs);
-	font-style: italic;
-	color: var(--color-text-secondary);
-	background-color: var(--key-face);
-	border: 1px solid var(--key-edge);
-	border-radius: 5px;
-	padding: 0.15rem 0.4rem;
-	box-shadow: 0 2px 0 var(--key-skirt);
-
-	opacity: 0;
-	transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-// A news headline is a sentence, not a word, so the bubble has to wrap for it.
-.walker-bubble.is-wide {
-	white-space: normal;
-	width: max-content;
-	max-width: 240px;
-	text-align: center;
-	font-style: normal;
-}
-
-.walker-bubble.is-visible {
-	opacity: 1;
-	transform: translate(-50%, 0);
-}
-
-// The news item he is currently pointing at. A wash of colour and a rule down
-// the side — enough to follow his arm to, without the page jumping.
-.content-item.is-noticed {
-	background-color: var(--key-face);
-	box-shadow: -3px 0 0 var(--color-accent-blue);
-	transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-// The dust ring thrown out by a landing. Sits at his feet and is invisible
-// until the class goes on, so it costs nothing the rest of the time.
-.walker-shock {
-	position: absolute;
-	left: 50%;
-	bottom: 0;
-	// Tied to the sprite's scale so the dust ring grows with him.
-	width: calc(46px * var(--walker-scale));
-	height: calc(12px * var(--walker-scale));
-	margin-left: calc(-23px * var(--walker-scale));
-	border: 2px solid var(--color-text-muted);
-	border-radius: 50%;
-	opacity: 0;
-	pointer-events: none;
-}
-
-.walker-shock.is-active {
-	animation: walker-shock 0.45s ease-out;
-}
-
-@keyframes walker-shock {
-	from {
-		opacity: 0.55;
-		transform: scale(0.3);
-	}
-
-	to {
-		opacity: 0;
-		transform: scale(2.4);
-	}
-}
-
-@media (prefers-reduced-motion: reduce) {
-	.walker {
-		display: none;
-	}
-}
-
-// Required by the LPC sprite's CC-BY-SA / GPL / OGA-BY licences, so it is part
-// of the page rather than something that can quietly fall off.
-.attribution {
-	display: inline-block;
-	margin-top: var(--space-xs);
-	font-size: var(--font-xs);
-	color: var(--color-text-muted);
-	line-height: 1.5;
-	max-width: var(--measure);
-
-	a {
-		color: inherit;
-		text-underline-offset: 2px;
 	}
 }
