@@ -4,14 +4,14 @@
 
 :root {
 	// Colors - Light Theme
-	--color-text: #000;
-	--color-text-secondary: #495057;
-	--color-text-muted: #6c757d;
-	--color-bg: rgba(255, 255, 255, 0.4);
-	--color-border: #edf2f7;
-	--color-border-dark: #cbd5e1;
-	--color-link: #007acc;
-	--color-link-hover: #0056b3;
+	--color-text: #25292E;
+	--color-text-secondary: #454B52;
+	--color-text-muted: #5E6770;
+	--color-bg: #F7F9FB;
+	--color-border: #DDE6ED;
+	--color-border-dark: #A6C8E2;
+	--color-link: #2F6A99;
+	--color-link-hover: #1F4E75;
 
 	// Background overlays
 	--overlay-hover: rgba(0, 0, 0, 0.03);
@@ -21,17 +21,17 @@
 	// Keycap surface. The face is opaque so a key reads the same on the page as
 	// it does inside a tinted publication row, and the skirt is dark enough to
 	// stay visible against either.
-	--key-face: #ffffff;
-	--key-face-hover: #f6f8fa;
-	--key-skirt: rgba(15, 23, 42, 0.22);
-	--key-edge: #c4cdd8;
+	--key-face: #FFFFFF;
+	--key-face-hover: #EDF2F7;
+	--key-skirt: rgba(37, 41, 46, 0.22);
+	--key-edge: #B9C9D6;
 
 	// Code colors
-	--color-code-bg: rgb(236, 237, 238);
+	--color-code-bg: #E9EFF4;
 	--color-code-text: var(--color-text);
 
 	// Accent colors
-	--color-accent-blue: #007acc;
+	--color-accent-blue: #2F6A99;
 	--color-accent-gold: #ffd700;
 	--color-accent-gold-light: #ffed4e;
 	--color-accent-gold-dark: #6b5400;
@@ -52,14 +52,14 @@
 	// Font sizes, anchored on a 16px body (--font-lg). Expressed in rem rather
 	// than px so they still scale with a reader's own browser font setting; the
 	// rem base is left alone because --space-* and main's max-width use it too.
-	--font-xs: 0.8rem;      // 12.8px
-	--font-sm: 0.875rem;    // 14px
-	--font-md: 0.9375rem;   // 15px
-	--font-base: 0.975rem;  // 15.6px
-	--font-lg: 1rem;        // 16px — body
-	--font-xl: 1.2rem;      // 19.2px
-	--font-2xl: 1.4rem;     // 22.4px
-	--font-3xl: 1.875rem;   // 30px
+	--font-xs: 0.7rem;      // 11.2px
+	--font-sm: 0.75rem;     // 12px
+	--font-md: 0.8125rem;   // 13px
+	--font-base: 0.85rem;   // 13.6px
+	--font-lg: 0.875rem;    // 14px — body
+	--font-xl: 1.0625rem;   // 17px
+	--font-2xl: 1.2rem;     // 19.2px
+	--font-3xl: 1.625rem;   // 26px
 
 	// Reading measure. Serif text tolerates a slightly longer line than sans.
 	--measure: 68ch;
@@ -83,26 +83,26 @@
 
 // Dark theme color overrides
 html.dark-theme {
-	--color-text: #e2e8f0;
-	--color-text-secondary: #cbd5e1;
-	--color-text-muted: #94a3b8;
-	--color-bg: #0f172a;
-	--color-border: #334155;
-	--color-border-dark: #475569;
-	--color-link: #60a5fa;
-	--color-link-hover: #93c5fd;
+	--color-text: #EEF2F6;
+	--color-text-secondary: #D0D8E0;
+	--color-text-muted: #9AA7B4;
+	--color-bg: #15202B;
+	--color-border: #26343F;
+	--color-border-dark: #3A4C5B;
+	--color-link: #A6C8E2;
+	--color-link-hover: #C5DCEC;
 
 	--overlay-hover: rgba(255, 255, 255, 0.05);
 	--overlay-active: rgba(255, 255, 255, 0.08);
 	--overlay-strong: rgba(255, 255, 255, 0.1);
 
-	--key-face: #1e293b;
-	--key-face-hover: #273449;
+	--key-face: #1D2B38;
+	--key-face-hover: #263746;
 	--key-skirt: rgba(0, 0, 0, 0.55);
-	--key-edge: #475569;
+	--key-edge: #3A4C5B;
 
-	--color-code-bg: #1e293b;
-	--color-code-text: #e2e8f0;
+	--color-code-bg: #1D2B38;
+	--color-code-text: #EEF2F6;
 
 	--shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
@@ -123,18 +123,11 @@ html.dark-theme {
 // Base Styles
 // ========================================
 
-// TeX Gyre Pagella: a free Palatino clone (GUST Font License), self-hosted so
-// every platform gets the same face. Only regular and bold exist, so the weight
-// ranges map medium (500) to regular and semibold (600) to bold.
-@each $file, $weight, $style in
-	("regular", 400 500, normal),
-	("italic", 400 500, italic),
-	("bold", 600 700, normal),
-	("bolditalic", 600 700, italic)
-{
+// Noto Sans (SIL OFL), self-hosted so every platform gets the same face.
+@each $weight, $style in (400, normal), (400, italic), (500, normal), (600, normal), (600, italic) {
 	@font-face {
-		font-family: "TeX Gyre Pagella";
-		src: url("/fonts/texgyrepagella-#{$file}.woff2") format("woff2");
+		font-family: "Noto Sans";
+		src: url("/fonts/noto-sans-latin-#{$weight}-#{$style}.woff2") format("woff2");
 		font-weight: $weight;
 		font-style: $style;
 		font-display: swap;
@@ -143,7 +136,7 @@ html.dark-theme {
 
 body {
 	// One family across the whole site.
-	font-family: "TeX Gyre Pagella", Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+	font-family: "Noto Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 	font-style: normal;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
@@ -176,7 +169,7 @@ strong, b {
 }
 
 // Form controls use the browser's own font unless told otherwise, which is how
-// the "older" toggle ended up in system sans while everything else was the body serif.
+// the "older" toggle ended up in a different font from the body.
 button {
 	font-family: inherit;
 }
@@ -876,7 +869,7 @@ html.dark-theme .sidenote-ref {
 }
 
 html.dark-theme .sidenote-content {
-	background: #1e293b;
+	background: #1D2B38;
 	color: var(--color-text);
 	border-color: rgba(255, 255, 255, 0.1);
 
@@ -1397,4 +1390,12 @@ html.theme-transition .btn-theme i {
 	html.theme-transition .sidenote-content {
 		transition-duration: 0.01ms;
 	}
+}
+
+// Peach selection highlight
+::selection {
+	background: rgba(244, 186, 163, 0.6);
+}
+html.dark-theme ::selection {
+	background: rgba(244, 186, 163, 0.35);
 }
