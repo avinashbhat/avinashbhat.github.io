@@ -49,17 +49,17 @@
 	--radius-md: 4px;
 	--radius-lg: 8px;
 
-	// Font sizes, anchored on a 16px body (--font-lg). Expressed in rem rather
+	// Font sizes, anchored on a 16.5px body (--font-lg). Expressed in rem rather
 	// than px so they still scale with a reader's own browser font setting; the
 	// rem base is left alone because --space-* and main's max-width use it too.
-	--font-xs: 0.7rem;      // 11.2px
-	--font-sm: 0.75rem;     // 12px
-	--font-md: 0.8125rem;   // 13px
-	--font-base: 0.85rem;   // 13.6px
-	--font-lg: 0.875rem;    // 14px — body
-	--font-xl: 1.0625rem;   // 17px
-	--font-2xl: 1.2rem;     // 19.2px
-	--font-3xl: 1.625rem;   // 26px
+	--font-xs: 0.825rem;    // 13.2px
+	--font-sm: 0.875rem;    // 14px
+	--font-md: 0.96875rem;  // 15.5px
+	--font-base: 1rem;      // 16px
+	--font-lg: 1.03125rem;  // 16.5px — body
+	--font-xl: 1.2375rem;   // 19.8px
+	--font-2xl: 1.41875rem; // 22.7px
+	--font-3xl: 1.9375rem;  // 31px
 
 	// Reading measure. Serif text tolerates a slightly longer line than sans.
 	--measure: 68ch;
@@ -136,7 +136,7 @@ html.dark-theme {
 
 body {
 	// One family across the whole site.
-	font-family: "Noto Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+	font-family: Georgia, "Times New Roman", serif;
 	font-style: normal;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;

@@ -13,6 +13,16 @@
         ]
       },
       {
+        "name": "CHASE",
+        "years": [
+          {
+            "year": 2027,
+            "track": "Research Track",
+            "url": "https://conf.researchr.org/track/chase-2027/chase-2027-research-track"
+          }
+        ]
+      },
+      {
         "name": "IUI",
         "years": [
           {
@@ -53,8 +63,14 @@
           {
             "name": "In2Writing Workshop",
             "years": [
-              2024,
-              2025
+              {
+                "year": 2024,
+                "url": "https://in2writing.github.io/"
+              },
+              {
+                "year": 2025,
+                "url": "https://in2writing.github.io/"
+              }
             ]
           },
           {
@@ -167,6 +183,24 @@
                 "recognition": true
               }
             ]
+          },
+          {
+            "name": "WWW",
+            "years": [
+              {
+                "year": 2027,
+                "url": "https://www2027.thewebconf.org/"
+              }
+            ]
+          },
+          {
+            "name": "FAccT",
+            "years": [
+              {
+                "year": 2027,
+                "url": "https://facctconference.org/2027/"
+              }
+            ]
           }
         ]
       },
@@ -174,8 +208,16 @@
         "type": "Journal",
         "items": [
           {
-            "name": "Springer Automated Software Engineering",
+            "name": "ASE",
             "url": "https://link.springer.com/journal/10515"
+          },
+          {
+            "name": "TOSEM",
+            "url": "https://dl.acm.org/journal/tosem"
+          },
+          {
+            "name": "EMSE",
+            "url": "https://link.springer.com/journal/10664"
           }
         ]
       }
