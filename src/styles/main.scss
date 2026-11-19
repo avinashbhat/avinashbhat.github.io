@@ -4,14 +4,15 @@
 
 :root {
 	// Colors - Light Theme
-	--color-text: #25292E;
-	--color-text-secondary: #454B52;
-	--color-text-muted: #5E6770;
-	--color-bg: #F7F9FB;
-	--color-border: #DDE6ED;
-	--color-border-dark: #A6C8E2;
-	--color-link: #2F6A99;
-	--color-link-hover: #1F4E75;
+	--color-text: #111111;
+	--color-text-secondary: #444444;
+	--color-text-muted: #6B6B6B;
+	--color-bg: #FFFFFF;
+	--color-border: #E6E6E6;
+	--color-border-dark: #CCCCCC;
+	--color-link: #111111;
+	--color-link-hover: #C2410C;
+	--color-link-underline: #F0B48F;
 
 	// Background overlays
 	--overlay-hover: rgba(0, 0, 0, 0.03);
@@ -22,16 +23,16 @@
 	// it does inside a tinted publication row, and the skirt is dark enough to
 	// stay visible against either.
 	--key-face: #FFFFFF;
-	--key-face-hover: #EDF2F7;
-	--key-skirt: rgba(37, 41, 46, 0.22);
-	--key-edge: #B9C9D6;
+	--key-face-hover: #F5F5F5;
+	--key-skirt: rgba(17, 17, 17, 0.22);
+	--key-edge: #CCCCCC;
 
 	// Code colors
-	--color-code-bg: #E9EFF4;
+	--color-code-bg: #F3F3F3;
 	--color-code-text: var(--color-text);
 
 	// Accent colors
-	--color-accent-blue: #2F6A99;
+	--color-accent-blue: #C2410C;
 	--color-accent-gold: #ffd700;
 	--color-accent-gold-light: #ffed4e;
 	--color-accent-gold-dark: #6b5400;
@@ -49,14 +50,14 @@
 	--radius-md: 4px;
 	--radius-lg: 8px;
 
-	// Font sizes, anchored on a 16.5px body (--font-lg). Expressed in rem rather
+	// Font sizes, anchored on a 17px body (--font-lg). Expressed in rem rather
 	// than px so they still scale with a reader's own browser font setting; the
 	// rem base is left alone because --space-* and main's max-width use it too.
 	--font-xs: 0.825rem;    // 13.2px
 	--font-sm: 0.875rem;    // 14px
 	--font-md: 0.96875rem;  // 15.5px
 	--font-base: 1rem;      // 16px
-	--font-lg: 1.03125rem;  // 16.5px — body
+	--font-lg: 1.0625rem;   // 17px — body
 	--font-xl: 1.2375rem;   // 19.8px
 	--font-2xl: 1.41875rem; // 22.7px
 	--font-3xl: 1.9375rem;  // 31px
@@ -83,26 +84,28 @@
 
 // Dark theme color overrides
 html.dark-theme {
-	--color-text: #EEF2F6;
-	--color-text-secondary: #D0D8E0;
-	--color-text-muted: #9AA7B4;
-	--color-bg: #15202B;
-	--color-border: #26343F;
-	--color-border-dark: #3A4C5B;
-	--color-link: #A6C8E2;
-	--color-link-hover: #C5DCEC;
+	--color-text: #E6E7E9;
+	--color-text-secondary: #B4B6BA;
+	--color-text-muted: #8A8D92;
+	--color-bg: #18191B;
+	--color-border: #2F3135;
+	--color-border-dark: #45474C;
+	--color-link: #E6E7E9;
+	--color-link-hover: #F59E5B;
+	--color-link-underline: #7A4A26;
+	--color-accent-blue: #F59E5B;
 
 	--overlay-hover: rgba(255, 255, 255, 0.05);
 	--overlay-active: rgba(255, 255, 255, 0.08);
 	--overlay-strong: rgba(255, 255, 255, 0.1);
 
-	--key-face: #1D2B38;
-	--key-face-hover: #263746;
+	--key-face: #222326;
+	--key-face-hover: #2B2D31;
 	--key-skirt: rgba(0, 0, 0, 0.55);
-	--key-edge: #3A4C5B;
+	--key-edge: #45474C;
 
-	--color-code-bg: #1D2B38;
-	--color-code-text: #EEF2F6;
+	--color-code-bg: #222326;
+	--color-code-text: #E6E7E9;
 
 	--shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
@@ -140,7 +143,7 @@ body {
 	font-style: normal;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
-	line-height: 1.6;
+	line-height: 1.5;
 	font-size: var(--font-lg);
 	color: var(--color-text);
 	background-color: var(--color-bg);
@@ -176,7 +179,8 @@ button {
 
 a {
 	text-decoration-skip-ink: auto;
-	text-decoration: underline;
+	text-decoration-line: underline;
+	text-decoration-color: var(--color-link-underline);
 	// Not !important: that beat every class, so any link styled as a surface —
 	// the keycap badges — lost its background and rendered face-less.
 	background-color: transparent;
@@ -332,7 +336,7 @@ section {
 // ========================================
 
 .btn {
-	text-decoration: none;
+	text-decoration-line: none;
 	padding: var(--space-sm) var(--space-md);
 	border: none;
 	border-radius: var(--radius-md);
@@ -464,11 +468,11 @@ section {
 	background-color: transparent !important;
 
 	a {
-		text-decoration: none;
+		text-decoration-line: none;
 		color: var(--color-text);
 
 		&:hover {
-			text-decoration: underline;
+			text-decoration-line: underline;
 		}
 	}
 }
@@ -566,7 +570,7 @@ section {
 	background-color: var(--key-face);
 	border: 1px solid var(--key-edge);
 	border-radius: 5px;
-	text-decoration: none;
+	text-decoration-line: none;
 	cursor: pointer;
 	box-shadow:
 		0 2px 0 var(--key-skirt),
@@ -580,7 +584,7 @@ section {
 	&:hover {
 		color: var(--color-text);
 		background-color: var(--key-face-hover);
-		text-decoration: none;
+		text-decoration-line: none;
 	}
 
 	// Travels exactly the height of its own skirt, and the skirt collapses with
@@ -733,7 +737,7 @@ html.dark-theme .pub-award {
 
 	&.active {
 		color: var(--color-text);
-		border-bottom-color: var(--color-text);
+		border-bottom-color: var(--color-accent-blue);
 		background-color: var(--overlay-active);
 	}
 }
@@ -768,7 +772,7 @@ html.dark-theme .pub-award {
 	position: relative;
 	cursor: pointer;
 	color: var(--color-accent-blue);
-	text-decoration: none;
+	text-decoration-line: none;
 	font-weight: var(--font-weight-semibold);
 	padding: 1px 2px;
 	border-radius: var(--radius-sm);
@@ -783,11 +787,11 @@ html.dark-theme .pub-award {
 	}
 
 	&:hover {
-		text-decoration: underline;
+		text-decoration-line: underline;
 	}
 
 	&:focus-visible {
-		text-decoration: underline;
+		text-decoration-line: underline;
 		outline: 2px solid var(--color-link);
 		outline-offset: 2px;
 	}
@@ -841,8 +845,8 @@ html.dark-theme .sidenote-ref {
 		right: 4px;
 		width: 10px;
 		height: 10px;
-		border-right: 2px solid #999;
-		border-bottom: 2px solid #999;
+		border-right: 2px solid var(--color-text-muted);
+		border-bottom: 2px solid var(--color-text-muted);
 		border-radius: 0 0 var(--radius-md) 0;
 		cursor: nwse-resize;
 		pointer-events: none;
@@ -858,7 +862,7 @@ html.dark-theme .sidenote-ref {
 		margin: 0;
 		font-size: var(--font-md);
 		line-height: 1.5;
-		color: #333;
+		color: var(--color-text);
 		padding-right: var(--space-2xl);
 
 		strong {
@@ -869,7 +873,7 @@ html.dark-theme .sidenote-ref {
 }
 
 html.dark-theme .sidenote-content {
-	background: #1D2B38;
+	background: #222326;
 	color: var(--color-text);
 	border-color: rgba(255, 255, 255, 0.1);
 
@@ -899,7 +903,7 @@ html.dark-theme .sidenote-content {
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
-	color: #999;
+	color: var(--color-text-muted);
 	font-size: 1.2rem;
 	line-height: 1;
 	transition: var(--transition-fast);
@@ -1018,7 +1022,7 @@ html.dark-theme .profile-image img {
 	flex-wrap: wrap;
 
 	a {
-		text-decoration: none;
+		text-decoration-line: none;
 		color: var(--color-text-secondary);
 		font-size: var(--font-md);
 		transition: var(--transition-fast);
@@ -1046,7 +1050,7 @@ html.dark-theme .profile-image img {
 	display: inline;
 	border-radius: 0;
 	font-size: var(--font-sm);
-	text-decoration: underline;
+	text-decoration-line: underline;
 	text-underline-offset: 3px;
 
 	&:hover {
@@ -1320,7 +1324,7 @@ button:focus-visible,
 	bottom: -2px;
 	width: 1px;
 	height: 2px;
-	background: var(--color-text);
+	background: var(--color-accent-blue);
 	transform-origin: left center;
 	transform: translateX(0) scaleX(0);
 	transition: transform 0.34s cubic-bezier(0.22, 0.75, 0.28, 1);
@@ -1392,10 +1396,10 @@ html.theme-transition .btn-theme i {
 	}
 }
 
-// Peach selection highlight
+// Orange selection highlight, matching the accent
 ::selection {
-	background: rgba(244, 186, 163, 0.6);
+	background: rgba(240, 140, 80, 0.3);
 }
 html.dark-theme ::selection {
-	background: rgba(244, 186, 163, 0.35);
+	background: rgba(245, 158, 91, 0.3);
 }
